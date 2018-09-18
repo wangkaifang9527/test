@@ -1,0 +1,260 @@
+/*模板*/
+.module{
+  background: #fff;
+  width: 750rpx;
+  margin-bottom: 20rpx;
+}
+.module .li{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between; 
+  padding: 20rpx 20rpx 0 20rpx;
+}
+.module .li .h1{
+  color: #111;
+  font-size: 42rpx;
+  font-weight: bolder;
+  max-width: 500rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;  
+}
+.module .li .h6{
+  color: #999;
+  font-size: 22rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.module .li .h6 image{
+  width: 22rpx;
+  height: 22rpx;
+  font-size: 22rpx;
+}
+.module .li .left .avatar image{
+  width: 88rpx;
+  height: 88rpx;
+  border-radius: 88rpx;
+}
+.module .three{
+  width: 750rpx;
+  height: 420rpx;
+  padding-top: 20rpx;
+}
+/* 悬赏 */
+.reward{
+  background: rgba(0, 0, 0, 0);
+  z-index: 2;
+  width: 20%;
+  height:0rpx;
+  line-height: 20rpx; 
+  top: -380rpx;
+  margin-left: 10rpx;
+  font-size: 113rpx;
+  position:  relative
+}
+.reward image{
+  width: 147rpx;
+  height: 65rpx;
+  padding: 5rpx 0;
+}
+
+.module .three .car_image{
+  width: 750rpx;
+  height: 420rpx;
+  padding-left: 16rpx;
+  z-index: 0;
+}
+
+.module .four .left{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between; 
+}
+.module .four .right{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between; 
+  font-size: 22rpx;
+  color: #999;
+}
+.module .four .right .yi{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between; 
+}
+.fill-show{
+  color: #13344B;
+}
+.module .four .left .name{
+  max-width: 300rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;  
+  margin-left: 20rpx;
+}
+.module .four .right image{
+  width: 30rpx;
+  height: 30rpx;
+  padding: 0 20rpx;
+}
+.module .five{
+  background: #F5F5F5;
+  width: 670rpx;
+  margin: 0 auto;
+  padding: 20rpx;
+}
+
+
+/*9宫格重构 2018-7-3*/
+.market_jiugongge{
+  overflow: hidden;
+  padding:0 20rpx;
+  background: #fff;
+}
+.market_list{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 10rpx 0rpx; 
+  border-bottom: 1rpx solid #f6f6f6;
+}
+.list_left image{
+  width: 226rpx;
+  height: 159rpx;
+  margin-top: 10rpx;
+}
+.list_right{
+  margin-left: 31rpx;
+  height: 159rpx;
+  max-width: 450rpx;
+  width: 450rpx;
+}
+.list_right_yi{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap; 
+  font-size: 30rpx;
+  margin-top: -5rpx;
+}
+.list_right_er{
+  margin-top: 15rpx;
+  font-size: 24rpx;
+  opacity: 0.4;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;   
+  max-width: 440rpx;
+}
+.list_right_san{
+  margin-top: 40rpx;
+  font-size: 30rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between; 
+}
+.list_right_san .car_edit{
+  width:100rpx;
+  background:#13344B;
+  color:#fff;
+  font-size:24rpx;
+  text-align:center;
+  height:38rpx;
+  padding:5rpx;
+  border-radius:10rpx;
+
+  
+}
+.list_right_san .li{
+  width:100rpx;
+  height:38rpx;
+  line-height: 38rpx;
+  background:rgba(19,52,75,1);
+  border-radius:4rpx;
+  font-size:22rpx;
+  color: #fff;
+  text-align: center;
+}
+.location{
+  font-size: 24rpx;
+  opacity: 0.4
+}
+
+/*已售 图文*/
+.yishou{
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 101;
+  width: 100%;
+  text-align: center;
+  height:450rpx;
+  line-height: 420rpx; 
+  position: relative;
+  top: -430rpx;
+  margin-left: 10rpx;
+  font-size: 113rpx;
+  color: #fff;
+  letter-spacing:30rpx;
+}
+
+/*已售 9宫格*/
+.yishou_jiugongge{
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 2;
+  width: 100%;
+  text-align: center;
+  height:200rpx;
+  line-height: 200rpx; 
+  /* margin-top: -200rpx; */
+  font-size: 60rpx;
+  letter-spacing: 40rpx;
+  position: absolute;
+  color: #fff;
+  margin-left: -20rpx;
+}
+
+
+/*车辆编辑遮罩*/
+.car_zhezhao{
+  position:fixed;
+  width:100%;
+  background:rgba(0,0,0,0.8);
+  z-index: 999;
+  height: 200rpx;
+  margin-top: -200rpx; 
+  margin-left:-24rpx;
+  color: #fff;
+}
+.car_close{
+  text-align: right;
+  padding-right: 19rpx;
+  padding-top: 19rpx;
+}
+.car_close image{
+  width: 34rpx;
+  height: 34rpx;
+}
+.car_caozuo{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between; 
+  padding: 0 85rpx;
+  text-align: center;
+  margin-top: -15rpx;
+  font-size: 20rpx;
+}
+.car_caozuo image{
+  width: 80rpx;
+  height: 80rpx;
+}
+.car_caozuo_two{
+  margin-top: 10rpx;
+}

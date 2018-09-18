@@ -1,0 +1,111 @@
+
+.tab{
+  width: 100%;
+  height: 72rpx;
+  line-height: 72rpx;
+  text-align: center;
+  color: #999;
+  background: #fff;
+  border-top: 1rpx solid #E6E6E6;
+  font-size: 24rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around; 
+}
+.tab .btn-press{
+}
+.tab .line_show{
+  border-bottom: 7rpx solid #13344B;
+  color: #13344B;
+}
+
+
+/* 订单模板 */
+.list{
+  width: 100%;
+  font-size: 22rpx;
+  color: #999;
+  background: #fff;
+  margin-top: 20rpx;
+}
+.list .head{
+  padding: 0 20rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between; 
+}
+.list .head .left{
+  color: #111;
+}
+.list .head .left text{
+  color: #13344B;
+}
+.list .head .right{
+  color: #13344B;
+  font-size: 34rpx;
+}
+.list .body{
+  border-top: 1rpx solid #E6E6E6;
+  border-bottom: 1rpx solid #E6E6E6;
+  padding: 20rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.list .body image{
+  width:226rpx;
+  height:159rpx;
+  margin-right: 20rpx;
+}
+.list .body .right{
+  line-height: 55rpx;
+}
+.list .body .right text{
+  background: #13344B;
+  width:102rpx;
+  height:31rpx;
+  line-height: 31rpx;
+  text-align: center;
+  border-radius:4rpx;
+  color: #fff;
+  font-size: 20rpx;
+}
+.list .foot{
+  padding: 20rpx;
+  line-height: 44rpx;
+}
+.list .foot .btn_list{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end; 
+}
+.list .foot .btn_list .left{
+  color: #13344B;
+}
+.list .foot .btn_list .right{
+  color: #fff;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between; 
+}
+.list .foot .btn_list .right .btn-press{
+  width:132rpx;
+  height:44rpx;
+  line-height: 44rpx;
+  text-align: center;
+  background:rgba(19,52,75,1);
+  border-radius:22rpx;
+  box-shadow:1px 0px 16px rgba(0,0,0,0.36);
+  margin-left: 20rpx;
+}
+.list .foot .btn_list .right .grey{
+  background:#E6E6E6;
+  color: #999;
+}
+

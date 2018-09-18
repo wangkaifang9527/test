@@ -1,0 +1,174 @@
+<!--pages/my/mymember/mymember.wxml-->
+
+
+<view wx:if='{{ismember == 1}}' class="container">
+    <view class='kf_title'>尊贵的白银会员用户</view>
+    <view class='kf_image'>
+        <image  src='http://www.levau.com/member/putongka.png'></image>
+    </view>
+
+    <view class='kf_centent'>
+        <view class='kf_type'>
+            <view>会员类型</view>
+            <view>白银会员</view>
+        </view>
+        <view class='kf_type'>
+            <view>会员权益</view>
+            <view>推广收益+3%  所有类型查询88折</view>
+        </view>
+        <view class='kf_type'>
+            <view>到期时间</view>
+            <view>{{expiretime}}</view>
+        </view>
+        <view class='kf_type'>
+            <view>更换会员<text class='kf_tishiyu'>(更换会员将覆盖原有会员,且覆盖日期)</text></view>
+            <view class='kf_button' catchtap='huanka'>前往更换</view>
+        </view>
+        <view class='kf_type' style='border-bottom: 0rpx'>
+            <view>一键续费</view>
+            <view  class='kf_button' catchtap='xufei'>立即续费</view>
+        </view>
+    </view>
+</view>
+
+<view wx:elif='{{ismember == 2}}' class="container">
+    <view class='kf_title'>尊贵的黄金会员用户</view>
+    <view class='kf_image'>
+        <image  src='http://www.levau.com/member/huangjinka.png'></image>
+    </view>
+
+    <view class='kf_centent'>
+        <view class='kf_type'>
+            <view>会员类型</view>
+            <view>黄金会员</view>
+        </view>
+        <view class='kf_type'>
+            <view>会员权益</view>
+            <view>推广收益+3%  所有类型查询67折</view>
+        </view>
+        <view class='kf_type'>
+            <view>到期时间</view>
+            <view>{{expiretime}}</view>
+        </view>
+        <view class='kf_type'>
+            <view>更换会员<text class='kf_tishiyu'>(更换会员将覆盖原有会员,且覆盖日期)</text></view>
+            <view class='kf_button' catchtap='huanka'>前往更换</view>
+        </view>
+        <view class='kf_type' style='border-bottom: 0rpx'>
+            <view>一键续费</view>
+            <view  class='kf_button' catchtap='xufei'>立即续费</view>
+        </view>
+    </view>
+</view>
+<view wx:elif='{{ismember == 3}}' class="container">
+    <view class='kf_title'>尊贵的钻石会员用户</view>
+    <view class='kf_image'>
+        <image  src='http://www.levau.com/member/zhuanshiyueka.png'></image>
+    </view>
+
+    <view class='kf_centent'>
+        <view class='kf_type'>
+            <view>会员类型</view>
+            <view>钻石会员</view>
+        </view>
+        <view class='kf_type'>
+            <view>会员权益</view>
+            <view>推广收益+4%  所有类型查询55折</view>
+        </view>
+        <view class='kf_type'>
+            <view>到期时间</view>
+            <view>{{expiretime}}</view>
+        </view>
+        <view class='kf_type'>
+            <view>更换会员<text class='kf_tishiyu'>(更换会员将覆盖原有会员,且覆盖日期)</text></view>
+            <view class='kf_button' catchtap='huanka'>前往更换</view>
+        </view>
+        <view class='kf_type' style='border-bottom: 0rpx'>
+            <view>一键续费</view>
+            <view  class='kf_button' catchtap='xufei'>立即续费</view>
+        </view>
+    </view>
+</view>
+
+<view wx:elif='{{ismember == 4}}' class="container">
+    <view class='kf_title'>尊贵的钻石会员用户</view>
+    <view class='kf_image'>
+        <image  src='http://www.levau.com/member/zhuanshinianka.png'></image>
+    </view>
+
+    <view class='kf_centent'>
+        <view class='kf_type'>
+            <view>会员类型</view>
+            <view>钻石会员</view>
+        </view>
+        <view class='kf_type'>
+            <view>会员权益</view>
+            <view>推广收益+8%  所有类型查询55折</view>
+        </view>
+        <view class='kf_type'>
+            <view>到期时间</view>
+            <view>{{expiretime}}</view>
+        </view>
+        <view class='kf_type'>
+            <view>更换会员<text class='kf_tishiyu'>(更换会员将覆盖原有会员,且覆盖日期)</text></view>
+            <view class='kf_button' catchtap='huanka'>前往更换</view>
+        </view>
+        <view class='kf_type' style='border-bottom: 0rpx'>
+            <view>一键续费</view>
+            <view  class='kf_button' catchtap='xufei'>立即续费</view>
+        </view>
+    </view>
+</view>
+
+<view wx:elif='{{ismember == 5}}' class="container">
+    <view class='kf_title'>尊贵的钻石会员用户</view>
+    <view class='kf_image'>
+        <image  src='http://www.levau.com/member/heika.png'></image>
+    </view>
+
+    <view class='kf_centent'>
+        <view class='kf_type'>
+            <view>会员类型</view>
+            <view>钻石会员</view>
+        </view>
+        <view class='kf_type'>
+            <view>会员权益</view>
+            <view>推广收益+10%  所有类型查询55折</view>
+        </view>
+        <view class='kf_type'>
+            <view>到期时间</view>
+            <view>永久</view>
+        </view>
+       
+    </view>
+</view>
+
+<view wx:else class="container">
+    <view class='kf_title'>尊贵的会员用户</view>
+    <view class='kf_image'>
+        <image  src='http://www.levau.com/member/putongka.png'></image>
+    </view>
+
+    <view class='kf_centent'>
+        <view class='kf_type'>
+            <view>会员类型</view>
+            <view>普通会员</view>
+        </view>
+        <view class='kf_type'>
+            <view>会员权益</view>
+            <view>推广收益  所有类型查询100折</view>
+        </view>
+        <view class='kf_type'>
+            <view>到期时间</view>
+            <view>马上</view>
+        </view>
+        <view class='kf_type'>
+            <view>更换会员<text class='kf_tishiyu'>(更换会员将覆盖原有会员,且覆盖日期)</text></view>
+            <view class='kf_button' catchtap='huanka'>前往更换</view>
+        </view>
+        <view class='kf_type' style='border-bottom: 0rpx'>
+            <view>一键续费</view>
+            <view  class='kf_button' catchtap='xufei'>立即续费</view>
+        </view>
+    </view>
+</view>

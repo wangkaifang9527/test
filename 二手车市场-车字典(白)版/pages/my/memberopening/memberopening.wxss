@@ -1,0 +1,120 @@
+
+@import "../../../template/t-phone/t-phone.wxss"; 
+page{
+  background: #fff;
+}
+.container{
+  color: #111;
+  width: 750rpx;
+  font-size: 28rpx;
+}
+.container .h1{
+  font-weight: bolder;
+  width: 100%;
+  margin-top: 30rpx;
+  margin-left:20rpx;
+
+}
+.kf_image{
+  width:710rpx;
+  height: 340rpx;
+  margin-top: 20rpx;
+}
+.kf_image image{
+  width:710rpx;
+  height: 340rpx;
+}
+.kf_danxuan{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 50rpx 0rpx;
+  font-size: 28rpx;
+  width: 710rpx;
+}
+.kf_danxuan text{
+  line-height: 90rpx;
+}
+.kf_danxuan view{
+  padding-top: 5rpx;
+}
+.kf_danxuan image{
+  height: 100rpx;
+  width: 100rpx;
+}
+.kf_danxuan .image2{
+  height: 50rpx;
+  width: 50rpx;
+  margin-top: 20rpx;
+}
+.duijiaoxian{
+  transform: rotate（90deg）;
+  color: #999;
+}
+.duijiaoxian image{
+  width: 130rpx;
+  height: 40rpx;
+}
+.quedingkaitong{
+  width:648rpx;
+  height:82rpx;
+  line-height: 82rpx;
+  color: #fff;
+  text-align: center;
+  font-size: 28rpx;
+  background:rgba(19,52,75,1);
+  border-radius:41px;
+  box-shadow:6px 0px 16px rgba(0,0,0,0.36);
+  margin-bottom: 80rpx;
+}
+.kf_1{
+  color: #D0D3D9
+}
+.kf_2{
+  color: #F9C64E
+}
+.kf_3{
+  color: #AAC8FA
+}
+.kf_4{
+  color: #AAC8FA
+}
+.kf_5{
+  color: #FEE76F
+}
+.kf_6{
+  color: #FC6767
+}
+.kf_7{
+  color: #FC6767
+}
+.kf_8{
+  color: #FC6767
+}
+.kf_9{
+  color: #FC6767
+}
+
+/*充值*/
+.input{
+  background: #E6E6E6;
+  border-radius: 10rpx;
+  margin-top: 20rpx;
+  padding:15rpx;
+  width: 670rpx;
+}
+.list_jinqian{
+  overflow: hidden;
+  width: 700rpx;
+}
+.list_jinqian view{
+  float: left;
+  width: 23%;
+  background: #E6E6E6;
+  margin-right: 2.66%;
+  margin-top: 20rpx;
+  text-align: center;
+  padding: 20rpx 0rpx;
+  border-radius: 10rpx;
+  box-shadow:1px 0px 10px rgba(0,0,0,0.1);
+}

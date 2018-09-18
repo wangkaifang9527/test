@@ -1,0 +1,19 @@
+
+<view class='container'>
+  <form bindsubmit='formSubmitPay' report-submit='true'>
+    <view class='title'>说明</view>
+    <view class='context'>
+    有偿帮卖为激励用户转发您的车源的一种方式；每有
+一个用户转发一次您的车源，将会获得0.5元零钱，零
+钱消耗完可再次续费。（每人每天限转10次，需为不同
+群）
+    </view>
+    <view class='paid'>赏金金额</view>
+    <view class='price'>
+        <text>￥</text>
+        <input name='amount' placeholder='最低需30元'></input>
+    </view>
+
+    <button class='btn-press' form-type='submit'>确认支付</button>
+  </form>
+</view>

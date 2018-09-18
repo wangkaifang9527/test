@@ -1,0 +1,65 @@
+
+@import "../../template/t-phone/t-phone.wxss"; 
+.container{
+    color: #111;
+}
+.withdraw_user {
+    margin-top: 15px;
+    margin-bottom: 1px;
+    padding: 0 10rpx;
+    height: 100rpx;
+    line-height: 100rpx;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: 1rpx solid #E6E6E6;
+    width: 690rpx;
+}
+
+
+.withdraw_user .right {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.withdraw_user .right image {
+    width: 39rpx;
+    height: 39rpx;
+    border-radius: 100px;
+    margin-right: 5px;
+}
+
+.withdraw_user .right text {
+    overflow: hidden;
+    white-space:nowrap;
+    text-overflow:ellipsis;
+}
+
+
+.withdraw_money {
+    padding: 0 10rpx;
+    overflow: hidden;
+     
+}
+.withdraw_money .top{
+    font-size: 16px;
+    margin-top: 20px;
+}
+.withdraw_money .center{
+    font-size: 16px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-bottom: 20px;
+    border-bottom: 1rpx solid #E6E6E6;
+}
+.withdraw_money .center input{
+    font-size: 24px;
+    padding-left: 20rpx;
+}
+.container .btn_blue{
+    margin-top: 45px;
+    background: #13344B;
+}

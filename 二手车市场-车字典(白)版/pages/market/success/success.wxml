@@ -1,0 +1,27 @@
+<!--pages/market/success/success.wxml-->
+<view class='success'>
+    <view class='image'>
+        <image src='/images/icon/success.png'></image>
+    </view>
+
+    <view class='fabuchenggong'>发布成功</view>
+
+    <view>分享给好友尽快卖出</view>
+
+    <view class='wx_pyq'>
+        <view>
+          <button class='share' open-type="share" >
+            <image src='/images/icon/wx.png'></image>
+            <view class='share_view'>
+              分享给朋友
+            </view>
+          </button>
+        </view>
+        <view class='pyq' catchtap='pyq'>
+            <image src='/images/icon/pyq.png'></image>
+            <view class='share_pyq'>分享到这里</view>
+        </view>
+    </view>
+    <view wx:if='{{title_flag=="false"}}' class='fanhuishouye active' catchtap='onPaidHelp'>设置有偿帮卖</view>
+    <view class='fanhuishouye active' catchtap='fanhuishouye'>返回首页</view>
+</view>

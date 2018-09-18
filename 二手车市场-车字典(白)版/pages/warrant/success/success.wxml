@@ -1,0 +1,13 @@
+
+<view class='container'>
+    <view class='title'>
+        <image src='/images/icon/success.png'></image>
+        <view class='text'>付款成功等待卖家支付</view>
+    </view>
+
+    <view class='btn'>
+        <view class='btn-blue-big' catchtap='onOrder'>看看订单</view>
+        <view class='btn-blue-big' catchtap='onHomePage'>返回首页</view>
+    </view>
+    
+</view>

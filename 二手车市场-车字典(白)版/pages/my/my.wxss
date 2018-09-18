@@ -1,0 +1,132 @@
+
+@import "../../template/t-phone/t-phone.wxss"; 
+
+
+.container{
+  width: 100%;
+  color: #333;
+  
+}
+.title{
+  background: #fff;
+  width: 100%;
+  font-size:42rpx;
+  color: #111;
+  text-align: center;
+}
+.title .avatar{
+  width:162rpx;
+  height:162rpx;
+  border-radius: 100rpx;
+  margin-top: 44rpx;
+  box-shadow:1px 0px 10px rgba(0,0,0,0.1);
+}
+.title .name{
+  margin-top: 40rpx;
+}
+.title .module{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between; 
+  font-size: 28rpx;
+  height: 160rpx;
+  padding: 00rpx 0rpx;
+}
+.title .module .li{
+  width: 50%;
+  text-align: center;
+}
+.title .module .li .last{
+  font-size: 24rpx;
+  color: #999;
+}
+.title .module .left{
+  border-right: 1rpx solid #E6E6E6;
+}
+.container image{
+  width: 52rpx;
+  height: 52rpx;
+}
+.container .yjt{
+  width:16rpx;
+  height:28rpx;
+}
+
+/* 车模 */
+.list{
+  width: 710rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  font-size: 28rxp;
+  color: #333;
+  padding: 0rpx 20rpx;
+  background: #fff;
+  border-bottom:1rpx solid #E6E6E6;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between; 
+}
+.list .li{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between; 
+}
+.list .li .ms{
+  margin-left: 25rpx;
+}
+.list .li .citys{
+  font-size:22rpx;
+  width:100rpx;
+  background:#13344B;
+  height:35rpx;
+  line-height:35rpx;
+  text-align:center;
+  color:#fff;
+  margin-left:20rpx;
+  max-width: 100rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;    
+}
+.list:active {
+  opacity: 0.6;
+}
+
+.btn-contact{
+  box-shadow:0px 0px 0px rgba(0,0,0,0);
+  border-radius:0rpx;
+  width:100%;
+  font-size:28rpx;
+}
+
+
+.new{
+  width:0rpx;
+  height:0rpx;
+  position:relative;
+  left:0%;
+  margin-top:-110rpx;
+  animation:new 1s infinite;
+}
+@keyframes new{
+  0%{transform: scale(.6,.6);}
+  20%{transform: rotate(-10deg)}
+  80%{transform: rotate(0deg)}
+  100%{transform: scale(1,1);}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

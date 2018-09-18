@@ -1,0 +1,164 @@
+
+<import src="/template/t-car-list/t-car-list.wxml" />
+
+<view class='container' catchlongtap='onLongTap'>
+    <view class='title'>
+        <view class='one' catchtap='xuanzechengshi'>
+            <image src='/images/icon/location.png'></image>
+            <view>[{{city}}]</view>
+        </view>
+        <view class='two' catchtap='search'>
+            <image src='/images/icon/search.png'></image>
+            <text>{{vehicleSearch}}</text>
+        </view>
+        <view class='three'>
+            <!-- <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+              <view class="picker">
+                  <view>{{array[index]}}</view>
+              </view>
+            </picker> -->
+            <view class="picker" catchtap='onSelectedFlag'>
+                <view>{{array[index]}}</view>
+            </view>
+        </view>
+    </view>
+
+    <view class='query' catchtap='onQuery'>
+        <image src='/images/sy/query.png'></image>
+    </view>
+
+    <view wx:if='{{change_flag}}'>
+        <block wx:for="{{list}}" wx:key="" wx:for-index="i" >
+            <template is="t-car-list-1" data="{{...item,i}}" />
+        </block>
+    </view>
+
+    <view wx:else class='market_jiugongge' >
+        <block wx:for="{{list}}" wx:key="" wx:for-index="i">
+            <template is="t-car-list-2" data="{{...item,i}}" />
+        </block>   
+    </view>
+</view>
+
+
+<view wx:if="{{isloadover}}" class='tip_center' style='margin-bottom:30px'>别拉了，没有啦</view>
+<view wx:else class='tip_center' style='margin-bottom:30px'>加载中...</view>
+
+<!-- 获取头像 -->
+<view class='kf_zhezhao' hidden="{{userflag}}">
+    <view class='kf_zhezhaokuang'>
+        <view class='kf_zhezhaokuang_wenben'>
+            车字典需要获取你的公开
+        </view>
+        <view class='kf_zhezhaokuang_wenben'>
+            信息(昵称,头像等)
+        </view>
+        <view class='kf_zhezhaokuang_button'>
+            <!-- 需要使用 button 来授权登录 -->
+            <button wx:if="{{canIUse}}"  
+                    open-type="getUserInfo" 
+                    bindgetuserinfo="bindGetUserInfo">允许</button>
+            <view wx:else>请升级微信版本</view>
+        </view>
+    </view>
+</view>
+<!-- 视频播放 -->
+<view class='kf_zhezhao' hidden="{{videoflag}}" >
+    <view class='zhezhao_one' catchtap='guanbizhezhao'></view>
+    <view class='zhezhao_two'>
+        <video objectFit='contain'  src="{{mp4}}" autoplay='true'   enable-danmu danmu-btn controls></video>
+    </view>
+    <view class='zhezhao_three' catchtap='guanbizhezhao'></view>
+</view>
+
+<!-- 1.评论的输入框 -->
+<input class='pinglun_input' 
+      confirm-type='send' 
+      bindblur='bindblur' 
+      bindconfirm='bindconfirm' 
+      focus='{{focus}}' 
+      value='{{pinglun_value}}' 
+      placeholder='说说您的看法'  
+      adjust-position='true' 
+      bindinput='bindinput' 
+      hidden='{{hidden}}'></input>
+
+<!-- 2.移动模块 -->
+<movable-area style="height: 1100rpx; width: 1rpx; background: rgba(255,255,255,0);" class='mobile'>
+  <movable-view style="height: 1px; width: 700rpx;" x="300" y="451"
+    direction="all"
+    damping='0'
+    inertia='true'>
+      <image catchtap='bindSealOffTap' src='/images/sy/xiaoxi.png'></image>
+  </movable-view>
+  <movable-view style="height: 1px; width: 700rpx;" x="0" y="395" 
+    direction="all"
+    damping='0'
+    inertia='true'
+    hidden='{{zhiding_flag}}'>
+      <image catchtap='goTop' src='/images/sy/zhiding.png'></image>
+  </movable-view>
+</movable-area>
+<!-- 3.筛选选择框 -->
+<view class='div' hidden='{{selected_flag}}'>
+    <block wx:key='' wx:for='{{array}}' wx:for-index='i'>
+        <view class='span' catchtap="bindPickerChange" data-index='{{i}}'>{{item}}</view>
+    </block>
+</view>
+
+<!-- 1.转发后出现的红包 -->
+<view class='kind-list-item-bd {{open?"kind-list-item-bd-show":""}}' catchtap='closeRed'>
+    <view wx:if='{{!red_open}}' class='red-pag'>
+        <view class='line_top'></view>
+        <view class='chai {{chai_open?"btn-3d-rotate":"btn-zoom"}}'>
+            <image catchtap='onChai' src='/images/icon/chai.png'></image>
+        </view>
+    </view>
+    <view wx:else class='red-pag {{red_open?"red_open_show":""}}'>
+        <block wx:if='{{robbed}}'>
+            <view class='avatar'>
+                <image src='{{userInfo.avatarUrl}}'></image>
+            </view>   
+            <view class='nickname'>{{userInfo.nickName}}</view>
+            <view class='' style='font-size:60rpx;margin-top:160rpx;'><text>红包抢完了</text></view>
+            <view class='line_down' style='top:13%'></view>
+            <view class='balance1'style='top:20%'>红包只有三个</view>
+            <view class='balance1'style='top:20%'>下次快点下手</view>
+        </block>
+        <block wx:else>
+            <view class='avatar'>
+                <image src='{{userInfo.avatarUrl}}'></image>
+            </view>   
+            <view class='nickname'>{{userInfo.nickName}}</view>
+            <view class='price'><text>{{amount}}</text>元</view>
+            <view class='line_down'></view>
+            <view class='balance btn-float' catchtap='onGoBalance'>可前往账户余额查看</view>
+            <view class='balance1'>现金到账,赶紧提现;</view>
+            <view class='balance1'>小心公司跑路,虽然我们不会跑路!</view>
+        </block>
+    </view>
+</view>
+
+
+<!-- 4.更新公告 -->
+<!-- <view class='kind-list-item-bd-show'>
+    <view class=''>
+        <image src='/images/gif/notice-reward.gif' ></image>
+    </view>
+</view> -->
+
+
+
+<!-- 评论区 -->
+    <!-- <view wx:if='{{item.comments.length>0}}'  
+          catchtap='pinglun' 
+          data-vehicleid='{{item.id}}' 
+          data-i='{{i}}' 
+          class='five'>
+        <block wx:for="{{item.comments}}" wx:key="" wx:for-item="comment" wx:for-index="ii">
+            <view>
+                <text>{{comment.nickName}}: </text>
+                <text>{{comment.content}}</text>
+            </view>
+        </block>
+    </view> -->

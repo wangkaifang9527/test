@@ -1,0 +1,40 @@
+
+
+<view class='er'>
+    <view class='title'>
+      <image src='http://www.levau.com/chezidian/tuiguang.png' mode='widthFix'></image>
+    </view>
+    
+    <view class='zhong'>
+        <view class='pj'>
+            <view>1</view>
+            <view>今日新增</view>
+        </view>
+        <view class='pj'>
+            <view>2</view>
+            <view>本周新增</view>
+        </view>
+        <view class='pj'>
+            <view>3</view>
+            <view>本月新增</view>
+        </view>
+    </view>
+</view>
+
+<view class="order_box">
+        <block wx:for="{{orders}}" wx:for-item="order" wx:for-index="i" wx:key="">
+            <view style="">
+              <view class='kf-view'>
+                <image wx:if="{{order.avatarUrl}}" catchtap='zhuye' data-openid='{{order.openId}}' class='kf-image' src='{{order.avatarUrl}}'></image>
+                <image wx:else class='kf-image' src='/images/bg_gary.png'></image>
+                <view class='kf-nickname'>
+                  <view style='color: #111;'>{{order.nickName}}</view>
+                  <view style='color: #999;font-size:20rpx;margin-top:10rpx;'>加入时间: {{order.registerTime}}</view>
+                </view>
+                <image data-tel='{{order.cellphoneNumber}}' catchtap='dadianhua' class='kf-image1' src='/images/my/tel.png'></image>
+              </view>
+            </view>
+            
+        </block>
+    <view wx:if="{{isloadover}}" class='tip_center' style='margin-bottom:30px'>别拉了，没有啦</view>
+</view>

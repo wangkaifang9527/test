@@ -1,0 +1,59 @@
+<!-- html  -->
+<view class="container">
+    <form bindsubmit='formSubmit'>
+        <view class='regional_agents'>
+            <view class="section">
+                <text>微信</text>
+                <view class="right">
+                    <input value='{{name}}（不可修改）' disabled="true"></input>
+                </view>
+            </view>
+            <view class="section">
+                <text>电话</text>
+                <view class="right">
+                    <input name="phone" maxlength='11' placeholder='手机或固话' value='{{phone}}'></input>
+                </view>
+            </view>
+            <view class="section">
+                <text>选择地区</text>
+                <view class="right">
+                    <view class="form-item-bd" bindtap="showDistpicker">
+                        <view class="input {{!provinceSelStr ? 'input-placeholder' : ''}}">
+                            <block wx:if="{{provinceSelStr}}">
+                                {{provinceSelStr}} {{citySelStr}}
+                            </block>
+                            <block wx:else>请选择所在地区</block>
+                        </view>
+                        <input name="city" value="{{provinceSelStr}} {{citySelStr}}" class="hide" />
+                    </view>
+                </view>
+            </view>
+        </view>
+        <button form-type='submit' class="btn_blue" id='onEdit' >确认</button>
+        <button form-type='submit' class="btn_gary" id='onDelete'>删除</button>
+    </form>
+</view>
+
+<!-- city selsect -->
+<view class="distpicker {{showDistpicker ? '' : 'hide'}}">
+    <view class="distpicker-btn">
+        <view class="distpicker-cancel-btn" bindtap="distpickerCancel">取消</view>
+        <view class="distpicker-sure-btn" bindtap="distpickerSure">确定</view>
+    </view>
+    <picker-view indicator-style="height: 40px;" class="distpicker-content" value="{{value}}" bindchange="changeArea">
+        <!-- 省 -->
+        <picker-view-column>
+            <view wx:for="{{provinceName}}" wx:key="province" class="area-item">{{item}}</view>
+        </picker-view-column>
+        <!-- 市 -->
+        <picker-view-column>
+            <view wx:for="{{cityName}}" wx:key="city" class="area-item">{{item}}</view>
+        </picker-view-column>
+        <!-- 区 -->
+        <!-- <picker-view-column>
+            <view wx:for="{{districtName}}" wx:key="district" class="area-item">{{item}}</view>
+        </picker-view-column> -->
+    </picker-view>
+</view>
+<view class="mask" catchtap="distpickerCancel" hidden="{{!showDistpicker}}"></view>
+<view class="message {{showMessage ? 'fade-in' : ''}}" hidden="{{!showMessage}}">{{messageContent}}</view>

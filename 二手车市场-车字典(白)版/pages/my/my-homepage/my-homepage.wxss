@@ -1,0 +1,102 @@
+
+@import "/template/t-car-list/t-car-list.wxss"; 
+.title{
+  width: 100%;
+  height: 360rpx;
+  background: radial-gradient( #D34F1D,#BF2A16); 
+  text-align: center;
+  color: #fff;
+  font-size: 50rpx;
+  letter-spacing: 20rpx;
+  margin: 0 auto;
+}
+.title view{
+  width: 100%;
+  text-align: center;
+  line-height: 360rpx;
+}
+
+.list{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between; 
+  height: 110rpx;
+  width: 750rpx;
+  background: #fff;
+  font-size: 24rpx;
+  
+}
+.list .li{
+  width: 25%;
+  text-align: center;
+}
+
+.list .li .black{
+  color: #111;
+  font-size: 24rpx;
+}
+.list .li .grey{
+  color: #999;
+  font-size: 22rpx;
+}
+.list .li .grey text{
+  padding-right: 20rpx;
+}
+.list .li image{
+  width:102rpx;
+  height:102rpx;
+  border-radius: 102rpx;
+}
+.list .li .div{
+  width:124rpx;
+  height:44rpx;
+  line-height: 44rpx;
+  color: #fff;
+  text-align: center;
+  background:rgba(19,52,75,1);
+  border-radius:22rpx;
+  box-shadow:6px 0px 16px rgba(0,0,0,0.36);
+  margin: 0 auto;
+}
+.list .li .div:active{
+  opacity: 0.6
+}
+.list .two{
+  text-align: left;
+  line-height: 48rpx;
+  width: 50%;
+}
+.list .one{
+  position:  relative;
+  top: -51rpx;
+}
+.list .one .jia{
+  width:35rpx;
+  height:35rpx;
+  background:rgba(19,52,75,1);
+  color:#fff;
+  text-align:center;
+  margin:0 auto;
+  margin-top:-25rpx;
+  position:relative;
+  line-height:35rpx;
+  border-radius:30rpx;
+}
+.single{
+  font-size: 28rpx;
+  color: #111;
+  height: 88rpx;
+  border-top: 1rpx solid #E6E6E6;
+  border-bottom: 1rpx solid #E6E6E6;
+}
+.single .li image{
+  width:40rpx;
+  height:30rpx;
+  border-radius: 0rpx;
+}
+
+.yishou_jiugongge{
+  margin-top: -200rpx;
+}
+

@@ -1,0 +1,21 @@
+<view class='container'>
+     <view class='my_info'>
+        <image class='' mode='aspectFit' src='{{avatarUrl}}'></image>
+        <text>{{nickName}}</text>
+    </view>
+
+    <view class='my_promotion_code'>
+        <image wx:if="{{qrCode}}" mode='aspectFit' catchtap='lookImg' src='{{qrCode}}'></image>
+        <image wx:else src='/images/bg_gary.png'></image>
+        <view style='color: #027bff; padding-top:30rpx' catchtap='onPromotionRevenue' data-money='{{totalIncome}}'>点击查看推广收益明细</view>
+        <text style='margin-top:30rpx'>微信扫一扫 使用小程序</text>
+        <view class="tips">
+            <text>车字典小程序</text>
+            <text>使用车字典小程序，远离事故车。查封车，假手续车</text>
+            <text>车字典店维修保养记录 车险定损理赔记录</text>
+            <!-- <text>车辆抵押状态 车辆投保状态</text> -->
+        </view>
+    </view> 
+
+
+</view>

@@ -1,0 +1,106 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/query/query",
+    "pages/index/scroll-view/scroll-view",
+    "pages/market/details/all/all",
+    "pages/order/order-detail-cbstl/order-detail",
+    "pages/market/success/success",
+    "pages/market/paid-help/paid-help",
+    "pages/warrant/refund/refund",
+    "pages/warrant/success/success",
+    "pages/warrant/deal-order-admin/deal-order-admin",
+    "pages/warrant/deal-order/deal-order",
+    "pages/warrant/warrant",
+  
+    
+    "pages/my/his-homepage/his-homepage",
+    "pages/my/my",
+    "pages/my/my-qr/my-qr",
+    "pages/my/my-earnings/my-earnings",
+    "pages/my/agents-area/agents-area",
+    "pages/my/my-rankings/my-rankings",
+    "pages/my/my-yi/my-yi",
+    "pages/my/my-er/my-er",
+    "pages/my/my-homepage/my-homepage",
+    "pages/my/my-fans/my-fans",
+    "pages/my/my-follow/my-follow",
+    "pages/my/follow/follow",
+    "pages/my/my-collection/my-collection",
+    "pages/my/apply-tg/apply-tg",
+    "pages/my/task/task",
+    "pages/my/poster/poster",
+    "pages/my/kefu/kefu",
+    "pages/my/memberopening/memberopening",
+    "pages/my/mymember/mymember",
+    "pages/my/cooperation/cooperation",
+    "pages/my/city-charge/city-charge",
+    
+    "pages/admin/admin",
+    "pages/admin/withdraw-audit/withdraw-audit",
+    "pages/admin/agent-audit/agent-audit",
+    "pages/admin/agent-update/agent-update",
+    "pages/admin/agents-detail/agents-detail",
+    "pages/admin/agent-list/agent-list",
+    "pages/admin/promoters-audit/promoters-audit",
+    "pages/admin/promoters/promoters",
+    "pages/admin/data-statistics/data-statistics",
+    "pages/order/order-list/order-list",
+    
+    "pages/order/order-list-admin/order-list",
+    "pages/order/order-detail-cbs/order-detail",
+    "pages/order/order-detail-cbs2/order-detail",
+    "pages/order/order-detail-claim2/order-detail",
+    "pages/order/order-detail-claimtl/order-detail",
+    "pages/order/order-detail-infotl/order-detail",
+   
+    "pages/anli/claim/claim",
+    "pages/rule/user/user",
+    "pages/rule/partner/partner",
+    "pages/market/fache/fache",
+    
+    "pages/market/area/area",
+    "pages/market/details/details",
+    
+    "pages/market/details-audit/details-audit",
+    "pages/market/search/search",
+    "pages/market/canvas/canvas",
+      
+    "pages/withdraw/withdraw",
+    "pages/bill/bill"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle":"black"
+  },
+  "tabBar": {
+    "backgroundColor": "#ffffff",
+    "borderStyle": "block",
+    "color": "#999999",
+    "selectedColor": "#13344B",
+    "list": [
+      {
+        "text": "首页",
+        "pagePath": "pages/index/index",
+        "iconPath": "images/tab/sy1.png",
+        "selectedIconPath": "images/tab/sy2.png"
+      },
+     
+      {
+        "text": "发车",
+        "pagePath": "pages/market/fache/fache",
+        "iconPath": "images/tab/fc1.png",
+        "selectedIconPath": "images/tab/fc1.png"
+      },
+     
+      {
+        "text": "我的",
+        "pagePath": "pages/my/my",
+        "iconPath": "images/tab/wd1.png",
+        "selectedIconPath": "images/tab/wd2.png"
+      }
+    ]
+  }
+}

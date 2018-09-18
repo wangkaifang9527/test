@@ -1,0 +1,830 @@
+<!--pages/market/details/details.wxml-->
+
+<!-- 一. 是管理员 -->
+<view wx:if='{{isadmin}}' class='details'>
+  <!-- 图片轮播图-->
+  <view class='market_tuwenliebiao_image'>
+    <swiper class='swiper-box' indicator-color="#fff" indicator-active-color="#bfbfbf" previous-margin='0rpx' next-margin='0rpx' style=' height:480rpx' autoplay="true" interval="4000" duration="500">
+      <block wx:for="{{vehicle.images}}" wx:key="" wx:for-item="item" wx:for-index="ii">
+        <swiper-item>
+          <image data-images='{{vehicle.images}}' data-i='{{ii}}' catchtap='lookImg' src='{{item}}' mode="aspectFill" style='width:100%;'></image>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <!-- 悬赏车倒计时 -->
+  <view wx:if='{{vehicle.sellMode == 1}}' class='count-down'>
+      <view>{{countDownDay}}天{{countDownHour}}时{{countDownMinute}}分{{countDownSecond}}秒</view>
+      <view>赏金: {{vehicle.reward}}元</view>
+  </view>
+
+  <!-- 一.1详细内容 -->
+  <view class='content'>
+    <view class='title'>{{vehicle.title}}</view>
+    <view class='price'>
+      <view class='price_one'>
+        <text>{{vehicle.price}}万元</text> ·
+        <text>{{vehicle.mileage}}万公里</text> ·
+        <image wx:if='{{vehicle.property==1}}' src='/images/details/fei.png'></image>
+        <image wx:else src='/images/details/ying.png'></image>
+      </view>
+      <view class='zhizuohaibao active' catchtap='onZhiZuoHaiBao'>
+        生成海报
+      </view>
+    </view>
+    <!-- 一.2车源基础信息 -->
+    <view class='base'>
+      <view class='title' style='font-size:28rpx;'>基本信息</view>
+      <view class='list'>
+        <view class='li'>
+          <view>车辆所在地</view>
+          <view class='grag'>{{vehicle.location}}</view>
+        </view>
+        <view class='li'>
+          <view>上牌日期</view>
+          <view class='grag'>{{vehicle.licenseDate}}</view>
+        </view>
+        <view class='li'>
+          <view>牌照辖区</view>
+          <view class='grag'>{{vehicle.licenseLocation}}</view>
+        </view>
+      </view>
+
+      <view class='title' style='font-size:28rpx;'>历史车况</view>
+      <view class='query'>
+          <view>维保记录:</view>
+          <view wx:if='{{vehicle.queryStatus == 1}}' class='grag see btn-press'>查看</view>
+          <view wx:else class='grag'>无</view>
+      </view>
+      
+      <view class='title' style='font-size:28rpx;'>车主描述</view>
+      <view style='padding:10rpx 20rpx'>{{vehicle.description}}</view>
+    </view>
+    <!--一.3 中间图标操作 是管理员 但不是自己 -->
+    <view wx:if='{{!vehicle.openid_flag}}' class='fenxiang'>
+      <view>
+        <image src='/images/details/car.png'></image>
+        <view>同款车(0)</view>
+      </view>
+      <view catchtap='jiaoyidanbao'>
+        <image src='/images/details/jiaoyidanbao.png'></image>
+        <view>担保订车</view>
+        <view class='new'>
+            <image src='/images/icon/new.png'></image>
+        </view>
+      </view>
+      <view catchtap='dianhua' data-phone='{{vehicle.cellphoneNumber}}'>
+        <image src='/images/details/dianhua.png'></image>
+        <view>电话</view>
+      </view>
+      <view class='share_view'>
+        <button open-type="share" class='share'>
+          <image src='/images/details/share.png'></image>
+          <view>分享</view>
+        </button>
+      </view>
+    </view>
+    <!--一.3 中间图标操作 是管理员 是自己 且不是有偿 -->
+    <view wx:elif='{{vehicle.openid_flag&&vehicle.sellMode!=1&&vehicle.forwardMode!=1}}' class='fenxiang'>
+      <view catchtap='onForward'>
+        <image src='/images/details/my_price.png'></image>
+        <view>设置有偿帮卖</view>
+      </view>
+      <view catchtap='bianji'>
+        <image src='/images/details/my_s.png'></image>
+        <view>设为悬赏车</view>
+      </view>
+      <view catchtap='bianji'>
+        <image src='/images/details/my_g.png'></image>
+        <view>提供维保出险记录</view>
+      </view>
+    </view>
+    <!--一.3 中间图标操作 是管理员 是自己 -->
+    <view wx:else class='fenxiang'>
+      <view>
+        <image src='/images/details/car.png'></image>
+        <view>同款车(0)</view>
+      </view>
+      <view catchtap='jiaoyidanbao'>
+        <image src='/images/details/jiaoyidanbao.png'></image>
+        <view>担保订车</view>
+        <view class='new'>
+            <image src='/images/icon/new.png'></image>
+        </view>
+      </view>
+      <view class='share_view'>
+        <button open-type="share" class='share'>
+          <image src='/images/details/share.png'></image>
+          <view>分享</view>
+        </button>
+      </view>
+    </view>
+
+    <view  wx:if='{{!vehicle.openid_flag}}' class='jichu'>
+        <view catchtap='zhuye' data-openid='{{vehicle.openId}}' class='jichu_left'>
+            <view>
+                <image src='{{vehicle.avatarUrl}}'></image>
+            </view>
+            <view class='mingzi'>{{vehicle.nickName}}</view>
+        </view>
+        <view class='jichu_rigth' catchtap='guanzhu' data-relationship='{{vehicle.relationship}}' data-targetopenid='{{vehicle.openId}}'>
+            <image wx:if='{{vehicle.relationship == 3}}' src='/images/details/gz_2.png' mode='aspectFit'></image>
+            <image wx:elif='{{vehicle.relationship == 2}}' src='/images/details/gz_2.png' mode='aspectFit'></image>
+            <image wx:elif='{{vehicle.relationship == 1}}' src='/images/details/gz_1.png' mode='aspectFit'></image>
+            <image wx:elif='{{vehicle.relationship == 0}}' src='/images/details/gz_1.png' mode='aspectFit'></image>
+            <image wx:else src='/images/details/gz_1.png' mode='aspectFit'></image>
+        </view>
+    </view>
+
+    <!-- 打赏车模 -->
+    <!-- <view wx:if='{{!vehicle.openid_flag}}' style='margin-bottom:48rpx'>
+      <view class='reward_model' catchtap='onRewardModel'>
+        <view class='reward_model_left'>
+          <image mode='aspectFit' 
+                src='/images/details/girls.png' 
+                style='height: 150rpx;width: 150rpx;'></image>
+        </view>
+        <view class='reward_title'>打赏一个车模</view>
+      </view>
+      <view class='reward_avatarUrl'>
+        <image src='{{userInfo.avatarUrl}}'></image>
+      </view>
+    </view> -->
+    
+    <!-- 有偿规则动画 -->
+    <view wx:if='{{vehicle.forwardMode==1}}'  class='bmgz' catchtap='onHelpGZopen'>
+        <image class='{{help_GZ_open?"B_show":"B"}}' src='/images/details/B.png' mode='widthFix'></image>
+        <image class='{{help_GZ_open?"B_show":"M"}}' src='/images/details/M.png' mode='widthFix'></image>
+        <image class='{{help_GZ_open?"B_show":"G"}}' src='/images/details/G.png' mode='widthFix'></image>
+        <image class='{{help_GZ_open?"B_show":"Z"}}' src='/images/details/Z.png' mode='widthFix'></image>
+    </view>
+    <!-- 有偿规则文字 -->
+    <view class='ck_list_list {{help_GZ_open? "ck_list_list_show":""}}' catchtap='onHelpGZopen'>
+        带有蓝色有偿帮卖标识的为帮卖车辆；车主设置一定的
+佣金，用户帮助转发，转发后用户每次可获得0.5元零钱
+（转发后直接进入账户余额，可提现），每辆车每人每天
+最多可转发至10个不同群。
+    </view>
+    
+    
+    <!--一.4.1 有偿转发详情 -->
+    <view wx:if='{{vehicle.forwardMode==1}}' class='forward-mode'>
+      <view class='mode'>
+        <view class='left'>
+          <view>剩余转发：{{vehicle.remainAmount}} 元
+              <!-- <text>(转发帮卖拿现金红包)</text> -->
+          </view>
+          <view class='li'>已有 {{vehicle.paidForwardUserList.length}} 人帮卖</view>
+        </view>
+        <view wx:if='{{!vehicle.openid_flag}}' class='right'>
+            <button id='forward_share' class='btn-press btn' open-type="share">帮卖</button>
+        </view>
+        <view wx:else class='right btn-press'>续费</view>
+      </view>
+      <view class='notice'>帮卖公示</view>
+      <view wx:if='{{vehicle.paidForwardUserList.length>0}}' class='notice_img_list'>
+          <block wx:for='{{vehicle.paidForwardUserList}}' wx:key=''>
+              <image wx:if='{{item.avatarUrl!="null"}}' 
+                    src='{{item.avatarUrl}}' 
+                    catchtap='zhuye' 
+                    data-openid='{{item.openId}}'></image>
+              <image wx:else 
+                    src='/images/icon/default.png' 
+                    catchtap='zhuye' 
+                    data-openid='{{item.openId}}'></image>
+          </block>
+      </view>
+      <view class='all' catchtap='onAll'>查看全部</view>
+    </view>
+    
+
+    <!-- 悬赏规则动画 -->
+    <view wx:if='{{vehicle.sellMode==1}}'  class='bmgz' catchtap='onHelpXSopen'>
+        <image class='{{help_GZ_open?"B_show":"B"}}' src='/images/details/X.png' mode='widthFix'></image>
+        <image class='{{help_GZ_open?"B_show":"M"}}' src='/images/details/S.png' mode='widthFix'></image>
+        <image class='{{help_GZ_open?"B_show":"G"}}' src='/images/details/G.png' mode='widthFix'></image>
+        <image class='{{help_GZ_open?"B_show":"Z"}}' src='/images/details/Z.png' mode='widthFix'></image>
+    </view>
+    <!-- 悬赏规则文字 -->
+    <view class='ck_list_list {{help_XS_open? "ck_list_list_show":""}}' catchtap='onHelpXSopen'>
+        带有红色悬赏车标识的为悬赏车辆；车主设置一定的赏
+    金，用户帮助转发，若车辆最终在平台成交，则最后一
+    个转发者（即：转发后的下一个人成交了）获取50%的
+    赏金，这条转发路径上的其他人则均分剩余50%的赏金。
+    </view>
+    <!-- 一.4.2.悬赏车转发 -->
+    <view wx:if='{{vehicle.sellMode==1}}' class='forward-mode'>
+      <view class='mode'>
+        <view class='left'>
+          <view class='li'>已有 {{vehicle.forwardUserList.length}} 人赏卖</view>
+        </view>
+        <view class='right'>
+            <button  class='btn-press btn' open-type="share">赏卖</button>
+        </view>
+        
+      </view>
+      <view class='notice'>赏卖公示</view>
+      <view wx:if='{{vehicle.forwardUserList.length>0}}' class='notice_img_list'>
+          <block wx:for='{{vehicle.forwardUserList}}' wx:key=''>
+              <image wx:if='{{item.avatarUrl!="null"}}' 
+                    src='{{item.avatarUrl}}' 
+                    catchtap='zhuye' 
+                    data-openid='{{item.openId}}'></image>
+              <image wx:else 
+                    src='/images/icon/default.png' 
+                    catchtap='zhuye' 
+                    data-openid='{{item.openId}}'></image>
+          </block>
+      </view>
+      <view class='all'>查看全部</view>
+    </view>
+
+    <view class='pinglun'>
+      <view class='pinglun1'>
+        <view class='pinglun1_left'>
+          <image catchtap='zhuye' data-openid='{{openid}}' src='{{userInfo.avatarUrl}}'></image>
+        </view>
+        <view class='shurukuang'>
+          <input placeholder='说说您的看法' 
+                  placeholder-style='color:#999;font-size:22rpx;' 
+                  bindinput='bindinput'></input>
+        </view>
+        <view class='pl' catchtap='pinglun'>评论</view>
+      </view>
+    </view>
+    <!--一.5 评论区 -->
+    <view wx:if='{{vehicle.comments.length>0}}' style='padding:20rpx 20rpx;background:#fff;'>
+      <block wx:for="{{vehicle.comments}}" wx:key="" wx:for-item="comment" wx:for-index="i">
+        <view style='padding:10rpx 0rpx'>
+          <view class='libiao'>
+            <view class='left'>
+              <image catchtap='zhuye' data-openid='{{comment.openId}}' src='{{comment.avatarUrl}}'></image>
+            </view>
+            <view class='right'>
+              <view>{{comment.nickName}}</view>
+              <view catchtap='dianzan' data-hasthumbup='{{comment.hasThumbUp}}' data-i='{{i}}' data-commentid='{{comment.commentId}}'>
+                <image wx:if='{{comment.hasThumbUp}}' src='/images/details/xin_2.png'></image>
+                <image wx:else src='/images/details/xin_1.png'></image>
+                <text style='margin-left:20rpx;font-size:28rpx'>{{comment.thumbUpCount}}</text>
+              </view>
+            </view>
+          </view>
+          <view data-i='{{i}}' catchtap='reply'>
+            <view class='plnr'>{{comment.content}}</view>
+            <view class='time'>{{comment.commentTime}}</view>
+          </view>
+        </view>
+        <!--一.5 回复区-->
+        <view wx:if='{{comment.commentList.length>0}}'>
+          <!-- <view class='xiaosanjiao1'>
+                    <image src='/images/chonggou/shichang/xiaosanjiao.png'></image>
+                </view> -->
+          <view class='market_tuwenliebiao_pinglunqu'>
+            <block wx:for="{{comment.commentList}}" wx:key="" wx:for-item="item">
+              <view>
+                <image src='{{item.avatarUrl}}'></image>
+                {{item.nickName}}回复{{comment.nickName}}: {{item.content}}
+              </view>
+            </block>
+          </view>
+        </view>
+      </block>
+    </view>
+    <!--一.6 底部不动图标操作按钮 -->
+    <view class='icon'>
+      <view style='border-right: 1rpx solid rgba(255, 255, 255, 0.3)'>
+        <image src='/images/details/bianji.png' catchtap='bianji'></image>
+        <view class='weizi'>编辑</view>
+      </view>
+      <view style='border-right: 1rpx solid rgba(255, 255, 255, 0.3)'>
+        <image src='/images/details/shanchu.png' catchtap='shanchu'></image>
+        <view class='weizi'>删除</view>
+      </view>
+      <view catchtap='shichangzhiding'>
+        <image src='/images/details/jiaoyidanbao.png'></image>
+        <view class='weizi'>置顶</view>
+      </view>
+      <view wx:if='{{vehicle.status==1}}' catchtap='zaishou'>
+        <image src='/images/details/shou.png'></image>
+        <view class='weizi'>在售</view>
+      </view>
+      <view wx:elif='{{vehicle.status==2}}' catchtap='chengjiao'>
+        <image src='/images/details/shou.png'></image>
+        <view class='weizi'>已售</view>
+      </view>
+    </view>
+
+  </view>
+
+  <view wx:if="{{isloadover}}" class='tip_center' style='margin-bottom:30px'>别拉了，没有啦</view>
+  <view wx:else class='tip_center' style='margin-bottom:30px'>拼命加载中...</view>
+  <view style='height:100rpx;'></view>
+</view>
+
+<!-- 二. 非管理员 -->
+<view wx:else class='details' >
+  <!-- 二.1图片轮播图-->
+  <view class='market_tuwenliebiao_image'>
+    <swiper class='swiper-box' indicator-color="#fff" indicator-active-color="#bfbfbf" previous-margin='0rpx' next-margin='0rpx' style=' height:480rpx' autoplay="true" interval="4000" duration="500">
+      <block wx:for="{{vehicle.images}}" wx:key="" wx:for-item="item" wx:for-index="ii">
+        <swiper-item>
+          <image data-images='{{vehicle.images}}' data-i='{{ii}}' catchtap='lookImg' src='{{item}}' mode="aspectFill" style='width:100%;'></image>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <!-- 悬赏车倒计时 -->
+  <view wx:if='{{vehicle.sellMode == 1}}' class='count-down'>
+      <view>{{countDownDay}}天{{countDownHour}}时{{countDownMinute}}分{{countDownSecond}}秒</view>
+      <view>赏金: {{vehicle.reward}}元</view>
+  </view>
+
+  <!-- 二.2详细内容 分两种情况 1.自己 -->
+  <view wx:if='{{vehicle.openid_flag}}' class='content'>
+    <view class='title'>{{vehicle.title}}</view>
+    <view class='price'>
+      <view class='price_one'>
+        <text>{{vehicle.price}}万元</text> ·
+        <text>{{vehicle.mileage}}万公里</text> ·
+        <image wx:if='{{vehicle.property==1}}' src='/images/details/fei.png'></image>
+        <image wx:else src='/images/details/ying.png'></image>
+      </view>
+      <view class='zhizuohaibao active' catchtap='onZhiZuoHaiBao'>
+        生成海报
+      </view>
+    </view>
+    <!--二.3 车源基础信息 -->
+    <view class='base'>
+      <view class='title' style='font-size:28rpx;'>基本信息</view>
+      <view class='list'>
+        <view class='li'>
+          <view>车辆所在地</view>
+          <view class='grag'>{{vehicle.location}}</view>
+        </view>
+        <view class='li'>
+          <view>上牌日期</view>
+          <view class='grag'>{{vehicle.licenseDate}}</view>
+        </view>
+        <view class='li'>
+          <view>牌照辖区</view>
+          <view class='grag'>{{vehicle.licenseLocation}}</view>
+        </view>
+      </view>
+
+      <view class='title' style='font-size:28rpx;'>历史车况</view>
+      <view class='query'>
+          <view>维保记录:</view>
+          <view wx:if='{{vehicle.queryStatus == 1}}' class='grag see btn-press'>查看</view>
+          <view wx:else class='grag'>无</view>
+      </view>
+      <view class='title' style='font-size:28rpx;'>车主描述</view>
+      <view style='padding:10rpx 20rpx'>{{vehicle.description}}</view>
+    </view>
+    <!--二.3 中间图标操作(自己看) 如果已经是悬赏 或者是有偿 隐藏 -->
+    <view wx:if='{{vehicle.sellMode!=1&&vehicle.forwardMode!=1}}' class='fenxiang'>
+      <view catchtap='onForward'>
+        <image src='/images/details/my_price.png'></image>
+        <view>设置有偿帮卖</view>
+      </view>
+      <view catchtap='bianji'>
+        <image src='/images/details/my_s.png'></image>
+        <view>设为悬赏车</view>
+      </view>
+      <view catchtap='bianji'>
+        <image src='/images/details/my_g.png'></image>
+        <view>提供维保出险记录</view>
+      </view>
+    </view>
+
+    
+
+    <!-- 打赏车模 -->
+    <!-- <view wx:if='{{!vehicle.openid_flag}}' style='margin-bottom:48rpx'>
+      <view class='reward_model' catchtap='onRewardModel'>
+        <view class='reward_model_left'>
+          <image mode='aspectFit' 
+                src='/images/details/girls.png' 
+                style='height: 150rpx;width: 150rpx;'></image>
+        </view>
+        <view class='reward_title'>打赏一个车模</view>
+      </view>
+      <view class='reward_avatarUrl'>
+        <image src='{{userInfo.avatarUrl}}'></image>
+      </view>
+    </view> -->
+    <view wx:if='{{vehicle.forwardMode==1}}'  class='bmgz' catchtap='onHelpGZopen'>
+        <image class='{{help_GZ_open?"B_show":"B"}}' src='/images/details/B.png' mode='widthFix'></image>
+        <image class='{{help_GZ_open?"B_show":"M"}}' src='/images/details/M.png' mode='widthFix'></image>
+        <image class='{{help_GZ_open?"B_show":"G"}}' src='/images/details/G.png' mode='widthFix'></image>
+        <image class='{{help_GZ_open?"B_show":"Z"}}' src='/images/details/Z.png' mode='widthFix'></image>
+    </view>
+    
+    <!--二. 有偿转发详情 -->
+    <view wx:if='{{vehicle.forwardMode==1}}' class='forward-mode'>
+      <view class='mode'>
+        <view class='left'>
+          <view>剩余转发：{{vehicle.remainAmount}} 元
+            <!-- <text>(转发帮卖拿现金红包)</text> -->
+          </view>
+          <view class='li'>已有 {{vehicle.paidForwardUserList.length}} 人帮卖</view>
+        </view>
+        <view class='right btn-press'>续费</view>
+      </view>
+      <view class='notice'>帮卖公示</view>
+      <view wx:if='{{vehicle.paidForwardUserList.length>0}}' class='notice_img_list'>
+          <block wx:for='{{vehicle.paidForwardUserList}}' wx:key=''>
+              <image wx:if='{{item.avatarUrl!="null"}}' 
+                    src='{{item.avatarUrl}}' 
+                    catchtap='zhuye' 
+                    data-openid='{{item.openId}}'></image>
+              <image wx:else 
+                    src='/images/icon/default.png' 
+                    catchtap='zhuye' 
+                    data-openid='{{item.openId}}'></image>
+          </block>
+      </view>
+      <view class='all' catchtap='onAll'>查看全部</view>
+    </view>
+
+    <!-- 悬赏规则 -->
+    <view wx:if='{{vehicle.sellMode==1}}'  class='bmgz' catchtap='onHelpXSopen'>
+        <image class='{{help_GZ_open?"B_show":"B"}}' src='/images/details/X.png' mode='widthFix'></image>
+        <image class='{{help_GZ_open?"B_show":"M"}}' src='/images/details/S.png' mode='widthFix'></image>
+        <image class='{{help_GZ_open?"B_show":"G"}}' src='/images/details/G.png' mode='widthFix'></image>
+        <image class='{{help_GZ_open?"B_show":"Z"}}' src='/images/details/Z.png' mode='widthFix'></image>
+    </view>
+    <!-- 悬赏规则文字 -->
+    <view class='ck_list_list {{help_XS_open? "ck_list_list_show":""}}' catchtap='onHelpXSopen'>
+        带有红色悬赏车标识的为悬赏车辆；车主设置一定的赏
+    金，用户帮助转发，若车辆最终在平台成交，则最后一
+    个转发者（即：转发后的下一个人成交了）获取50%的
+    赏金，这条转发路径上的其他人则均分剩余50%的赏金。
+    </view>
+    <!-- 二.4.2.悬赏车转发 -->
+    <view wx:if='{{vehicle.sellMode==1}}' class='forward-mode'>
+      <view class='mode'>
+        <view class='left'>
+          <view class='li'>已有 {{vehicle.forwardUserList.length}} 人赏卖</view>
+        </view>
+        <view class='right'>
+            <button  class='btn-press btn' open-type="share">赏卖</button>
+        </view>
+      </view>
+      <view class='notice'>赏卖公示</view>
+      <view wx:if='{{vehicle.forwardUserList.length>0}}' class='notice_img_list'>
+          <block wx:for='{{vehicle.forwardUserList}}' wx:key=''>
+              <image wx:if='{{item.avatarUrl!="null"}}' 
+                    src='{{item.avatarUrl}}' 
+                    catchtap='zhuye' 
+                    data-openid='{{item.openId}}'></image>
+              <image wx:else 
+                    src='/images/icon/default.png' 
+                    catchtap='zhuye' 
+                    data-openid='{{item.openId}}'></image>
+          </block>
+      </view>
+      <view class='all'>查看全部</view>
+    </view>
+
+    <view class='pinglun'>
+      <view class='pinglun1'>
+        <view class='pinglun1_left'>
+          <image catchtap='zhuye' data-openid='{{openid}}' src='{{userInfo.avatarUrl}}'></image>
+        </view>
+        <view class='shurukuang'>
+          <input placeholder='说说您的看法' placeholder-style='color:#999;font-size:22rpx;' bindinput='bindinput'></input>
+        </view>
+        <view class='pl' catchtap='pinglun'>评论</view>
+      </view>
+    </view>
+    <!--二. 评论区 -->
+    <view wx:if='{{vehicle.comments.length>0}}' style='padding:20rpx 20rpx;background:#fff;'>
+      <block wx:for="{{vehicle.comments}}" wx:key="" wx:for-item="comment" wx:for-index="i">
+        <view style='padding:10rpx 0rpx'>
+          <view class='libiao'>
+            <view class='left'>
+              <image catchtap='zhuye' data-openid='{{comment.openId}}' src='{{comment.avatarUrl}}'></image>
+            </view>
+            <view class='right'>
+              <view>{{comment.nickName}}</view>
+              <view catchtap='dianzan' data-hasthumbup='{{comment.hasThumbUp}}' data-i='{{i}}' data-commentid='{{comment.commentId}}'>
+                <image wx:if='{{comment.hasThumbUp}}' src='/images/details/xin_2.png'></image>
+                <image wx:else src='/images/details/xin_1.png'></image>
+                <text style='margin-left:20rpx;font-size:28rpx'>{{comment.thumbUpCount}}</text>
+              </view>
+            </view>
+          </view>
+          <view data-i='{{i}}' catchtap='reply'>
+            <view class='plnr'>{{comment.content}}</view>
+            <view class='time'>{{comment.commentTime}}</view>
+          </view>
+        </view>
+        <!--二. 回复区-->
+        <view wx:if='{{comment.commentList.length>0}}'>
+          <view class='market_tuwenliebiao_pinglunqu'>
+            <block wx:for="{{comment.commentList}}" wx:key="" wx:for-item="item">
+              <view>
+                <image src='{{item.avatarUrl}}'></image>
+                {{item.nickName}}回复{{comment.nickName}}: {{item.content}}
+              </view>
+            </block>
+          </view>
+        </view>
+      </block>
+    </view>
+    <!--二. 底部不动图标操作按钮 -->
+    <view class='icon'>
+      <view style='border-right: 1rpx solid rgba(255, 255, 255, 0.3)'>
+        <image src='/images/details/bianji.png' catchtap='bianji'></image>
+        <view class='weizi'>编辑</view>
+      </view>
+      <view style='border-right: 1rpx solid rgba(255, 255, 255, 0.3)'>
+        <image src='/images/details/shanchu.png' catchtap='shanchu'></image>
+        <view class='weizi'>删除</view>
+      </view>
+      <view catchtap='shichangzhiding'>
+        <image src='/images/details/jiaoyidanbao.png'></image>
+        <view class='weizi'>置顶</view>
+      </view>
+      <view wx:if='{{vehicle.status==1}}' catchtap='zaishou'>
+        <image src='/images/details/shou.png'></image>
+        <view class='weizi'>在售</view>
+      </view>
+      <view wx:elif='{{vehicle.status==2}}' catchtap='chengjiao'>
+        <image src='/images/details/shou.png'></image>
+        <view class='weizi'>已售</view>
+      </view>
+    </view>
+
+  </view>
+
+  <!-- 详细内容 分两种情况  2.他人 -->
+  <view wx:else class='content'>
+    <view class='title'>{{vehicle.title}}</view>
+    <view class='price'>
+      <view class='price_one'>
+        <text>{{vehicle.price}}万元</text> ·
+        <text>{{vehicle.mileage}}万公里</text> ·
+        <image wx:if='{{vehicle.property==1}}' src='/images/details/fei.png'></image>
+        <image wx:else src='/images/details/ying.png'></image>
+      </view>
+      <view class='zhizuohaibao active' catchtap='onZhiZuoHaiBao'>
+        生成海报
+      </view>
+    </view>
+    <!-- 车源基础信息 -->
+    <view class='base'>
+      <view class='title' style='font-size:28rpx;'>基本信息</view>
+      <view class='list'>
+        <view class='li'>
+          <view>车辆所在地</view>
+          <view class='grag'>{{vehicle.location}}</view>
+        </view>
+        <view class='li'>
+          <view>上牌日期</view>
+          <view class='grag'>{{vehicle.licenseDate}}</view>
+        </view>
+        <view class='li'>
+          <view>牌照辖区</view>
+          <view class='grag'>{{vehicle.licenseLocation}}</view>
+        </view>
+      </view>
+      <view class='title' style='font-size:28rpx;'>历史车况</view>
+      <view class='query'>
+          <view>维保记录:</view>
+          <view wx:if='{{vehicle.queryStatus == 1}}' class='grag see btn-press'>查看</view>
+          <view wx:else class='grag'>无</view>
+      </view>
+      <view class='title' style='font-size:28rpx;'>车主描述</view>
+      <view style='padding:10rpx 20rpx'>{{vehicle.description}}</view>
+    </view>
+    <!-- 中间图标操作 -->
+    <view class='fenxiang'>
+      <view>
+        <image src='/images/details/car.png'></image>
+        <view>同款车(0)</view>
+      </view>
+      <view catchtap='jiaoyidanbao'>
+        <image src='/images/details/jiaoyidanbao.png'></image>
+        <view>担保订车</view>
+        <view class='new'>
+            <image src='/images/icon/new.png'></image>
+        </view>
+      </view>
+      <view class='share_view'>
+        <button open-type="share" class='share'>
+          <image src='/images/details/share.png'></image>
+          <view>分享</view>
+        </button>
+      </view>
+    </view>
+
+    <!-- 关注 -->
+    <view class='jichu'>
+        <view catchtap='zhuye' data-openid='{{vehicle.openId}}' class='jichu_left'>
+            <view>
+                <image src='{{vehicle.avatarUrl}}'></image>
+            </view>
+            <view class='mingzi'>{{vehicle.nickName}}</view>
+        </view>
+        <view class='jichu_rigth' catchtap='guanzhu' data-relationship='{{vehicle.relationship}}' data-targetopenid='{{vehicle.openId}}'>
+            <image wx:if='{{vehicle.relationship == 3}}' src='/images/details/gz_2.png' mode='aspectFit'></image>
+            <image wx:elif='{{vehicle.relationship == 2}}' src='/images/details/gz_2.png' mode='aspectFit'></image>
+            <image wx:elif='{{vehicle.relationship == 1}}' src='/images/details/gz_1.png' mode='aspectFit'></image>
+            <image wx:elif='{{vehicle.relationship == 0}}' src='/images/details/gz_1.png' mode='aspectFit'></image>
+            <image wx:else src='/images/details/gz_1.png' mode='aspectFit'></image>
+        </view>
+    </view>
+
+    <!-- 打赏车模 -->
+    <!-- <view wx:if='{{!vehicle.openid_flag}}' style='margin-bottom:48rpx'>
+      <view class='reward_model' catchtap='onRewardModel'>
+        <view class='reward_model_left'>
+          <image mode='aspectFit' 
+                src='/images/details/girls.png' 
+                style='height: 150rpx;width: 150rpx;'></image>
+        </view>
+        <view class='reward_title'>打赏一个车模</view>
+      </view>
+      <view class='reward_avatarUrl'>
+        <image src='{{userInfo.avatarUrl}}'></image>
+      </view>
+    </view> -->
+
+    <view wx:if='{{vehicle.forwardMode==1}}'  class='bmgz' catchtap='onHelpGZopen'>
+        <image class='{{help_GZ_open?"B_show":"B"}}' src='/images/details/B.png' mode='widthFix'></image>
+        <image class='{{help_GZ_open?"B_show":"M"}}' src='/images/details/M.png' mode='widthFix'></image>
+        <image class='{{help_GZ_open?"B_show":"G"}}' src='/images/details/G.png' mode='widthFix'></image>
+        <image class='{{help_GZ_open?"B_show":"Z"}}' src='/images/details/Z.png' mode='widthFix'></image>
+    </view>
+
+    <!-- 有偿转发详情 -->
+    <view wx:if='{{vehicle.forwardMode==1}}' class='forward-mode'>
+      <view class='mode'>
+        <view class='left'>
+          <view>剩余转发：{{vehicle.remainAmount}} 元
+              <!-- <text>(转发帮卖拿现金红包)</text> -->
+          </view>
+          <view class='li'>已有 {{vehicle.paidForwardUserList.length}} 人帮卖</view>
+        </view>
+        <view class='right'>
+            <button id='forward_share' class='btn-press btn' open-type="share">帮卖</button>
+        </view>
+      </view>
+      <view class='notice'>帮卖公示</view>
+      <view wx:if='{{vehicle.paidForwardUserList.length>0}}' class='notice_img_list'>
+          <block wx:for='{{vehicle.paidForwardUserList}}' wx:key=''>
+              <image wx:if='{{item.avatarUrl!="null"}}' 
+                    src='{{item.avatarUrl}}' 
+                    catchtap='zhuye' 
+                    data-openid='{{item.openId}}'></image>
+              <image wx:else 
+                    src='/images/icon/default.png' 
+                    catchtap='zhuye' 
+                    data-openid='{{item.openId}}'></image>
+          </block>
+      </view>
+      <view class='all' catchtap='onAll'>查看全部</view>
+    </view>
+
+    <!-- 悬赏规则 -->
+    <view wx:if='{{vehicle.sellMode==1}}'  class='bmgz' catchtap='onHelpXSopen'>
+        <image class='{{help_GZ_open?"B_show":"B"}}' src='/images/details/X.png' mode='widthFix'></image>
+        <image class='{{help_GZ_open?"B_show":"M"}}' src='/images/details/S.png' mode='widthFix'></image>
+        <image class='{{help_GZ_open?"B_show":"G"}}' src='/images/details/G.png' mode='widthFix'></image>
+        <image class='{{help_GZ_open?"B_show":"Z"}}' src='/images/details/Z.png' mode='widthFix'></image>
+    </view>
+    <!-- 悬赏规则文字 -->
+    <view class='ck_list_list {{help_XS_open? "ck_list_list_show":""}}' catchtap='onHelpXSopen'>
+        带有红色悬赏车标识的为悬赏车辆；车主设置一定的赏
+    金，用户帮助转发，若车辆最终在平台成交，则最后一
+    个转发者（即：转发后的下一个人成交了）获取50%的
+    赏金，这条转发路径上的其他人则均分剩余50%的赏金。
+    </view>
+    <!-- 二.4.2.悬赏车转发 -->
+    <view wx:if='{{vehicle.sellMode==1}}' class='forward-mode'>
+      <view class='mode'>
+        <view class='left'>
+          <view class='li'>已有 {{vehicle.forwardUserList.length}} 人赏卖</view>
+        </view>
+        <view class='right'>
+            <button  class='btn-press btn' open-type="share">赏卖</button>
+        </view>
+      </view>
+      <view class='notice'>赏卖公示</view>
+      <view wx:if='{{vehicle.forwardUserList.length>0}}' class='notice_img_list'>
+          <block wx:for='{{vehicle.forwardUserList}}' wx:key=''>
+              <image wx:if='{{item.avatarUrl!="null"}}' 
+                    src='{{item.avatarUrl}}' 
+                    catchtap='zhuye' 
+                    data-openid='{{item.openId}}'></image>
+              <image wx:else 
+                    src='/images/icon/default.png' 
+                    catchtap='zhuye' 
+                    data-openid='{{item.openId}}'></image>
+          </block>
+      </view>
+      <view class='all'>查看全部</view>
+    </view>
+
+    <view class='pinglun'>
+      <view class='pinglun1'>
+        <view class='pinglun1_left'>
+          <image catchtap='zhuye' data-openid='{{openid}}' src='{{userInfo.avatarUrl}}'></image>
+        </view>
+        <view class='shurukuang'>
+          <input placeholder='说说您的看法' placeholder-style='color:#999;font-size:22rpx;' bindinput='bindinput'></input>
+        </view>
+        <view class='pl' catchtap='pinglun'>评论</view>
+      </view>
+    </view>
+    <!-- 评论区 -->
+    <view wx:if='{{vehicle.comments.length>0}}' style='padding:20rpx 20rpx;background:#fff;'>
+      <block wx:for="{{vehicle.comments}}" wx:key="" wx:for-item="comment" wx:for-index="i">
+        <view style='padding:10rpx 0rpx'>
+          <view class='libiao'>
+            <view class='left'>
+              <image catchtap='zhuye' data-openid='{{comment.openId}}' src='{{comment.avatarUrl}}'></image>
+            </view>
+            <view class='right'>
+              <view>{{comment.nickName}}</view>
+              <view catchtap='dianzan' data-hasthumbup='{{comment.hasThumbUp}}' data-i='{{i}}' data-commentid='{{comment.commentId}}'>
+                <image wx:if='{{comment.hasThumbUp}}' src='/images/details/xin_2.png'></image>
+                <image wx:else src='/images/details/xin_1.png'></image>
+                <text style='margin-left:20rpx;font-size:28rpx'>{{comment.thumbUpCount}}</text>
+              </view>
+            </view>
+          </view>
+          <view data-i='{{i}}' catchtap='reply'>
+            <view class='plnr'>{{comment.content}}</view>
+            <view class='time'>{{comment.commentTime}}</view>
+          </view>
+        </view>
+        <!-- 回复区-->
+        <view wx:if='{{comment.commentList.length>0}}'>
+          <view class='market_tuwenliebiao_pinglunqu'>
+            <block wx:for="{{comment.commentList}}" wx:key="" wx:for-item="item">
+              <view>
+                <image src='{{item.avatarUrl}}'></image>
+                {{item.nickName}}回复{{comment.nickName}}: {{item.content}}
+              </view>
+            </block>
+          </view>
+        </view>
+      </block>
+    </view>
+    <!-- 底部不动图标操作按钮 -->
+    <view class='icon'>
+      <view catchtap='shoucang' data-favorite='{{vehicle.favorite}}' style='border-right: 1rpx solid rgba(255, 255, 255, 0.3)'>
+        <image wx:if='{{vehicle.favorite}}' src='/images/details/yishoucang.png'></image>
+        <image wx:else src='/images/details/weishoucang.png'></image>
+        <view class='weizi'>收藏</view>
+      </view>
+      <view style='border-right: 1rpx solid rgba(255, 255, 255, 0.3)'>
+        <image src='/images/details/sixin.png'></image>
+        <view class='weizi'>私信</view>
+      </view>
+      <view catchtap='dianhua' data-phone='{{vehicle.cellphoneNumber}}'>
+        <image src='/images/details/dianhua.png'></image>
+        <view class='weizi'>电话</view>
+      </view>
+    </view>
+  </view>
+
+  <view wx:if="{{isloadover}}" class='tip_center' style='margin-bottom:30px'>别拉了，没有啦</view>
+  <view wx:else class='tip_center' style='margin-bottom:30px'>拼命加载中...</view>
+  <view style='height:100rpx;'></view>
+</view>
+<image src='http://www.levau.com/ad/ad-1.png' mode='widthFix' style='width:750rpx;margin-top:-130rpx;margin-bottom:95rpx;'></image>
+
+
+
+<!-- 移动按钮（首页） -->
+<movable-area style="height: 1100rpx; width: 1rpx; background: rgba(255,255,255,0);" class='fanhui'>
+  <movable-view style="height: 1px; width: 700rpx;" x="300" y="400" direction="all">
+    <image catchtap='fanhui' src='/images/details/fanhui.png'></image>
+  </movable-view>
+</movable-area>
+
+<!-- 评论输入框 -->
+<input class='pinglun_input' confirm-type='send' bindblur='bindblur' bindconfirm='bindconfirm' focus='{{focus}}' value='{{pinglun_value2}}' placeholder='回复当前评论' adjust-position='true' bindinput='bindinput2' hidden='{{hidden}}'></input>
+
+
+<!-- 更新后提示 -->
+<view class='kind-list-item-bd {{open? "kind-list-item-bd-show":""}}' catchtap='onCloseRemind'>
+    <image class='guarantee' src='http://www.levau.com/remind/guarantee.png' mode='widthFix'></image>
+</view>
+
+<!-- 帮卖提示 -->
+<view class='kind-list-item-bd {{help_sell_open? "kind-list-item-bd-show":""}}' catchtap='onCloseHelpSell'>
+    <image class='help-sell' src='/images/icon/help-sell.png' mode='widthFix'></image>
+</view>
+
+<!-- 帮卖规则 -->
+<!-- <view class='kind-list-item-bd {{help_GZ_open? "kind-list-item-bd-show":""}}' catchtap='onHelpGZopen'>
+    <image class='help-sell' src='/images/icon/help-sell.png' mode='widthFix'></image>
+</view> -->
+
+
+
+

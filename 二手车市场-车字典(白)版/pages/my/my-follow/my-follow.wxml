@@ -1,0 +1,36 @@
+<!--pages/my/my-fans/my-fans.wxml-->
+<view class='fans'>
+    
+        <block wx:for="{{fans_list}}" wx:key="" wx:for-index="i">
+        <view class='fans_list'>
+            <view class='left'>
+            <view catchtap='zhuye' data-openid='{{item.openId}}'>
+                <image wx:if='{{item.avatarUrl}}' src='{{item.avatarUrl}}'></image>
+                <image wx:else src='/images/icon/default.png'></image>
+            </view>
+            <view style='margin-top:-15rpx;margin-left:20rpx'>
+                <view>{{item.nickName}}</view>
+                <view class='xinxi' style='font-size:20rpx;margin-top:5rpx;'>
+                    <text>发布:</text>
+                    <text>{{item.totalVehicleCount}}</text>
+                    <text>粉丝:</text>
+                    <text>{{item.fansCount}}</text>
+                </view>
+            </view>
+            </view>
+            <view wx:if='{{ziji}}' class='right' catchtap='guanzhu' data-relationship='{{item.relationship}}' data-i='{{i}}'>
+                <!-- <image wx:if='{{item.relationship==3}}'  src='/images/chonggou/fans/huweiguanzhu.png'></image>
+                <image wx:elif='{{item.relationship==2}}' src='/images/chonggou/fans/yiguanzhu.png'></image>
+                <image wx:elif='{{item.relationship==1}}' src='/images/chonggou/fans/guanzhu.png'></image>
+                <image wx:elif='{{item.relationship==0}}' src='/images/chonggou/fans/guanzhu.png'></image> -->
+                <view class='active' wx:if='{{item.relationship==3}}'>相互关注</view>
+                <view class='active' wx:elif='{{item.relationship==2}}'>已关注</view>
+                <view class='active' wx:elif='{{item.relationship==1}}'>关注</view>
+                <view class='active' wx:elif='{{item.relationship==0}}'>关注</view>
+            </view>
+            
+        </view>   
+        </block>
+        <view wx:if="{{isloadover}}" class='tip_center' style='margin-bottom:30px'>别拉了，没有啦</view>
+        <view wx:else class='tip_center' style='margin-bottom:30px'>快快的加载中...</view>
+</view>

@@ -1,0 +1,49 @@
+/* pages/market/paid-help/paid-help.wxss */
+page{
+  background: #fff;
+  font-size: 28rpx;
+  color: #333;
+}
+.title{
+  font-size: 50rpx;
+  font-weight: bolder;
+  margin-top: 50rpx;
+  color: #111;
+  text-align:center;
+}
+.context{
+  line-height: 65rpx;
+  box-shadow:2px 5px 16px rgba(0,0,0,0.2);
+  padding: 10rpx;
+  width: 690rpx;
+  margin: 0 auto;
+}
+.paid{
+  width: 690rpx;
+  margin: 30rpx;
+}
+.price{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center; 
+  width: 100%;
+  padding: 0 20rpx;
+  border-bottom: 1rpx solid #E6E6E6;
+  font-size: 48rpx;
+}
+.price text{
+  font-size:70rpx;
+  font-weight:bolder;
+}
+.btn-press{
+  width:648rpx;
+  height:82rpx;
+  background:rgba(19,52,75,1);
+  border-radius:41rpx;
+  box-shadow:1px 5px 16px rgba(0,0,0,0.2);
+  color:#fff;
+  line-height:82rpx;
+  text-align:center;
+  margin-top:350rpx;
+}

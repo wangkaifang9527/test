@@ -1,0 +1,10 @@
+<!--pages/anli.wxml-->
+<view class='kf_anli'>
+    <view style='background:rgba(0, 0, 0, {{weibao}});' catchtap='weibao'>维保案例</view>
+    <view style='background:rgba(0, 0, 0, {{chuxian}});' catchtap='dingsun'>定损案例</view>
+    <view style='background:rgba(0, 0, 0, {{zaibao}});' catchtap='zaibao'>状态在保案例</view>
+</view>
+
+<view class='kf-fours'>
+  <image src='{{src}}' mode="widthFix"></image>
+</view>

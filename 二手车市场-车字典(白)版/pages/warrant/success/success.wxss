@@ -1,0 +1,26 @@
+/* pages/warrant/success/success.wxss */
+page{
+  background: #fff;
+}
+.title{
+  width: 100%;
+  text-align: center;
+  margin-top: 240rpx;
+  color: #111;
+}
+.title image{
+  width: 140rpx;
+  height: 140rpx;
+}
+.title .text{
+  margin-top: 100rpx;
+  font-size:46rpx;
+}
+.btn{
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 200rpx;
+}
+.btn view{
+  margin-top: 50rpx;
+}

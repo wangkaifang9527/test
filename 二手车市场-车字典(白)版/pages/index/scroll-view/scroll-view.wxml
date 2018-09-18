@@ -1,0 +1,30 @@
+
+<view class='kind-list-item-bd {{open?"kind-list-item-bd-show":""}}' catchtap='onClose'>
+  <view class='layout'>
+      <view class='line one {{interval?"one-show":"one-hide"}}'>
+          <image src='http://www.levau.com/animation/1.png' mode='widthFix'></image>
+      </view>
+      <view class='finger {{interval?"finger-show":"finger-hide"}}'>
+          <image src='http://www.levau.com/animation/finger.png'></image>
+      </view>
+      <view class='line two {{interval?"two-show":"two-hide"}}'>
+          <image src='http://www.levau.com/animation/2.png' mode='widthFix'></image>
+      </view>
+      <view class='finger-2 {{interval?"finger-show-2":"finger-hide-2"}}'>
+          <image src='http://www.levau.com/animation/finger.png'></image>
+      </view>
+      <view class='line three {{interval?"three-show":"three-hide"}}'>
+          <image src='http://www.levau.com/animation/3.png' mode='widthFix'></image>
+      </view>
+      <view class='line four {{interval?"four-show":"four-hide"}}'>
+          <image src='http://www.levau.com/animation/4.png' mode='widthFix'></image>
+      </view>
+      <view class='finger-3 {{interval?"finger-show-3":"finger-hide-3"}}'>
+          <image src='http://www.levau.com/animation/finger.png'></image>
+      </view>
+      <view class='line five {{interval?"five-show":"five-hide"}}'>
+          <image src='http://www.levau.com/animation/5.png' mode='widthFix'></image>
+      </view>
+  </view>
+    
+</view>

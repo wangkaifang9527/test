@@ -1,0 +1,24 @@
+<template name="areaData">
+    <view class="distpicker {{showDistpicker ? '' : 'hide'}}">
+        <view class="distpicker-btn">
+            <view class="distpicker-cancel-btn" bindtap="distpickerCancel">取消</view>
+            <view class="distpicker-sure-btn" bindtap="distpickerSure">确定</view>
+        </view>
+        <picker-view indicator-style="height: 40px;" class="distpicker-content" value="{{value}}" bindchange="changeArea">
+            <!-- 省 -->
+            <picker-view-column>
+                <view wx:for="{{provinceName}}" wx:key="province" class="area-item">{{item}}</view>
+            </picker-view-column>
+            <!-- 市 -->
+            <picker-view-column>
+                <view wx:for="{{cityName}}" wx:key="city" class="area-item">{{item}}</view>
+            </picker-view-column>
+            <!-- 区 -->
+            <!-- <picker-view-column>
+            <view wx:for="{{districtName}}" wx:key="district" class="area-item">{{item}}</view>
+        </picker-view-column> -->
+        </picker-view>
+    </view>
+    <view class="mask" catchtap="distpickerCancel" hidden="{{!showDistpicker}}"></view>
+    <view class="message {{showMessage ? 'fade-in' : ''}}" hidden="{{!showMessage}}">{{messageContent}}</view>
+</template>

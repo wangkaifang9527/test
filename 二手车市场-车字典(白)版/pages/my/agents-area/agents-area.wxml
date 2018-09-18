@@ -1,0 +1,77 @@
+<!-- 引入模版 -->
+<!-- <import src="../../../model/city/city.wxml"/>  -->
+
+<!-- html  -->
+<view class="container">
+    <form bindsubmit='formSubmit'>
+        <view class='regional_agents'>
+            <view class="section">
+                <text>姓名</text>
+                <view class="right">
+                    <input name="name" placeholder='姓名' value="{{name}}"></input>
+                </view>
+
+            </view>
+            <view class="section">
+                <text>电话</text>
+                <view class="right">
+                    <input name="phone" placeholder='手机或固话' maxlength='11' value="{{phone}}"></input>
+                </view>
+            </view>
+            <view class="section">
+                <text>选择地区</text>
+                <view class="right">
+                    <view class="form-item-bd" bindtap="showDistpicker">
+                        <view class="input {{!provinceSelStr ? 'input-placeholder' : ''}}">
+                            <block wx:if="{{provinceSelStr}}">
+                                {{provinceSelStr}} {{citySelStr}}
+                            </block>
+                            <block wx:else>请选择所在地区</block>
+                        </view>
+                        <input name="city" value="{{provinceSelStr}} {{citySelStr}}" class="hide" />
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="tip_txt">
+            <text style='padding-bottom:5px;'>代理商须知：</text>
+            <text>请仔细阅读合伙人协议，四线城市加盟费用2000元，三线城市3000元，二线城市6000 ，一线城市10000</text>
+            <text>开 户 行: 上海农村商业银行闵行支行</text>
+            <text>开 户 名: 上海勒沃企业形象策划有限公司 </text>
+            <text>银行账户：32477208010165585</text>
+            <text>备注:（打款请备注城市和名字）</text>
+        </view>
+        <view class="tip_rule" catchtap='onRuleUser' style='margin-top:30px;margin-bottom:-5px;'>
+            <image src='/images/ico/ckecked.png'></image>
+            默认同意《过户宝城市合伙人协议》</view>
+        <button form-type='submit' class="btn_blue">确定</button>
+        <view wx:if="{{state=='2'}}" class='tip_center'>您的最近一次申请被拒绝，可以重新提交申请</view>
+        <view wx:if="{{state=='1'}}" class='tip_center'>您的最近一次申请已通过，可以再次修改</view>
+        <view wx:else class='tip_center'></view>
+
+    </form>
+</view>
+
+<!-- city selsect -->
+<view class="distpicker {{showDistpicker ? '' : 'hide'}}">
+    <view class="distpicker-btn">
+        <view class="distpicker-cancel-btn" bindtap="distpickerCancel">取消</view>
+        <view class="distpicker-sure-btn" bindtap="distpickerSure">确定</view>
+    </view>
+    <picker-view indicator-style="height: 40px;" class="distpicker-content" value="{{value}}" bindchange="changeArea">
+        <!-- 省 -->
+        <picker-view-column>
+            <view wx:for="{{provinceName}}" wx:key="province" class="area-item">{{item}}</view>
+        </picker-view-column>
+        <!-- 市 -->
+        <picker-view-column>
+            <view wx:for="{{cityName}}" wx:key="city" class="area-item">{{item}}</view>
+        </picker-view-column>
+        <!-- 区 -->
+        <!-- <picker-view-column>
+            <view wx:for="{{districtName}}" wx:key="district" class="area-item">{{item}}</view>
+        </picker-view-column> -->
+    </picker-view>
+</view>
+<view class="mask" catchtap="distpickerCancel" hidden="{{!showDistpicker}}"></view>
+<view class="message {{showMessage ? 'fade-in' : ''}}" hidden="{{!showMessage}}">{{messageContent}}</view>

@@ -1,0 +1,23 @@
+<form  bindsubmit='formSubmitVin' report-submit='true'>
+<view class='container'>
+    <view class='title'>
+        <view>退款给</view>
+        <view class='right'>
+            <image src='/images/icon/default.png'></image>
+            <view class='grey'>用户昵称</view>
+        </view>
+    </view>
+
+    <view class='head'>退款金额</view>
+    <view class='body'>
+        <view class='one'>
+            <text>￥</text>
+            <input name='price' placeholder='请输入退款金额' placeholder-class='pclass'></input>
+        </view>
+    </view>
+    <view class='foot'>
+        <button class='btn-blue-big btn-press'  form-type='submit'>确认退款</button>
+    </view>
+
+</view>
+</form>

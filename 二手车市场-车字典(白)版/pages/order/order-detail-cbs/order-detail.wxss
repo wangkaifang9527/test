@@ -1,0 +1,232 @@
+page {
+    background: #f8f8f8;
+}
+
+.container {
+    margin: 0 30rpx;
+    display: flex;
+    flex-direction: column;
+}
+
+.container .title {
+    font-size: 17px;
+    margin: 15px 0;
+}
+
+.box {
+    margin-bottom: 10px;
+    background: #fff;
+    border-radius: 10px;
+    padding: 0 30rpx;
+    overflow: hidden;
+}
+
+/* 车辆概要 */
+
+.car_detail {
+    padding-bottom: 15px;
+    /* background: url("http://www.levau.com/banner/shuiyin.png") no-repeat;    
+    background-size:  100% 100%;  */
+}
+
+.car_detail .line {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.car_detail .line text:nth-child(1) {
+    color: #666;
+}
+
+.car_detail .line text:nth-child(2) {
+    color: #333;
+}
+
+.car_detail .line.top {
+    padding: 20px 0;
+    border-bottom: 1px solid #dedede;
+}
+
+.car_detail .line.top text:nth-child(1) {
+    font-size: 15px;
+}
+
+/* 报告详情 */
+
+.result_detail {
+}
+
+.result_detail .top {
+}
+
+.result_detail .top text {
+    display: block;
+    color: #666;
+    margin-bottom: 10px;
+    font-size: 15px;
+}
+
+.result_detail .top .h1 {
+    display: block;
+    font-size: 16px;
+    color: #1c1e2f;
+    padding-top: 15px;
+    padding-bottom: 5px;
+}
+
+.result_detail .line {
+    margin-bottom: 10px;
+    margin-left: -15px;
+    margin-right: -15px;
+    background: #fff;
+    border-radius: 10px;
+    position: relative;
+}
+
+.result_detail .line image {
+    position: absolute;
+    width: 8px;
+    height: 37px;
+    top: -23px;
+}
+
+.result_detail .line .left_img {
+    left: 15px;
+}
+
+.result_detail .line .right_img {
+    right: 15px;
+}
+
+.result_detail .line .table {
+    text-align: center;
+    /* font-size: 15px; */
+    color: #1c1e2f;
+}
+
+.result_detail .line .table .tr {
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid #e6e6e6;
+}
+
+.result_detail .line .table .tr>text {
+    flex: 1;
+    padding: 10px 0;
+    border-left: 1px solid #e6e6e6;
+}
+
+.result_detail .line .table .tr text:first-child {
+    border: none;
+}
+
+.result_detail .line .text_box {
+    text-align: left;
+    padding: 15px;
+}
+
+.result_detail .line .text_box .h2 {
+    margin-bottom: 15px;
+    font-size: 16px;
+    color: #1c1e2f;
+}
+
+.result_detail .line .text_box .p {
+    color: #666;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    margin-bottom: 10px;
+}
+
+.result_detail .line .text_box .p text {
+    width: 130rpx;
+}
+
+.result_detail .line .text_box .p view {
+    flex: 1;
+    line-height: 150%;
+}
+
+.bg_502 {
+    background: transparent;
+}
+
+.bg_502 .top {
+    background: #fff;
+    margin-left: -15px;
+    margin-right: -15px;
+    padding-left: 15px;
+    border-radius: 10px;
+    padding-bottom: 2px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+/* 异常报告 */
+
+.accidents_detail {
+}
+
+.accidents_detail .line {
+    display: flex;
+    flex-direction: row;
+    align-items:center;
+    padding: 15px 0;
+    border-top: 1px solid #e6e6e6;
+}
+
+.accidents_detail .line text:first-child {
+    color: #666;
+    width: 200rpx;
+    margin-right: 15px;
+    text-align: center
+}
+
+.accidents_detail .line text:last-child {
+    flex: 1;
+    line-height: 150%
+}
+
+.accidents_detail .line.top {
+    font-size: 16px !important;
+    text-align: center;
+    padding: 15px 0;
+    border: 0;
+}
+.accidents_detail .line.top text{color: #333;}
+.kf_weixin{
+  width: 100%;
+  position: fixed;
+  background: rgba(0, 0, 0, 0.6);
+  bottom:150rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-align: center;
+  font-size: 35rpx;
+  color: #fff;
+  padding: 10rpx;
+  z-index: 999;
+}
+.kf_weixin view{
+  width: 50%;
+}
+.right button{
+  background: rgba(0, 0, 0, 0);
+  color: #fff;
+  font-size: 35rpx;
+  line-height: 35rpx;
+}
+.kf_weixin image{
+  height: 80rpx;
+  width: 80rpx;
+}
+button::after{
+ border: none; 
+}
+.left{
+  border-right: 1rpx solid #fff;
+}

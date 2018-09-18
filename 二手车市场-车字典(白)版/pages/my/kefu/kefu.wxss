@@ -1,0 +1,13 @@
+/* pages/my/kefu/kefu.wxss */
+.kf-view{
+  text-align: center;
+  margin: 0 auto;
+  padding: 100rpx 20rpx;
+}
+.kf-phone{
+  font-size: 40rpx;
+  font-weight: bolder;
+  color: #111;
+  position: relative;
+  top: 100rpx;
+}

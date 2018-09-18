@@ -1,0 +1,45 @@
+<!--pages/warrant/deal-order/deal-order.wxml-->
+<view class='container'>
+    <view class='tab'>
+        <view class='btn-press {{tab_show==1?"line_show":""}}'catchtap='onTab' data-i='1'>待退款订单</view>
+        <view class='btn-press {{tab_show==2?"line_show":""}}'catchtap='onTab' data-i='2'>已完成订单</view>
+        <view class='btn-press {{tab_show==3?"line_show":""}}'catchtap='onTab' data-i='3'>全部订单</view>
+    </view>
+
+    <view class='list'>
+        <view class='head'>
+            <view class='left'>订单进度：<text>买方取消了担保，请确认退款</text></view>
+            <view class='right'>¥ 1000</view>
+        </view>
+        <view class='body'>
+            <view class='left'>
+                <image mode="aspectFill"
+                      src="http://pic.chejiwei.com/vehicle/153547314594364128.jpeg?imageView2/0/w/864"></image>
+            </view>
+            <view class='right'>
+                <view class='one'>2013年进口起亚速迈</view>
+                <view class='two'>卖家昵称：我是卖家我是卖家</view>
+                <view class='three'>参考价：¥ 40万元 <text>平台代办</text></view>
+            </view>
+        </view>
+        <view class='foot'>
+            <view>订单ID：WBAUD132132131J1313131</view>
+            <view>发起时间：2018.06.01 12:23</view>
+            <view class='btn_list'>
+                
+                <view class='right'>
+                    <view class='btn-press grey'>拒绝退款</view>
+                    <view class='btn-press'>联系买家</view>
+                    <view class='btn-press'>联系卖家</view>
+                    <view class='btn-press' catchtap='onRefund'>同意退款</view>
+                </view>
+            </view>
+        </view>
+    </view>
+
+    
+    
+    <!-- 提示 -->
+    <view wx:if="{{isloadover}}" class='tip_center' style='margin-bottom:30px'>别拉了，没有啦</view>
+    <view wx:else class='tip_center' style='margin-bottom:30px'>火力加载中...</view>
+</view>

@@ -1,0 +1,17 @@
+<!-- 引入模版 -->
+<import src="../../../template/t-order-list/t-order-list.wxml" />
+
+<!-- html -->
+<view class='container'>
+    <view class="order_box">
+        <block wx:for="{{orders}}" wx:for-item="order" wx:for-index="i" wx:key="">
+            <template is="t-order-list" data="{{...order,i}}" />
+        </block>
+    </view>
+    <!-- 提示 -->
+    <view wx:if="{{isloadover}}" class='tip_center' style='margin-bottom:30px'>别拉了，没有啦</view>
+    <view wx:else class='tip_center' style='margin-bottom:30px'>拼命加载中...</view>
+</view>
+
+
+

@@ -1,0 +1,71 @@
+/* pages/market/search/search.wxss */
+page{
+  background: #fff;
+  color: #111;
+}
+.search{
+  color: #333;
+  padding: 20rpx;
+  letter-spacing:2rpx;
+  font-size: 32rpx;
+  
+}
+.title{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between; 
+}
+.input{
+  background-color:#E6E6E6;
+  width: 85%;
+  border-radius: 10rpx;
+  padding: 10rpx 20rpx;
+}
+.sousuo{
+  width:15%;
+  text-align: center;
+}
+.input-placeholder{
+  color:#999;
+  text-align: center;
+  background: url('http://www.levau.com/icon/search.png') no-repeat;
+  background-size: 40rpx 40rpx;
+  background-position-x: 130rpx;
+  background-position-y: 5rpx;
+  font-size: 30rpx;
+}
+.lishi{
+  margin-top: 40rpx;
+}
+.lishi_list{
+  overflow: hidden;
+}
+.lishi_list view{
+  text-align: center;
+  padding: 10rpx 10rpx;
+  min-width: 15%;
+  float: left;
+  background: #E6E6E6;
+  margin-top: 20rpx;
+  margin-right: 20rpx;
+}
+.remen{
+  margin-top: 40rpx;
+}
+.remen_list{
+  overflow: hidden
+}
+.remen_list view{
+  width: 18%;
+  background: #E6E6E6;
+  float: left;
+  text-align: center;
+  margin-right: 2%;
+  padding: 10rpx 0rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;  
+  margin-top: 20rpx;
+
+}

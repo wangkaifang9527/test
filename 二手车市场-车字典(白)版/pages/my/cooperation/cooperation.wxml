@@ -1,0 +1,30 @@
+
+<view class='container'>
+    <view class='title'>车字典全国招募城市合伙人</view>
+    <view class='centext'>
+           二手车市场小程序是上海尔幻信息技术有限公司旗下的一款完全基于微信生态的二手车电商平台，是微信里最大的二手车市场，提供高效发车，400万流量导入，一键转发，微信支付，微信定车担保，社交传播，悬赏卖车，微信车源管理等功能，朋友圈的车源都已经转移到这里，预期获得更高的曝光流量。另有公司旗下的过户宝小程序提供全国车辆手续代办，车字典小程序提供车辆历史车况大数据查询。
+    </view>
+    <view class='centext'>
+           目前公司在全国范围内招募城市独家代理，总部输出整套服务产品和盈利模式，车字典通过小程序矩阵+社群+社区门店+自媒体全方位赋能给合伙人！欢迎入驻！
+    </view>
+    <view class='title'>加盟城市合伙人我们将为您提供</view>
+    <view class='blue' catchtap='onCityCharge'>查看城市划分及收费标准点这里</view>
+    <view class='xcx'>
+        <view class='line top'>小程序：1、二手车市场（提供担保交易与车源）</view>
+        <view class='line'>2、4S查询（车况大数据）</view>
+        <view class='line'>3、过户宝（车务代办）</view>
+        <view class='line'>4、违章代缴（增值服务）</view>
+        <view class='line'>5、二手车检测（线下配套增值服务）</view>
+    </view>
+
+
+    <view class='cco'>
+        <view style='font-size:24rpx;margin-bottom:20rpx;'>社区店</view>
+        <image src='/images/icon/sqd.png' mode='widthFix'></image>
+        <image src='/images/icon/cco.png' mode='widthFix'></image>
+    </view>
+    <view class='bom'>
+        <view>联系人：萧非 联系电话：15317712710</view>
+        <view>公司地址 ：上海市闵行区剑川路951号零号湾创业园515室</view>
+    </view>
+</view>

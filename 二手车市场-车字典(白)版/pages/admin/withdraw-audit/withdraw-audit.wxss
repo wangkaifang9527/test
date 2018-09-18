@@ -1,0 +1,70 @@
+/* page {
+    background: #f8f8f8;
+} */
+
+.container {
+  color:#111;
+}
+
+
+.withdraw_audit_li {
+    width: 710rpx;
+    background:#fff;
+    margin-top: 15px;
+    border-radius: 10rpx;
+}
+
+.withdraw_audit_li .info {
+    padding: 0 30rpx;
+    height: 187rpx;
+    border-bottom: 1px solid #e6e6e6;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.withdraw_audit_li .info .intr {
+    flex: 1;
+}
+
+.withdraw_audit_li .info .intr .p {
+    font-size: 16px;
+}
+
+.withdraw_audit_li .info .intr .h1 {
+    font-size: 30rpx;
+    margin-top: 5px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between; 
+}
+
+.withdraw_audit_li .btn {
+    border-radius: 5px;
+    background: #13344B;
+    width: 130rpx;
+    height: 54rpx;
+    line-height: 54rpx;
+    text-align: center;
+    color: #fff;
+}
+
+.withdraw_audit_li .btn.gary {
+    border: 1px solid #999;
+    background: #13344B;
+    color: #fff;
+}
+
+.withdraw_audit_li .time {
+    height: 68rpx;
+    line-height: 68rpx;
+    padding-left: 30rpx;
+}
+.price{
+  width: 80%;
+  font-size:50rpx;
+  text-align: center;
+
+}

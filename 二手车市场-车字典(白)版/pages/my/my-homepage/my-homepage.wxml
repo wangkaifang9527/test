@@ -1,0 +1,124 @@
+<import src="/template/t-car-list/t-car-list.wxml" />
+
+<view class='container'>
+    <view class='title'><view>车字典二手车</view></view>
+
+    <view class='list'>
+        <view class='li one active' 
+              catchtap='jiaguanzhu' 
+              data-relationship='{{userInfo.relationship}}' 
+              data-targetopenid='{{userInfo.openId}}'>
+            <image class='avatar' wx:if='{{userInfo.avatarUrl}}' src='{{userInfo.avatarUrl}}'></image>
+            <image class='avatar' wx:else src='/images/icon/default.png'></image>
+            <!-- <view wx:if='{{userInfo.relationship <= 1}}' class='jia' >+</view>
+            <view wx:else class='jia' style='font-size:23rpx;'>已</view> -->
+        </view>
+        <view class='li two'>
+            <view class='black'>{{userInfo.nickName}}</view>
+            <view class='grey'>
+                <text catchtap='fensi'>粉丝 {{userInfo.fansCount}}</text>
+                <text catchtap='guanzhu'>关注 {{userInfo.focusCount}}</text>
+                <text>访客 {{userInfo.visitorCount}}</text>
+            </view>
+        </view>
+        <view class='li'>
+        </view>
+        <view class='li'>
+        </view>
+    </view>
+
+    <view class='list single'>
+        <view class='li active' catchtap='tuwen'>
+            <image class='' src='/images/icon/sprt.png'></image>
+        </view>
+        <view class='li active' catchtap='chushouzhong'>在售</view>
+        <view class='li active' catchtap='yichengjiao'>已售</view>
+    </view>
+
+    <view wx:if='{{change_flag}}'>
+        <block wx:for="{{list}}" wx:key="" wx:for-index="i" >
+            <template is="t-car-list-1" data="{{...item,i}}" />
+        </block>
+    </view>
+
+    <view wx:else class='market_jiugongge' >
+        <block  wx:for="{{list}}" wx:key="" wx:for-index="i">
+            <!-- <template is="t-car-list-2" data="{{...item,i}}" /> -->
+            <view class='market_list'
+                  catchtap='jiugonggetupian' 
+                  data-openid='{{item.openId}}' 
+                  data-id='{{item.id}}'>
+                <view class='list_left'>
+                    <image src='{{item.images[0]}}' mode="aspectFill"></image>
+                </view>
+                <view class='list_right'>
+                    <view class='list_right_yi'>{{item.title}}</view>
+                    <view class='list_right_er'>
+                          <view>{{item.licenseDate}} ·</view>
+                          <view style='margin:0 8rpx;'>{{item.mileage}}万公里 ·</view>
+                          <view>{{item.location}}</view>
+                          <view wx:if='{{item.xz.length!=0}}'>
+                            <block wx:for="{{item.xz}}" wx:key="" wx:for-item="xz">
+                              <view wx:if='{{item.xz=="抵押车"}}'>· {{item.xz}}</view>
+                            </block>
+                          </view>
+                    </view>  
+                    <view class='list_right_san'>
+                        <view>{{item.price}}万元</view>
+                        <!-- <view class='li'>悬赏车</view>
+                        <view class='li'>车况记录</view>
+                        <view class='li'>有偿帮卖</view> -->
+                        <view  class='car_edit' catchtap='onEditCar' data-i='{{i}}'>
+                            编辑
+                        </view>
+                    </view> 
+                </view>
+              </view>
+              <view wx:if='{{item.status == 2}}' class='yishou_jiugongge' >已售</view>
+
+              <view wx:if='{{item.flag}}' class='car_zhezhao'>
+                  <view catchtap='onClose' data-i='{{i}}' class='car_close'>
+                      <image src='/images/icon/guanbi.png'></image>
+                  </view>
+                  <view class='car_caozuo'>
+                      <view catchtap='bianji' data-id='{{item.id}}'>
+                          <view>
+                              <image src='/images/icon/bianji.png'></image>
+                          </view>
+                          <view class='car_caozuo_two'>编辑</view>
+                      </view>
+                      <view catchtap='shanchu' data-id='{{item.id}}'>
+                          <view>
+                              <image src='/images/icon/shanchu.png'></image>
+                          </view>
+                          <view class='car_caozuo_two'>删除</view>
+                      </view>
+                      <view catchtap='shichangzhiding' data-id='{{item.id}}'>
+                          <view>
+                              <image src='/images/icon/shichangzhiding.png'></image>
+                          </view>
+                          <view class='car_caozuo_two'>市场置顶</view>
+                      </view>
+                      <view>
+                          <view>
+                              <image wx:if='{{item.status==1}}' 
+                                      src='/images/icon/biaoweiyishou.png'
+                                      catchtap='zaishou' data-id='{{item.id}}' 
+                                      data-i='{{i}}'></image>
+                              <image wx:elif='{{item.status==2}}' 
+                                      src='/images/icon/biaoweiyishou.png' 
+                                      catchtap='chengjiao' 
+                                      data-id='{{item.id}}'></image>
+                          </view>
+                          <view wx:if='{{item.status==1}}' class='car_caozuo_two'>在售</view>
+                          <view wx:elif='{{item.status==2}}' class='car_caozuo_two'>已售</view>
+                      </view>
+
+                  </view>
+              </view>
+        </block>   
+    </view>
+</view>
+
+<view wx:if="{{isloadover}}" class='tip_center' style='margin-bottom:30px'>别拉了，没有啦</view>
+<view wx:else class='tip_center' style='margin-bottom:30px'>加载中...</view>

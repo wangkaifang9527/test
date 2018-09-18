@@ -1,0 +1,48 @@
+<template name="t-order-list">
+    <view class='order_li' catchtap='onHrefOrderDetail' data-state="{{state_code}}" data-i="{{i}}" data-type="{{type}}">
+        <view class='order_head'>
+
+            <view class='head_left'>
+                <image wx:if='{{brandimage}}' src='{{brandimage}}' style='height:50rpx;width:50rpx'></image>
+                <image wx:else src='{{avatar_url}}' style='height:50rpx;width:50rpx'></image>
+                <view wx:if='{{manufacturer}}' style='margin-left:10rpx;max-width:280rpx;'>{{manufacturer}}</view>
+                <view wx:else style='margin-left:10rpx;max-width:220rpx;'>{{nick_name}}</view>
+                <text style='width:60rpx;'>{{city}}</text> 
+            </view>
+            <view class='head_right'>
+                <image wx:if="{{state_code==0}}" src='/images/icon/what.png'></image>
+                <image wx:elif="{{state_code==1}}" src='/images/icon/what.png'></image>
+                <image wx:elif="{{state_code==2}}" src='/images/icon/true.png'></image>
+                <image wx:else src='/images/icon/false.png'></image>
+                {{data_state_str}}
+            </view>
+        </view>
+
+        <view class='chassis_number1' style='margin-top:20rpx;overflow: hidden'>
+          <text style=''>车牌号: {{License}}</text>
+          <text style='float: right;background: #f0f0f2;font-size:20rpx;padding: 2px 5px;max-width: 120rpx;border-radius: 2px; '>{{type_str}}</text>
+        </view>
+
+        <view class='chassis_number1' style='margin-top:15rpx;overflow: hidden'>
+          <text style=''>订单号：{{orderNo}}</text>
+          <text style='float: right'>¥ {{money}}</text>
+        </view>
+
+      
+        <view class='chassis_number1'style="padding:0rpx 0rpx;margin-top:15rpx;" catchtap='onvin' data-vin='{{vin}}'>
+            <text selectable='true'>车架号：{{vin}}</text>
+        </view>
+        <view class='chassis_number1'style="padding:0rpx 0rpx;margin-top:15rpx;">
+        地  址  ：{{address}}</view>
+        <view class='chassis_number1'style="padding:0rpx 0rpx;margin-top:15rpx;margin-bottom:20rpx">{{time_long}}</view>
+        <view class='order_time' catchtap='shoujihao'data-phone="{{phone}}"  style='overflow: hidden'>
+            <view style='float: left'>
+            手机号：<text style='color:#027bff'>{{phone}}</text>
+            </view>
+            <view style='float: right'>
+                <image src='{{avatar_url}}' style='height:40rpx;width:40rpx;margin-top:18rpx;margin-right:20rpx'></image>
+                <text style="width:120rpx;overflow: hidden;text-overflow:ellipsis;white-space: nowrap; text-align: center">{{nick_name}}</text>
+            </view>
+        </view>
+    </view>
+</template>

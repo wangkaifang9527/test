@@ -1,0 +1,10 @@
+
+<view class='container'>
+    <view class='title'>城市划分</view>
+    <view><image src='/images/icon/city_gui.png' mode='widthFix'></image></view>
+    <view class='title'>收费标准</view>
+    <view class='line first'>一线城市：38000元城市独家代理权</view>
+    <view class='line'>二线城市：28000元城市独家代理权</view>
+    <view class='line'>三线城市：18000元城市独家代理权</view>
+    <view class='line last'>四线城市：8000元城市独家代理权</view>
+</view>

@@ -1,0 +1,260 @@
+<form  bindsubmit='formSubmitVin' report-submit='true'>
+<view class='container'>
+    <!-- banner -->
+    <view class='banner'>
+      <swiper class='swiper-box'  
+      autoplay="true" 
+      interval="4000" 
+      duration="500" 
+      circular="true" 
+      indicator-color="#fff" 
+      indicator-active-color="#bfbfbf" 
+      previous-margin='0rpx' 
+      next-margin='30rpx'>
+          <block wx:for="{{banners}}" wx:key="" wx:for-index="i">
+              <swiper-item>
+                  <image  src='{{item.url}}' 
+                  data-index="{{i+1}}" 
+                  catchtap='dianjitupian' 
+                  mode="widthFix" 
+                  style='width:100%'></image>
+              </swiper-item>
+          </block>
+      </swiper>
+  </view>
+
+  <!-- vin图片 -->
+  <view class='vin_image' wx:if='{{vin_image_flag}}'> 
+    <image src='{{vin_image}}' 
+          mode="aspectFill" 
+          bindload='imgload' 
+          bindtouchmove='movetap' 
+          bindtouchend='endtap' 
+          style='width:{{scaleWidth}}rpx;height:{{scaleHeight}}rpx'></image>
+  </view>
+
+  <!-- 排行榜与车模 -->
+  <view class='list'>
+      <view class='li btn-press ranking'>
+          <button id='onRanking' form-type='submit'>
+              <image src='/images/icon/trophy.png' style='width:42rpx;height:42rpx'></image>
+              <view>查询榜</view>
+          </button>
+      </view>
+      <!-- <view class='li btn-press'>
+          <button id='onAutoSalongirls' form-type='submit'>赚车模免费查</button>
+      </view> -->
+  </view>
+
+  <view class='query'>
+      <view class='brand' catchtap='ontest'>
+          <view style='width:600rpx'>{{brand.brandName}} {{factory.brandFactoryName}}</view>
+          <view class='xiangji'>
+              <image src='/images/query/xiala.png'></image>
+          </view>
+      </view>
+      <view class='title'>
+          <input name='vin' 
+                maxlength='17' 
+                placeholder-style='color:#999;font-size:24rpx;' 
+                placeholder='输入17位VIN码或者上传行驶证照片' 
+                value='{{vin}}' 
+                bindblur="binput2"  
+                bindinput='verification2'></input>
+          <view class='xiangji'>
+              <image src='/images/query/xiangji.png' 
+                mode='aspectFit' 
+                class='ico_photo' 
+                catchtap='onPhotograph'></image>
+          </view>
+      </view>
+      <!-- 案例和用户协议 -->
+      <view class='list'>
+          <!-- <view class='li '  bindtap='claim'>
+              <image src='/images/query/denglan.png'></image>
+              查看案例
+          </view> -->
+          <view></view>
+          <view class='li '  bindtap='onRuleUser'>
+              <image src='/images/query/ckecked.png'></image>
+              默认《用户协议》
+          </view>
+      </view>
+
+      <view class='list query_btn'>
+          <view class='li btn-press'>
+              <button  id='onQueryMaintainLog' form-type='submit' >4S保养记录查询</button> 
+          </view>
+          <view class='li btn-press'>
+              <button  id='onQueryAccidentLog' form-type='submit'>车险定损查询</button> 
+          </view>
+      </view>
+
+  </view>
+
+  <view class='division'>
+      <view class='li one'>- - - - - - - - - - -</view>
+      <!-- <image src='/images/query/xiajiantou.png'></image> -->
+          <image src='/images/query/xiajiantou.png'></image>
+      <view class='li two'>
+          车辆投保查询
+      </view>
+          <image src='/images/query/xiajiantou.png'></image>
+      <!-- <image src='/images/query/xiajiantou.png'></image> -->
+      <view class='li three'>- - - - - - - - - - -</view>
+  </view>
+
+  <view class='query_2'>
+      <view class='title'>
+          <input name='license'  
+                placeholder-style='color:#999;font-size:24rpx;' 
+                placeholder='请输入当前车牌号码 例:沪HKF188' 
+                maxlength='8' 
+                value='{{plate_num}}' 
+                bindblur="binput" 
+                bindinput='verification'></input>
+      </view>
+      <view class='picker'>
+          <picker name="cartype" 
+                  mode='selector' 
+                  placeholder='请选择车型' 
+                  bindchange="bindCarTypeChange" 
+                  value="{{picker_cartype_index}}" 
+                  range="{{picker_cartype_arr}}">
+            <view class="">
+                {{picker_cartype_arr[picker_cartype_index]}}
+            </view>
+        </picker>
+      </view>
+      
+      <view class='btn btn-press'>
+          <button   id='onQueryinfoLog' form-type='submit'>车辆状态投保查询</button>
+      </view>
+  </view>
+
+</view>
+</form>
+
+<!-- <view style='height:300rpx;width:750rpx;' ></view> -->
+<view class="kind-list-item-bd {{open ? 'kind-list-item-bd-show' : ''}}" >
+    <view style='height:10%;text-align:center;line-height:120rpx;color:#fff;' catchtap='ontest' >
+        {{brand.brandName}} {{factory.brandFactoryName}}
+    </view>
+  <view style='background:#E6E6E6;height:100%;'>  
+    <view class='letter' >
+        <block class='letter_list' wx:for='{{letter_list}}' wx:key='' wx:for-index='i'>
+            <view class='li {{item.flag? "letter_li_show":""}}' 
+            catchtap='onLetter'
+            data-i='{{i}}'>{{item.name}}</view>
+        </block>
+    </view>
+    <view class='{{open? "mask":""}}'>
+        <scroll-view scroll-y style="height: 98%;width:50%;" 
+                    bindscrolltoupper="upper" 
+                    bindscrolltolower="lower" 
+                    scroll-into-view="{{toView}}" 
+                    scroll-top="{{scrollTop}}"
+                    scroll-with-animation="true"
+                    bindscroll="scrollTopFun">
+            <view class='scroll_list ' 
+                  wx:for="{{brand_list}}"  
+                  wx:for-index="i" wx:key='' 
+                  id='{{item.id}}'>
+                <view wx:if='{{item.brandId==""}}' class='li active {{item.flag? "":"li_hide"}}'>
+                    {{item.brandName}}
+                </view>
+                <view wx:else class='li active {{item.flag? "li_show":""}} ' 
+                      catchtap='onBrand' 
+                      data-i='{{i}}'>
+                    {{item.brandName}}
+                </view>
+            </view>
+        </scroll-view>
+        <scroll-view scroll-y style="height: 98%;width:50%" 
+                    bindscrolltoupper="upper" 
+                    bindscrolltolower="lower" 
+                    bindscroll="scroll" 
+                    scroll-into-view="{{toView}}" 
+                    scroll-top="{{scrollTop}}"
+                    wx:if='{{factory_flag}}'>
+            <view class='scroll_list' wx:for="{{factory_list_new}}"  wx:for-index="i" wx:key=''>
+                <view class='li active {{item.flag? "li_show":""}} ' 
+                      catchtap='onFactory' 
+                      data-i='{{i}}'>
+                    {{item.brandFactoryName}}
+                </view>
+            </view>
+        </scroll-view>
+    </view>
+  </view>
+</view>
+
+<view class='foot_tab'>
+    <view class='li' catchtap='wodedingdan'>
+        <image src='/images/my/query.png'></image>
+        <view>查询订单</view>
+    </view>
+    <view class='li' catchtap='woyaochongzhi'>
+        <image src='/images/my/YE.png'></image>
+        <view>账户充值</view>
+    </view>
+</view>
+
+
+<view class='kf_zhezhao' hidden="{{payflag}}">
+    <view class='pay'>
+        <view class='pay_title'>
+            <view class='pay_title_left'>请选择支付方式</view>
+            <view class='pay_title_right' catchtap='closePay'>+</view>
+        </view>
+
+        <view class='selected' catchtap='onPayType1'>
+            <view class='selected_left'>
+                <view style='margin-left:30rpx'>
+                    <image src='/images/query/ye_pay.png'></image>
+                </view>
+                <view style='margin-left:34rpx;color: rgba(0,0,0,{{balancePrompt}});'>
+                    余额支付<text wx:if='{{balancePrompt==0.2}}'>(余额不足)</text>
+                </view>
+            </view>
+            <view class='selected_right'>
+                <view style='color: rgba(0,0,0,{{balancePrompt}}'>{{price}}</view>
+                <view style='margin: 0 20rpx'>
+                    <image wx:if='{{priceType}}' src='/images/query/yixuan.png'></image>
+                    <image wx:else src='/images/query/weixuan.png'></image>
+                </view> 
+            </view> 
+        </view>
+        <!-- <view class='selected' catchtap='onPayType2'>
+            <view class='selected_left'>
+                <view style='margin-left:30rpx'>
+                    <image src='/images/query/cm_pay.png'></image>
+                </view>
+                <view style='margin-left:34rpx;color: rgba(0,0,0,{{modelPrompt}});'>
+                    车模支付<text wx:if='{{modelPrompt==0.2}}'>(车模不足)</text>
+                </view>
+            </view>
+            <view class='selected_right'>
+                <view style='color: rgba(0,0,0,{{modelPrompt}}'>{{modelCarCountCost}}</view>
+                <view style='margin: 0 20rpx'>
+                    <image wx:if='{{modelType}}' src='/images/query/yixuan.png'></image>
+                    <image wx:else src='/images/query/weixuan.png'></image>
+                </view> 
+            </view> 
+        </view> -->
+        <view class='pay_btn btn-press' catchtap='onPay'>
+            <view>立即支付</view>
+        </view>
+    </view>
+</view>
+<!-- 获取用户手机号 -->
+<import src="../../template/t-phone/t-phone.wxml" />
+<view class='kf_zhezhao' hidden="{{!flag}}">
+    <template is="t-order-list" data='{{flag}}' /> 
+</view>
+
+<movable-area style="height: 1100rpx; width: 1rpx; background: rgba(255,255,255,0);" class='fanhui'>
+  <movable-view style="height: 1px; width: 700rpx;" x="300" y="400" direction="all">
+      <image catchtap='fanhui' src='/images/details/fanhui.png'></image>
+  </movable-view>
+</movable-area>

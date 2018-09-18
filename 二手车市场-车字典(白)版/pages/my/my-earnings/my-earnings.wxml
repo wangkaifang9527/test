@@ -1,0 +1,31 @@
+<view class='container'>
+    <view class='promote_top'>
+        <view class='p'>历史收益（元）</view>
+        <view class='h1'>{{money_all}}</view>
+    </view>
+    <view class='promote_bill'>
+        <view class='bill_top'>
+            <image mode='aspectFit' src='/images/icon/i_rule.png'></image>
+            <text>收益明细</text>
+        </view>
+        <view class='bill_box'>
+            <block wx:for="{{orders}}" wx:for-item="order" wx:key="">
+                <view class='bill_li'>
+                    <view class='bill_li_h1'>
+                        <text wx:if="{{order.licenseNo!=null&&order.licenseNo!=''}}">{{order.licenseNo}}</text>
+                        <text wx:else>{{order.vin}}</text>
+                        <text>{{order.amount}}</text>
+                    </view>
+                    <view class='bill_li_p'>
+                        <text>{{order.type}}查询</text>
+                        <text>{{order.time_long}}</text>
+                    </view>
+                </view>
+            </block>
+
+        </view>
+    </view>
+
+    <view wx:if="{{isloadover}}" class='tip_center' style='margin-bottom:30px'>别拉了，没有啦</view>
+    <view wx:else class='tip_center' style='margin-bottom:30px'>火力加载中...</view>
+</view>

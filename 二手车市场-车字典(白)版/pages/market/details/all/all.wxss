@@ -1,0 +1,15 @@
+/* pages/market/details/all/all.wxss */
+page{
+  background: #fff;
+}
+.notice_img_list{
+  width: 650rpx;
+  margin: 0 auto;
+  text-align:center;
+}
+.notice_img_list image{
+  width:60rpx;
+  height:60rpx;
+  border-radius:100rpx;
+  margin:5rpx;
+}

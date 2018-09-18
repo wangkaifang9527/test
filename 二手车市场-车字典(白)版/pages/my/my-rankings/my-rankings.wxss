@@ -1,0 +1,145 @@
+
+page{
+  background: #fff;
+}
+.title{
+  width:600rpx;
+  height:72rpx;
+  background:rgba(255,255,255,1);
+  border-radius:37rpx;
+  box-shadow:6px 0px 16px rgba(0,0,0,0.36);
+  margin-top: 40rpx;
+  font-size: 22rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between; 
+}
+.title .li{
+  text-align: center;
+  width: 50%;
+  height: 72rpx;
+  line-height: 72rpx;
+}
+.title .no{
+  background: #13344B;
+  color: #fff;
+  border-top-left-radius: 100rpx;
+  border-bottom-left-radius: 100rpx;
+}
+
+.logo{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between; 
+  width: 750rpx;
+  margin-top:50rpx;
+}
+.logo .li {
+  width: 33.33%;
+  text-align: center;
+  font-size: 22rpx;
+}
+.logo .li .avatar{
+  width:113rpx;
+  height:113rpx;
+  border-radius: 113rpx;
+}
+.logo .li .hg{
+  width:54rpx;
+  height:54rpx;
+  position: relative;
+  top: -146rpx;
+  left: 44rpx;
+}
+.logo .li .share{
+  width:30rpx;
+  height:30rpx;
+}
+.logo button{
+  height:80rpx;
+  line-height:36rpx;
+  width:247rpx;
+  background:rgba(0,0,0,0);
+  font-size:22rpx;
+  color:#111;
+  box-shadow:0px 0px 0px rgba(0,0,0,0);
+  text-align:left;
+}
+
+.first{
+  width: 710rpx;
+  height:100rpx;
+  background:rgba(255,255,255,1);
+  border-radius:10rpx;
+  box-shadow:6px 0px 16px rgba(0,0,0,0.1);
+  margin-top:35rpx;
+}
+.first .one{
+  font-size: 50rpx;
+  color: #111;
+  font-weight: bolder;
+}
+.first .two{
+  font-size: 22rpx;
+  color: #333;
+  font-weight: bolder;
+}
+
+.module{
+  width:710rpx;
+  height: 64rpx;
+  line-height: 64rpx;
+  font-size: 26rpx;
+  color: #999;
+}
+.con{
+  width:710rpx;
+  border-radius:10px;
+  box-shadow:6px 0px 16px rgba(0,0,0,0.1);  
+  margin-top:20rpx;
+}
+.list{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between; 
+  padding-top: 10rpx;
+  padding-bottom: 10rpx;
+}
+.list .li{
+  height: 82rpx;
+  line-height: 82rpx;
+  color: #333;
+  font-size: 22rpx;
+  text-align: center;
+}
+.list .one{
+  font-size: 50rpx;
+  color: #111;
+  font-weight: bolder;
+  width: 160rpx;
+}
+.list .two{
+  width: 340rpx;
+  max-width: 340rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;   
+  display: flex;
+  flex-direction: row;
+  align-items: center; 
+  justify-content: center; 
+}
+.list .three{
+  width: 200rpx;
+}
+.list .four{
+  width: 50rpx;
+}
+.list .five image{
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 80rpx;
+}

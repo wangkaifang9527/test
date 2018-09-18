@@ -1,0 +1,41 @@
+<!--pages/market/area/area.wxml-->
+<view class='area'>
+
+  <view class='dingweichengshi'>
+    <view class='h1'>定位城市</view>
+    <view catchtap='dingwei' class='chengshi' data-city='{{location}}'>
+      <view class='dingwei'>
+        <image src='/images/icon/location.png'></image>
+        {{location}}
+      </view>
+    </view>
+  </view>
+
+  <view class='remen'>
+    <view class='h1'>热门城市</view>
+    <view class='remen_view'>
+      <block wx:for="{{remen}}" wx:key="" wx:for-index="i">
+        <view catchtap='remen' class='chengshi' data-city='{{item}}'>
+          <view class='item'>{{item}}</view>
+        </view>
+      </block>
+    </view>
+  </view>
+  <view class='quanbu'>
+    <view class='h1'>全部城市</view>
+
+    <block wx:for="{{city}}" wx:key="" wx:for-index="i">
+      <view wx:if='{{i!=100000}}'>
+        <view class='shengfen' catchtap='xuanzechengshi' data-i='{{i}}' data-flag='{{city[100000][i].flag}}'>{{city[100000][i].name}}</view>
+        <view wx:if='{{city[100000][i].flag}}' class='remen_view'>
+          <block wx:for="{{city[i]}}" wx:key="" wx:for-item="item1" wx:for-index="ii">
+            <view catchtap='chengshi' class='chengshi' data-city='{{item1}}'>
+              <view class='item'>{{item1}}</view>
+            </view>
+          </block>
+        </view>
+        </view>
+    </block>
+    
+  </view>
+</view>

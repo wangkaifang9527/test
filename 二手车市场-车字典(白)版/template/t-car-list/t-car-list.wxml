@@ -1,0 +1,136 @@
+<template name="t-car-list-1" >  
+  <view wx:if='{{!clinchShow&&adShow}}' class='module' catchtap='onCarDetails' data-id='{{id}}'>
+      <view class='one li'>
+          <view class='left h1'>{{title}}</view>
+          <view class='right h1'>{{price}}万</view>
+      </view>
+
+      <view class='two li'>
+          <view class='left h6'>
+              <!-- <image src='/images/sy/err.png'></image> -->
+              浏览
+              {{visitCount}} · 
+              <!-- <image src='/images/sy/time.png'></image> -->
+              发布
+              {{createTime}} · 
+              <!-- <image src='/images/sy/addr.png'></image> -->
+              距您
+              {{distance}}km
+          </view>
+          <view class='right h6'>{{location}}</view>
+      </view>
+
+      <view class='three'>
+          <swiper class='swiper-box'  
+                  indicator-color="#fff" 
+                  indicator-active-color="#bfbfbf" 
+                  previous-margin='0rpx' 
+                  next-margin='20rpx' 
+                  style='height:420rpx;width:100%' 
+                  bindchange='bindchange' 
+                  data-i='{{i}}'>
+              <block wx:for="{{images}}" 
+                      wx:key="" 
+                      wx:for-item="item1" 
+                      wx:for-index="ii"> 
+                  <swiper-item>
+                        <image data-images='{{images}}' 
+                              data-i='{{ii}}' 
+                              catchtap='lookImg' 
+                              src='{{item1}}'
+                              mode="aspectFill" 
+                              style='width:100%;'
+                              class='car_image' >
+                        </image>
+                        <view wx:if='{{item1.length==69}}' 
+                            class='bofang' 
+                            catchtap='bofangshipin' 
+                            data-name='{{item1}}'>
+                            <image src='/images/sy/bofang.png'></image>  
+                        </view> 
+                        <view wx:if='{{status == 2}}' class='yishou' >已售</view>
+                  </swiper-item>
+              </block>
+          </swiper>
+      </view>
+
+      <!-- 悬赏 有偿帮卖 车况记录 -->
+      <view class='reward'>
+          <image wx:if='{{sellMode==1}}' src='/images/sy/reward_1.png'></image>
+          <image wx:if='{{forwardMode==1}}' src='/images/sy/reward_2.png'></image>
+          <image wx:if='{{needQuery==1}}' src='/images/sy/reward_3.png'></image>
+      </view>
+
+      <view class='four li'>
+          <view class='left'>
+              <view class='avatar btn-press' catchtap='zhuye' data-openid='{{openId}}'>
+                  <image wx:if='{{avatarUrl}}' src='{{avatarUrl}}'></image>
+                  <image wx:else src='/images/icon/default.png'></image>
+              </view>
+              <view class='name'>{{nickName}}</view>
+          </view>
+          <view class='right'>
+              <view class='yi btn-press' 
+                    data-favorite='{{favorite}}'
+                    data-i='{{i}}' 
+                    catchtap='shoucang'>
+                    <image class='iconfont icon-collection_fill {{favorite?"fill-show":""}}'></image>
+                  <!-- <image wx:if='{{favorite}}' src='/images/sy/favorite_yes.png'></image>
+                  <image wx:else src='/images/sy/favorite_no.png'></image> -->
+                  <view>{{collectCount}}</view>
+              </view>
+              <view class='yi btn-press' 
+                    catchtap='pinglun' 
+                    data-vehicleid='{{id}}' 
+                    data-i='{{i}}' 
+                    data-pinglun='{{commentCount}}' 
+                    data-flag='{{flag}}'>
+                  <image src='/images/sy/comment.png'></image>
+                  {{commentCount}}
+              </view>
+          </view>
+      </view>
+      <!-- 评论区 -->
+      <view style='height:20rpx;'></view>
+  </view>
+  <view wx:elif='{{!adShow}}'>
+      <image src='{{avatarUrl}}' mode='widthFix' style='width:750rpx;margin-bottom:15rpx'></image>
+  </view>
+</template>
+
+<template name="t-car-list-2" >  
+  <view  wx:if='{{!clinchShow&&adShow}}' 
+      class='market_list'
+      catchtap='jiugonggetupian' 
+      data-openid='{{openId}}' 
+      data-id='{{id}}'>
+    <view class='list_left'>
+        <image src='{{images[0]}}' mode="aspectFill"></image>
+    </view>
+    <view class='list_right'>
+        <view class='list_right_yi'>{{title}}</view>
+        <view class='list_right_er'>
+              <view>{{licenseDate}} ·</view>
+              <view style='margin:0 8rpx;'>{{mileage}}万公里 ·</view>
+              <view>{{location}}</view>
+              <view wx:if='{{xz.length!=0}}'>
+                <block wx:for="{{xz}}" wx:key="" wx:for-item="xz">
+                  <view wx:if='{{xz=="抵押车"}}'>· {{xz}}</view>
+                </block>
+              </view>
+        </view>  
+        <view class='list_right_san'>
+            <view>{{price}}万元</view>
+            
+            <view wx:if='{{sellMode==1}}' class='li'>悬赏车</view>
+            <view wx:if='{{forwardMode==1}}' class='li'>有偿帮卖</view>
+            <view wx:if='{{needQuery==1}}' class='li'>车况记录</view>
+        </view> 
+    </view>
+    <view wx:if='{{status == 2}}' class='yishou_jiugongge' >已售</view>
+  </view>
+
+  <view wx:elif='{{!adShow}}'>
+      <image src='{{avatarUrl}}' mode='widthFix' style='width:750rpx;margin-bottom:15rpx'></image>
+  </view>
+</template>

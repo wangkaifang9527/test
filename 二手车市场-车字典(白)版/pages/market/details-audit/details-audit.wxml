@@ -1,0 +1,326 @@
+<!--pages/market/fache/fache.wxml-->
+<form  bindsubmit='formSubmit' report-submit='true'>
+<view class='container'>
+    <view class='title'>
+        <view class='left li {{title_flag? "yes":"no"}}'>普通发车</view>
+        <view class='right li {{title_flag? "xs":"yes"}}'>悬赏发车</view>
+    </view>
+
+    <view class='module'>
+        <view class='head'>
+            <text class='must'>*</text>
+            <text>车型</text>
+        </view>
+        <view class='body'>
+            <input name='biaoti' 
+                  placeholder-class='placeholder'
+                  placeholder='例: 宝马535GT' 
+                  value='{{biaoti}}' ></input>
+        </view>
+
+        <view class='head'>
+            <text class='must'>*</text>
+            <text>批发价格</text>
+        </view>
+        <view class='body'>
+            <input name='jiage' 
+                  placeholder-class='placeholder'
+                  placeholder='车辆价格 单位(万元)' 
+                  type='digit'
+                  value='{{jiage}}' ></input>
+        </view>
+
+        <!-- 悬赏发车的隐藏内容 -->
+        <view wx:if='{{title_flag}}'>
+            <view class='head'>
+                <text class='must'>*</text>
+                <text>赏金</text>
+            </view>
+            <view class='body'>
+                <input name='reward' 
+                      placeholder-class='placeholder'
+                      placeholder='请输入您要支付多少钱悬赏此车' 
+                      type='number'
+                      value='{{reward}}' ></input>
+            </view>
+            <!-- <view class='head'>
+                <text class='must'>*</text>
+                <text>赏金时间(天)</text>
+            </view>
+            <view class="body-view">
+              <slider min="1" max="7" show-value
+                      backgroundColor='#E6E6E6'
+                      activeColor='#999' 
+                      block-color='#999' 
+                      block-size='12'
+                      name='deadline'
+                      value='{{deadline}}'/>
+            </view> -->
+        </view>
+
+        <view class='head'>
+            <text class='must'>*</text>
+            <text>车辆照片或视频</text>
+        </view>
+        <view class='PV'>
+            <view>
+                <image src='/images/icon/photo.png' catchtap='shangchuantupian' data-type='1'></image>
+                <view>上传图片</view>
+            </view>
+            <view>或</view>
+            <view>
+                <image src='/images/icon/video.png' catchtap='shangchuanshipin' data-type='2'></image>
+                <view>上传视频</view>
+            </view>
+        </view>
+        <!--打开上传图片 预览-->
+        <view class='yulan'>
+            <block wx:for="{{yulan}}" wx:key="" wx:for-index="i">
+                <view class='shangchuantupian'>
+                        <image class='shanchu' 
+                        catchtap='shanchutupian' 
+                        data-i='{{i}}' 
+                        src='/images/icon/del_photo.png' 
+                        style='height:40rpx;width:40rpx;' ></image>
+                        <image  src='{{item}}' data-i='{{i}}'></image>
+                </view>
+            </block> 
+        </view>
+        <!-- 预览视频-->
+        <view class='yulan'>
+            <block wx:for="{{videos}}" wx:key="" wx:for-index="i">
+                <view class='shangchuantupian'>
+                    <image class='shanchu' catchtap='shanchushipin' data-i='{{i}}' src='/images/chonggou/shichang/shanchu.png' style='height:35rpx;width:35rpx;'></image>
+                    <video objectFit='contain'  src="{{item}}"   enable-danmu danmu-btn controls></video>
+                </view>
+            </block> 
+        </view>
+
+        <view class='head'>
+            <text>基本信息</text>
+        </view>
+        <view class='body list'>
+            <view class='li one'>联系电话 *</view>
+            <view class='li two'>
+                <input name='cellphoneNumber' value='{{cellphoneNumber}}' maxlength='11'></input>
+            </view>
+            <view class='li three'>
+                <button class='btn'  
+                        open-type="getPhoneNumber" 
+                        bindgetphonenumber="getPhoneNumber">获取</button>
+            </view>
+        </view>
+        <view class='body list'>
+            <picker mode="date" 
+                  value="{{dates}}" 
+                  start="1978-01-01" 
+                  end="2055-1-23" 
+                  bindchange="bindDateChange">  
+                <view class="picker">  
+                    <view>上牌日期 *</view>
+                    <view>{{dates}}</view>
+                </view>  
+            </picker>
+        </view>
+        <view class='body list'>
+            <view class='li one'>公里数 *</view>
+            <view class='li two'>
+                <input name='gonglishu' value='{{gonglishu}}' placeholder-class='placeholder'></input>
+            </view>
+            <view class='li three'>
+                万公里
+            </view>
+        </view>
+        <view class='body list'>
+            <picker mode="region" 
+                    bindchange="bindRegionChange" 
+                    value="{{region}}" 
+                    custom-item="{{customItem}}">
+              <view class="picker">
+                  <view>车辆所在地 *</view>
+                  <view wx:if='{{region[0]=="北京市"}}'>
+                    {{region[0]}}
+                  </view>
+                  <view wx:elif='{{region[0]=="上海市"}}'>
+                    {{region[0]}}
+                  </view>
+                  <view wx:elif='{{region[0]=="天津市"}}'>
+                    {{region[0]}}
+                  </view>
+                  <view wx:elif='{{region[0]=="重庆市"}}'>
+                    {{region[0]}}
+                  </view>
+                  <view wx:else class='city'>
+                    {{region[0]}}  {{region[1]}}
+                  </view>
+                  <view class='location'>
+                      <image catchtap='weizhi' src='/images/icon/location.png' ></image>
+                  </view>
+              </view>
+            </picker>
+        </view>
+        <view class='body list'>
+            <view class="picker" catchtap='paizhaoxiaqu' style='width:640rpx'>
+                <view>牌照辖区</view>
+                <view>{{multiArray[0][multiIndex[0]]}}·{{multiArray[1][multiIndex[1]]}}</view>
+            </view>
+        </view>
+        <view class='body list'>
+            <view class='li one'>排量 *</view>
+            <view class='li two'>
+                <input name='cc' value='{{cc}}' placeholder-class='placeholder'></input>
+            </view>
+        </view>
+        <!-- 选择身份简称 -->
+        <view wx:if='{{provinceFlag}}' class='province_array'>
+            <block wx:for="{{multiArray[0]}}" wx:key="" wx:for-index="i">
+                <view class='province_array_name' catchtap='dianjishengfen' data-i='{{i}}'>
+                    <view>{{item}}</view>
+                </view>
+            </block>
+        </view>
+        <!-- 选择A-Z -->
+        <view wx:if='{{provinceCodeFlag}}' class='province_array'>
+            <block wx:for="{{multiArray[1]}}" wx:key="" wx:for-index="i">
+                <view class='province_array_name' catchtap='dianjizimu' data-i='{{i}}'>
+                    <view>{{item}}</view>
+                </view>
+            </block>
+        </view>
+
+        
+        <view class='head'>
+            <text class='must'>*</text>
+            <text>车辆性质</text>
+        </view>
+        <view class='yylist'>
+            <block wx:for="{{yy_list}}" wx:key="" wx:for-index="i">
+                <view class='li {{item.flag? "yes":"no"}} active' catchtap='onYY' data-index='{{i}}'>
+                  {{item.name}}
+                </view>
+            </block>
+            <block wx:for="{{yy2_list}}" wx:key="" wx:for-index="i">
+                <view class='li {{item.flag? "yes":"no"}} active' catchtap='onYY2' data-index='{{i}}'>
+                  {{item.name}}
+                </view>
+            </block>
+        </view>
+
+        <view class='head'>
+            <text class='must'>*</text>
+            <text>车况自证（多选）</text>
+        </view>
+        <view class='list car_condition'>
+            <view class='li {{car_condition_flag? "yes":"no"}} active' catchtap='onCC1'>普通车况</view>
+            <view class='li {{car_condition_flag? "no":"yes"}} active' catchtap='onCC2'>
+            精品车全车原版螺丝未动</view>
+        </view>
+        <view wx:if='{{car_condition_flag}}'>
+            <view class='body list'>
+                <picker value="{{main_index}}" 
+                      range="{{main_list}}"
+                      bindchange="bindPickerChange">  
+                    <view class="picker">  
+                        <view>是否提供维保记录</view>
+                        <view class='two'>{{main_list[main_index]}}</view>
+                        <view class='three'>
+                            <image src='/images/icon/down.png'></image>
+                        </view>
+                    </view>  
+                </picker>
+            </view>
+            <view wx:if='{{main_index == 1}}'>
+                <view class='vin'>请输入VIN码（账户余额自动扣款6.6元）</view>
+                <view class='body'>
+                    <input name='vin' 
+                          maxlength='17' 
+                          placeholder-class='placeholder'
+                          placeholder='输入17位VIN码或者上传行驶证照片' 
+                          value='{{vin}}' 
+                          bindblur="binput2"  
+                          bindinput='verification2'></input>
+                </view>
+            </view>
+            
+            <block wx:if='{{title_flag}}' 
+                  wx:for="{{self_proof_fei}}" 
+                  wx:key="" 
+                  wx:for-index="i" 
+                  wx:for-item="">
+                <view class='ck_list'  catchtap='onXiaShanglafei' data-i='{{i}}'>
+                    <view>{{item.name}}</view>
+                    <view class='ck_list_li'>
+                        <view class='ck_list_li_view'>
+                          <block wx:for="{{item.self_list}}" 
+                                  wx:key="" 
+                                  wx:for-index="ii" 
+                                  wx:for-item="item1">
+                              <view wx:if='{{item1.self_list_flag}}'>{{item1.name}}</view>
+                          </block>
+                        </view>
+                        <view class="kind-list-item-an {{item.list_flag? 'kind-list-item-an-show':''}}"
+                              animation="{{animation}}">
+                            <image src='/images/icon/down.png'></image>
+                        </view>
+                    </view>
+                </view>
+                <view class='ck_list_list {{item.list_flag? "ck_list_list_show":""}}' >
+                    <block wx:for="{{item.self_list}}" wx:key="" wx:for-index="iii" wx:for-item="item1">
+                        <view catchtap='onXuanzefei' 
+                              data-i='{{i}}' 
+                              data-iii='{{iii}}' 
+                              class='active {{item1.self_list_flag? "yes":"no"}}'>
+                          {{item1.name}}
+                        </view>
+                    </block>
+                </view>
+            </block>
+
+        </view>
+        <view wx:else>
+            <block wx:for="{{self_proof}}" wx:key="" wx:for-index="i" wx:for-item="">
+                <view class='ck_list'  catchtap='onXiaShangla' data-i='{{i}}'>
+                    <view>{{item.name}}</view>
+                    <view class='ck_list_li'>
+                        <block wx:for="{{item.self_list}}" 
+                                wx:key="" 
+                                wx:for-index="ii" 
+                                wx:for-item="item1">
+                            <view wx:if='{{item1.self_list_flag}}'>{{item1.name}}</view>
+                        </block>
+                        <view class="kind-list-item-an {{item.list_flag? 'kind-list-item-an-show':''}}"   animation="{{animation}}">
+                            <image src='/images/icon/down.png'></image>
+                        </view>
+                        
+                    </view>
+                </view>
+                <view class='ck_list_list {{item.list_flag? "ck_list_list_show":""}}' >
+                    <block wx:for="{{item.self_list}}" wx:key="" wx:for-index="iii" wx:for-item="item1">
+                        <view catchtap='onXuanze' 
+                              data-i='{{i}}' 
+                              data-iii='{{iii}}' 
+                              class='active {{item1.self_list_flag? "yes":"no"}}'>
+                          {{item1.name}}
+                        </view>
+                    </block>
+                </view>
+            </block>
+        </view>
+
+
+        <view class='head'>
+            <text>车主描述</text>
+            <textarea name='jiansu' 
+                      show-confirm-bar='{{show}}' 
+                      placeholder-class='placeholder'
+                      placeholder='请简单描您要发布的车辆...' 
+                      maxlength='250'
+                      value='{{description}}'/>
+        </view>
+    </view>
+
+    <view class='btn'>
+        <button type="primary" form-type='submit' id='putongfache'>发布</button>
+    </view>
+</view>
+</form>

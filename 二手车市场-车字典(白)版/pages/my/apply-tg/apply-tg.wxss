@@ -1,0 +1,64 @@
+.er{
+  color: #111;
+}
+.title{
+  font-size: 24rpx;
+}
+.title .banner{
+  width: 100%;
+}
+.title .tg{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: #13344B;
+  position:  relative;
+  left: 525rpx;
+  top: -50rpx;
+}
+.title .tg_gz{
+  width: 33rpx;
+  height: 33rpx;
+  margin-right: 20rpx;
+}
+.tg_gz_photo{
+  height:100%;
+  width:100%;
+
+}
+
+.zhong{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between; 
+  width:710rpx;
+  height:216rpx;
+  background:rgba(255,255,255,1);
+  border-radius:8rpx;
+  box-shadow:6px 0px 16px rgba(0,0,0,0.1);
+  margin: 0 auto;
+}
+.pj{
+  font-size: 35rpx;
+  text-align: center;
+  width: 33.33%;
+  padding: 20rpx 0rpx;
+}
+.pj view{
+  padding: 20rpx 0rpx;
+}
+
+.apply_button{
+  width:650rpx;
+  height:82rpx;
+  line-height: 82rpx;
+  background:rgba(19,52,75,1);
+  border-radius:41rpx;
+  font-size: 28rpx;
+  color: #fff;
+  text-align: center;
+  position:  fixed;
+  bottom: 100rpx;
+  left: 50rpx;
+}

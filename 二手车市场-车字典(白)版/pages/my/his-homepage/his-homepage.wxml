@@ -1,0 +1,53 @@
+<import src="/template/t-car-list/t-car-list.wxml" />
+
+<view class='container'>
+    <view class='title'><view>车字典二手车</view></view>
+
+    <view class='list'>
+        <view class='li one active' 
+              catchtap='jiaguanzhu' 
+              data-relationship='{{userInfo.relationship}}' 
+              data-targetopenid='{{userInfo.openId}}'>
+            <image class='avatar' wx:if='{{userInfo.avatarUrl}}' src='{{userInfo.avatarUrl}}'></image>
+            <image class='avatar' wx:else src='/images/icon/default.png'></image>
+            <view wx:if='{{userInfo.relationship <= 1}}' class='jia' >+</view>
+            <view wx:else class='jia' style='font-size:23rpx;'>已</view>
+        </view>
+        <view class='li two'>
+            <view class='black'>{{userInfo.nickName}}</view>
+            <view class='grey'>
+                <text catchtap='fensi'>粉丝 {{userInfo.fansCount}}</text>
+                <text catchtap='guanzhu'>关注 {{userInfo.focusCount}}</text>
+            </view>
+        </view>
+        <view class='li' catchtap='dianhua' data-tel='{{userInfo.cellphoneNumber}}'>
+            <view class='div'>电话</view>
+        </view>
+        <view class='li'>
+            <view class='div'>私信</view>
+        </view>
+    </view>
+
+    <view class='list single'>
+        <view class='li active' catchtap='tuwen'>
+            <image class='' src='/images/icon/sprt.png'></image>
+        </view>
+        <view class='li active' catchtap='chushouzhong'>在售</view>
+        <view class='li active' catchtap='yichengjiao'>已售</view>
+    </view>
+
+    <view wx:if='{{change_flag}}'>
+        <block wx:for="{{list}}" wx:key="" wx:for-index="i" >
+            <template is="t-car-list-1" data="{{...item,i}}" />
+        </block>
+    </view>
+
+    <view wx:else class='market_jiugongge' >
+        <block wx:for="{{list}}" wx:key="" wx:for-index="i">
+            <template is="t-car-list-2" data="{{...item,i}}" />
+        </block>   
+    </view>
+</view>
+
+<view wx:if="{{isloadover}}" class='tip_center' style='margin-bottom:30px'>别拉了，没有啦</view>
+<view wx:else class='tip_center' style='margin-bottom:30px'>加载中...</view>

@@ -1,0 +1,118 @@
+.order_li {
+    width: 670rpx;
+    background: rgba(0, 0, 0, 0) ;
+    border-radius: 5px;
+    padding: 0rpx 20rpx;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    color: #333;
+    background: #fff;
+    margin-top: 20rpx;
+}
+
+.order_head {
+    padding-top: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 50rpx;
+
+    
+}
+
+.head_left {
+    flex: 1;
+    color: #333;
+    font-size: 18px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.head_left view{
+    max-width:220rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.head_left text {
+    font-size: 20rpx;
+    color: #333;
+    padding: 2px 5px;
+    background: #f0f0f2;
+    border-radius: 2px;
+    margin-left: 5px;
+    max-width: 120rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color:#ffff00
+}
+.head_right text {
+    font-size: 22rpx;
+    border-radius: 2px;
+    margin-left: 15px;
+    max-width: 120rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding: 5rpx 15rpx;
+    background: #13344B;
+    color: #fff;
+}
+
+.head_right {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.head_right image {
+    width: 24rpx;
+    height: 24rpx;
+    margin-right: 5px;
+}
+
+.chassis_number {
+    font-size: 25rpx;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    width: 100%;
+}
+
+.order_time {
+    height: 40px;
+    line-height: 40px;
+    border-top: 1px solid #e6e6e6;
+    color: #333;
+    width: 100%;
+   
+}
+
+.order_time text {
+    float: right;
+    color: #333;
+}
+/* 红包 */
+.red-p{
+  position:relative;
+  top:-140rpx;
+  right:-590rpx;
+  height:0rpx;
+  
+}
+.red-p image{
+  width:77rpx;
+  height:85rpx;
+}
+.btn-press:active{
+  transform: translateY(4px);
+  opacity: 0.8;
+}
+.shadow{
+  width:70rpx;
+  height:8rpx;
+  border-radius:50%;
+  box-shadow:1px 8rpx 4px rgba(0,0,0,0.4);
+
+}

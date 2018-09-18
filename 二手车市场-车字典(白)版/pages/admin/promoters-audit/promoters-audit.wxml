@@ -1,0 +1,35 @@
+<view class="container">
+    <view class="withdraw_audit_box">
+
+        <!-- 循环 start -->
+        <block wx:for="{{list}}" wx:for-item="item" wx:for-index="i" wx:key="">
+            <view class="withdraw_audit_li">
+                <view class="info">
+                    <!-- <view class="intr">
+                        <view class="p">{{item.nickName}}</view>
+                        <view class="h1">
+                          <view>提现</view>  
+                          <view class='price'>￥ {{item.amount}}</view>
+                        </view>
+                    </view> -->
+                    <view class='avatarUrl'>
+                        <image src='{{item.avatarUrl}}' style='width:80rpx;height:80rpx;'></image>
+                    </view>
+                    <view class='nickName'>
+                        <view>{{item.nickName}}</view>
+                        <view>{{item.cellphoneNumber}}</view>
+                    </view>
+                    <view wx:if="{{item.state=='审核中'}}" class="btn" catchtap="onAudit" data-id="{{item.id}}" data-i="{{i}}" >审核</view>
+                    <view wx:else class="btn gary">{{item.state}}</view>
+                </view>
+                
+            </view>
+        </block>
+        <!-- 循环 end -->
+
+    </view>
+
+    <!-- 提示 -->
+    <view wx:if="{{isloadover}}" class='tip_center' style='margin-bottom:30px'>别拉了，没有啦</view>
+    <view wx:else class='tip_center' style='margin-bottom:30px'>努力加载中...</view>
+</view>

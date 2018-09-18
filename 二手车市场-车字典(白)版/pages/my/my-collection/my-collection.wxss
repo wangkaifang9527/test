@@ -1,0 +1,27 @@
+/* pages/my/my-collection/my-collection.wxss */
+@import "/template/t-car-list/t-car-list.wxss"; 
+.single{
+  font-size: 28rpx;
+  color: #111;
+  height: 88rpx;
+  border-bottom: 1rpx solid #E6E6E6;
+}
+.single .li image{
+  width:40rpx;
+  height:30rpx;
+}
+.list{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between; 
+  height: 110rpx;
+  width: 750rpx;
+  background: #fff;
+  font-size: 24rpx;
+  
+}
+.list .li{
+  width: 25%;
+  text-align: center;
+}

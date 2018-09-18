@@ -1,0 +1,203 @@
+<!-- <import src="../../../template/ad/ad.wxml" />
+<template is="ad"></template> -->
+<view class='red-title btn-ripple-effect' catchtap='onOpenRedTitle'>点击红包转发三个群返现金1～5元</view>
+
+<view class='kf_weixin'>
+    <view class='left' catchtap='fanhui'>
+        <image src='/images/chonggou/fanhui.png'></image>
+    </view>
+    <view class='right'>
+        <button open-type="share">
+            <image src='/images/chonggou/zhuanfa.png'></image>
+        </button>
+    </view>
+</view> 
+ <view class='container'>
+    
+    <view class='title'>
+        <view>理赔概要</view>
+        <view class='right'>
+            <view class='report' catchtap='bindReport'>复制链接</view>
+            <button id='red_pag' class='btn-float' open-type='share'>
+                <image src='/images/icon/red-p.png' class='btn-press'></image>
+            </button>
+        </view>
+    </view>
+    <view class='box car_detail'>
+        <view class='line top'>
+            <text>车牌号</text>
+            <text>{{order_claim2.licenseNo}}</text>
+        </view>
+        <view class='line'>
+            <text>汽车品牌</text>
+            <text>{{order_claim2.brand}}</text>
+        </view>
+        <view class='line'>
+            <text>排放标准</text>
+            <text>{{order_claim2.emission}}</text>
+        </view>
+        <view class='line'>
+            <text>理赔记录</text>
+            <text>{{order_claim2.claimCount}}</text>
+        </view>
+        <view class='line'>
+            <text>过户次数</text>
+            <text>{{order_claim2.transferTimes}}</text>
+        </view>
+    </view>
+
+    <view  class='title'>历年保单信息</view>
+<view class='box result_detail'>
+    
+    <view class='line' >
+        <image class="left_img" src='/images/502.png'></image>
+        <image class="right_img" src='/images/502.png'></image>
+        <view class='top'>
+            <text class="h1">最近一年</text>
+            <view class="top_li">
+                <text class="right">{{order_claim2.insureDateline}}</text>
+            </view>
+            <view class="top_li">
+                <text class="right">{{order_claim2.insurer}}</text>
+            </view>
+            <view class="top_li">
+                <text class="right">{{order_claim2.insureNo}}</text>
+            </view>
+        </view>
+</view>
+
+    </view>
+    <view wx:if="{{order_claim2.insureInfos.length>0}}" class='box result_detail'>
+        <block wx:for="{{order_claim2.insureInfos}}" wx:key="" wx:for-item="item" wx:for-index="i">
+            
+            
+            <view class='line'>
+                <image class="left_img" src='/images/502.png'></image>
+                <image class="right_img" src='/images/502.png'></image>
+                <view class='top'>
+                    <text class="h1">{{item.year}}</text>
+                    <view class="top_li">
+                        <text class="right">{{item.insureDateline}}</text>
+                    </view>
+                    <view class="top_li">
+                        <text class="right">{{item.insurer}}</text>
+                    </view>
+                    <view class="top_li">
+                        <text class="right">{{item.insureNo}}</text>
+                    </view>
+                    <view class="top_li">
+                        <text class="right">{{item.insureDateline2}}</text>
+                    </view>
+                    <view class="top_li">
+                        <text class="right">{{item.insurer2}}</text>
+                    </view>
+                    <view class="top_li">
+                        <text class="right">{{item.insureNo2}}</text>
+                    </view>
+                </view>
+            </view>
+        </block>
+    </view>
+
+    <!-- 出险报告 -->
+    <view wx:if="{{order_claim2.claimRecords.length>0}}" class='title'>出险报告
+        <text>{{order_claim2.claimRecords.length}}</text>
+    </view>
+    <view wx:if="{{order_claim2.claimRecords.length>0}}" class='box result_detail'>
+        <block wx:for="{{order_claim2.claimRecords}}" wx:for-item="item" wx:key="">
+            <view class='line'>
+                <image class="left_img" src='/images/502.png'></image>
+                <image class="right_img" src='/images/502.png'></image>
+                <view class='top'>
+                    <text class="h1">详情记录：</text>
+                    <view class="top_li">
+                        <text class="left">出险时间</text>
+                        <text class="right">{{item.claimDate}}</text>
+                    </view>
+                    <view class="top_li">
+                        <text class="left">保险类型</text>
+                        <text class="right">{{item.insureType}}</text>
+                    </view>
+                    <view class="top_li">
+                        <text class="left">保险公司</text>
+                        <text class="right">{{item.insurer}}</text>
+                    </view>
+                    <view class="top_li">
+                        <text class="right">{{item.insureNo}}</text>
+                    </view>
+                    <view class="top_li">
+                        <text class="left">理赔金额</text>
+                        <text class="right">{{item.totalAmount}}</text>
+                    </view>
+                    <text class="h1" style='padding-top:15px;'>理赔项列表：</text>
+                    <view class='table'>
+                       
+                        <block wx:for="{{item.claimItems}}" wx:for-item="item2" wx:key="">
+                            <view class="tr">
+                                <text>【{{item2.type}}】{{item2.item}}</text>
+                                <text>{{item2.price}} 元</text>
+                            </view>
+                        </block>
+                    </view>
+                </view>
+            </view>
+        </block>
+    </view> 
+  <!-- 
+    <view wx:if="{{car.data.result.policycount>0}}" class='title'>保单报告</view>
+    <view wx:if="{{car.data.result.policycount>0}}" class='box accidents_detail'>
+        <view class='line top'>
+            <text>开始时间</text>
+            <text>结束时间</text>
+            <text>保单类型</text>
+        </view>
+        <block wx:for="{{car.data.result.policyrecords}}" wx:for-item="item" wx:key="">
+            <view class='line'>
+                <text>{{item.begindate}}</text>
+                <text>{{item.enddate}}</text>
+                <text wx:if="{{item.policytype=='FORCE'}}">交强</text>
+                <text wx:else>商业</text>
+            </view>
+        </block>
+    </view> -->
+</view>
+
+
+
+<!-- 1.转发后出现的红包 -->
+<view class='kind-list-item-bd {{open?"kind-list-item-bd-show":""}}' catchtap='closeRed'>
+    <view wx:if='{{!red_open}}' class='red-pag'>
+        <view class='line_top'></view>
+        <view class='chai {{chai_open?"btn-3d-rotate":"btn-zoom"}}'>
+            <image catchtap='onChai' src='/images/icon/chai.png'></image>
+        </view>
+    </view>
+    <view wx:else class='red-pag {{red_open?"red_open_show":""}}'>
+        <view class='avatar'>
+            <image src='{{userInfo.avatarUrl}}'></image>
+        </view>   
+        <view class='nickname'>{{userInfo.nickName}}</view>
+        <view class='price'><text>{{amount}}</text>元</view>
+        <view class='line_down'></view>
+        <view class='balance btn-float' catchtap='onGoBalance'>可前往账户余额查看</view>
+        <view class='balance1'>现金到账,赶紧提现;</view>
+        <view class='balance1'>小心公司跑路,虽然我们不会跑路!</view>
+    </view>
+</view>
+<!-- 2.点击红包出现的红包栏提醒 -->
+<view class='kind-list-item-bd {{red_title_open?"kind-list-item-bd-show":""}}' catchtap='onCloseRedTitle'>
+    <view class='layout'>
+        <view class='layout-img'>
+            <image src='/images/icon/red-title.png' mode='widthFix'></image>
+        </view>
+        <view class='layout-line h2'>查询成功后点击<text style='color:#FF3F42'>红包</text>转发三次</view>
+        <view class='layout-line h3'>随机返现金1～5元</view>
+        <view class='layout-line h4'>可前往<text style='color:#13344B'>“余额(提现)”</text>提现</view>
+        <view class='layout-line h5'>知道了</view>
+        <view class='layout-line h6'>
+            注：仅限车辆状态查询和车辆定损查询成功的订单 且订单为原价付款方有效
+        </view>
+    </view>
+</view>
+
+

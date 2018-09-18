@@ -1,0 +1,43 @@
+page {
+    background: #f8f8f8;
+    font-size: 16px;
+}
+
+.container {
+}
+
+.regional_agents {
+    background: #fff;
+    padding: 0 30rpx;
+    margin-top: 10px;
+}
+
+.section {
+    height: 100rpx;
+    line-height: 100rpx;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-top: 1px solid #e6e6e6;
+    
+}
+
+.section:first-child {
+    border: none;
+}
+
+.section text {
+    width: 140rpx;
+}
+
+.section .right {
+    flex: 1;
+}
+
+.section .right input {
+    padding-left: 30rpx;
+}
+.btn_blue{
+    margin: 0 40rpx;
+    margin-top: 30px;
+}

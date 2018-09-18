@@ -1,0 +1,12 @@
+@import "../../../template/t-order-list/main.wxss";
+
+page {
+    background: #f8f8f8;
+}
+
+.container {
+    margin: 30px 30rpx;
+}
+
+.order_box {
+}

@@ -1,0 +1,22 @@
+/* pages/anli.wxss */
+page{
+  background: #fff;
+  font-size: 30rpx;
+}
+.kf-fours image{
+  width: 100%;
+}
+.kf_anli{
+  padding: 30rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background: #f8f8f8;
+}
+.kf_anli view{
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  width: 33.33%;
+  padding: 20rpx;
+  text-align: center;
+}
+

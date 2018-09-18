@@ -1,0 +1,51 @@
+<view class="container">
+
+    <view class='kf'>
+        <view class='kf_view kf_image'>
+            <image class='avatar' src='/images/query/ye_pay.png'></image>
+        </view>
+        <view class='kf_view kf_tuiguang'>
+            <text>余额</text>
+        </view>
+        <view class='kf_view kf_money'>
+            <text>{{balance}}</text>
+        </view>
+        <view class='kf_keyong '>
+            <view>
+                <view>可提现余额</view>
+                <view style='font-size:40rpx;margin-top:20rpx;'>{{withdrawAbleBalance}}</view>
+            </view>
+            <view>
+                <view>冻结金额</view>
+                <view style='font-size:40rpx;margin-top:20rpx;text-align:right;'>{{frozenBalance}}</view>
+            </view>
+        </view>
+
+        <view class='kf_view kf_button' catchtap='onChongZhi'>
+            <view>充值</view>
+        </view>
+        <view class='kf_view kf_button' catchtap='onWithdraw'>
+            <view>提现</view>
+        </view>
+    </view>
+
+     <view class="bill_box">
+        <block wx:for="{{list}}" wx:key="">
+            <view class="bill_li">
+                <view class="info">
+                    <view class="intr">提现
+                        <text wx:if="{{item.nickName!=null&&item.nickName!=''}}">{{item.nickName}}</text>
+                    </view>
+                    <view class="time">{{item.time_long}}</view>
+                </view>
+                <view class="money">
+                    <text>-{{item.amount}}</text>
+                    <text>{{item.status_str}}</text>
+                </view>
+            </view>
+        </block>
+      
+    </view> 
+    <!-- 提示 -->
+    <view wx:if="{{isloadover}}" class='tip_center' style='margin-bottom:30px;'>别拉了，没有啦</view>
+</view>

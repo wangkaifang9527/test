@@ -1,0 +1,34 @@
+<view class='er'>
+    <view class='title'>
+      <image class='banner' src='{{banner}}' mode='widthFix'></image>
+      <view class='tg active' catchtap='on_tg_gz'>
+          <image class='tg_gz' src='/images/icon/tg_gz.png' mode='widthFix'></image>
+          <view>推广收益规则？</view>
+      </view>
+    </view>
+    
+    <view class='zhong'>
+        <view class='pj'>
+            <view>0</view>
+            <view>今日新增</view>
+        </view>
+        <view class='pj'>
+            <view>0</view>
+            <view>本周新增</view>
+        </view>
+        <view class='pj'>
+            <view>0</view>
+            <view>本月新增</view>
+        </view>
+    </view>
+</view>
+
+<view class='apply_button' style='margin-top:150rpx;' catchtap='apply_tg'>申请开通</view>
+
+
+<view class="kind-list-item-bd {{tg_gz_flag ? 'kind-list-item-bd-show' : ''}}" catchtap='on_tg_gz'>
+    <view class='tg_gz_photo'>
+        <image src='{{tg_gz_photo}}' style='width:100%;' mode="widthFix"></image>
+    </view>
+</view>
+

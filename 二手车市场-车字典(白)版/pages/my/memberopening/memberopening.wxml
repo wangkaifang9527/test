@@ -1,0 +1,118 @@
+<!--pages/my/memberopening/memberopening.wxml-->
+<import src="../../../template/t-phone/t-phone.wxml" />
+<view class='kf_zhezhao' hidden="{{!flag}}">
+<template is="t-order-list" data='{{flag}}' /> 
+</view>
+
+
+
+
+<view class="container">
+    <view class='h1'>普通充值</view>
+    <view class='input' >
+        <input placeholder='输入任意金额' placeholder-style='text-align: center;color:#999;' type='digit' bindinput='bindinput'></input>
+    </view>
+    <view class='list_jinqian'>
+        <block wx:for="{{list_jinqian}}" wx:for-item="" wx:for-index="i" wx:key="">
+            <view catchtap='jinqian' data-jinqian='{{item}}' wx:if='{{i==3}}' style='margin-right:0rpx'>{{item}}元</view>
+            <view wx:else catchtap='jinqian' data-jinqian='{{item}}'>{{item}}元</view>
+        </block>
+    </view>
+
+    <view class='h1'>更多优惠</view>
+    <view class='kf_image'>
+        <image  src='{{huiyuanka}}' mode="widthFix"></image>
+    </view>
+
+    <view class='kf_xuanzeqi' >
+
+        <block wx:for="{{cardList}}" wx:for-item="card" wx:for-index="i" wx:key="">
+            <view class='' catchtap='putong' data-cardid='{{card.id}}' data-i='{{i}}' data-title='{{card.title}}'>
+                <view class='kf_danxuan kf_{{card.id}}' >
+                  <image wx:if='{{card.id==1}}' src='{{src1}}'></image>
+                  <image wx:if='{{card.id==2}}' src='{{src2}}'></image>
+                  <image wx:if='{{card.id==3}}' src='{{src3}}'></image>
+                  <image wx:if='{{card.id==4}}' src='{{src4}}'></image>
+                  <image wx:if='{{card.id==5}}' src='{{src5}}'></image>
+                  <image wx:if='{{card.id==6}}' src='{{src6}}'></image>
+                  <image wx:if='{{card.id==7}}' src='{{src7}}'></image>
+                  <image wx:if='{{card.id==8}}' src='{{src7}}'></image>
+                  <image wx:if='{{card.id==9}}' src='{{src7}}'></image>
+
+                  
+                  <view wx:if='{{card.id==4}}'>
+                      <view>{{card.title}}</view>
+                      <view>(限时折扣)</view>
+                  </view>
+                  <view wx:elif='{{card.id==5}}'>
+                      <view> {{card.title}}</view>
+                      <view>(限时出售)</view>
+                  </view>
+                  <text wx:else>{{card.title}}</text>
+                  
+                  <view wx:if='{{card.id==4}}'>
+                    <view class='duijiaoxian'>
+                        <image  src='/images/icon/1288.png'></image>
+                    </view>
+                    <view>{{card.priceDescription}}</view>
+                  </view>
+                  <text wx:else >{{card.priceDescription}}</text>
+
+                  <view wx:if='{{card.id>=6}}' style='line-height: 70rpx;'>
+                      <view>{{card.description}}</view>
+                  </view>
+                  <view wx:else>
+                      <view>{{card.description0}}</view>
+                      <view>{{card.description1}}</view>
+                  </view>
+                 
+
+                
+                  <view wx:if='{{card.id==1}}'>
+                    <image wx:if='{{putong}}' class='image2' src='/images/icon/dui.png'></image>
+                    <image wx:else class='image2' src='/images/icon/quan.png'></image>
+                  </view>
+                  <view wx:if='{{card.id==2}}'>
+                    <image wx:if='{{huangjin}}' class='image2' src='/images/icon/dui.png'></image>
+                    <image wx:else class='image2' src='/images/icon/quan.png'></image>
+                  </view>
+                  <view wx:if='{{card.id==3}}'>
+                    <image wx:if='{{zhuanshiyue}}' class='image2' src='/images/icon/dui.png'></image>
+                    <image wx:else class='image2' src='/images/icon/quan.png'></image>
+                  </view>
+                  <view wx:if='{{card.id==4}}'>
+                    <image wx:if='{{zhuanshinian}}' class='image2' src='/images/icon/dui.png'></image>
+                    <image wx:else class='image2' src='/images/icon/quan.png'></image>
+                  </view>
+                  <view wx:if='{{card.id==5}}'>
+                    <image wx:if='{{heika}}' class='image2' src='/images/icon/dui.png'></image>
+                    <image wx:else class='image2' src='/images/icon/quan.png'></image>
+                  </view>
+                  <view wx:if='{{card.id==6}}'>
+                    <image wx:if='{{chongzhi198}}' class='image2' src='/images/icon/dui.png'></image>
+                    <image wx:else class='image2' src='/images/icon/quan.png'></image>
+                  </view>
+                  <view wx:if='{{card.id==7}}'>
+                    <image wx:if='{{chongzhi298}}' class='image2' src='/images/icon/dui.png'></image>
+                    <image wx:else class='image2' src='/images/icon/quan.png'></image>
+                  </view>
+                  <view wx:if='{{card.id==8}}'>
+                    <image wx:if='{{chongzhi98}}' class='image2' src='/images/icon/dui.png'></image>
+                    <image wx:else class='image2' src='/images/icon/quan.png'></image>
+                  </view>
+                  <view wx:if='{{card.id==9}}'>
+                    <image wx:if='{{chongzhi388}}' class='image2' src='/images/icon/dui.png'></image>
+                    <image wx:else class='image2' src='/images/icon/quan.png'></image>
+                  </view>
+                </view>
+             
+          </view>
+        </block>
+
+    </view>
+
+    <view class='kf_button' class='quedingkaitong active' catchtap='quedingkaitong'>
+        确定
+    </view>
+
+</view>

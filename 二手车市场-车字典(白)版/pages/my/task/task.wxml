@@ -1,0 +1,130 @@
+<!--pages/my/task/task.wxml-->
+<view class='task'>
+    <view class='title'>
+        <view class='title_yi'>当前车模</view>
+        <view class='title_er'>
+            <view>
+                <image mode='aspectFit' src='/images/my/model.png' style='height: 35rpx;width: 35rpx;'></image>
+            </view>
+            <view  class='chenghao'><text>+</text></view>
+            <view>
+                <text style='color:#F26E09;font-size:60rpx;font-weight: bolder'>{{modelCarCount}}</text>
+            </view>
+        </view>
+        <view class='title_san'>
+            <view>13车模 = 4S维保</view>
+            <view>30车模 = 车辆状态</view>
+            <view>43车模 = 出险记录</view>
+        </view>
+    </view>
+
+
+    <view class='my_list'>
+        <view class='my_list_li'>
+            <view class='my_list_title'>新手任务</view>
+            <view class='my_list_con'>
+                <view class='my_list_left'>
+                    <view>微信关注“车字典”</view>
+                    <view>+ 2</view>
+                </view>
+                <view class='my_list_right' catchtap='onFollow'>前往关注</view>
+            </view>
+        </view>
+
+        <view class='my_list_li'>
+            <view class='my_list_title'>每日任务</view>
+            
+            <view class='my_list_con'>
+                <view class='my_list_left'>
+                    <view>分享</view>
+                    <view>
+                      + 1～3
+                      <text style='font-size:25rpx;opacity:0.5;'>（需转发至不同的群，每日限3次）
+                      </text>
+                    </view>
+                </view>
+                <!-- <view class='my_list_right'>做任务</view> -->
+                <view style='text-align: center;'>
+                  <button class='share' open-type="share" >做任务</button>
+                </view>
+            </view>
+
+            <view class='my_list_con'>
+                <view class='my_list_left'>
+                    <view>分享到朋友圈</view>
+                    <view>+ 1～5<text style='font-size:25rpx;opacity:0.5;'>（每日限1次）</text></view>
+                </view>
+                <view class='my_list_right' catchtap='onSharePYQ'>做任务</view>
+            </view>
+
+            <view class='my_list_con'>
+                <view class='my_list_left'>
+                    <view>每日签到</view>
+                    <view>+ 1～7</view>
+                </view>
+                <view wx:if='{{isSignIn}}' class='my_list_right' catchtap='onSignIn'>签到</view>
+                <view wx:else class='my_list_right' >+{{modelCarAmount}}</view>
+            </view>
+            <view class='progress'>
+                
+                <progress percent="{{percent}}" stroke-width="2" active-mode='forwards'  activeColor='#1C2B3C' backgroundColor='#999'></progress>
+                <view class='progress_day'>
+                    <view style='background:{{background1}}'>+1</view>
+                    <view style='background:{{background2}}'>+2</view>
+                    <view style='background:{{background3}}'>+3</view>
+                    <view style='background:{{background4}}'>+4</view>
+                    <view style='background:{{background5}}'>+5</view>
+                    <view style='background:{{background6}}'>+6</view>
+                    <view style='background:{{background7}}'>+7</view>
+                </view>
+            </view>
+
+            
+
+            <view class='my_list_con' catchtap='onFache'>
+                <view class='my_list_left'>
+                    <view >发布车辆</view>
+                    <view>+ 3 <text style='font-size:25rpx;opacity:0.5;'> (每日限3次) </text></view>
+                </view>
+                <view class='my_list_right'>做任务</view>
+            </view>
+
+            <view class='my_list_con'>
+                <view class='my_list_left'>
+                    <view>分享车源</view>
+                    <view>+ 1<text style='font-size:25rpx;opacity:0.5;'> (每日限3次) </text></view>
+                </view>
+                <view class='my_list_right' catchtap='onShareVehicleSource'>做任务</view>
+            </view>
+
+            <view class='my_list_con' >
+                <view class='my_list_left'>
+                    <view>评论（留言）</view>
+                    <view>+ 0.5<text style='font-size:25rpx;opacity:0.5;'>（每日限2次）</text></view>
+                </view>
+                <view class='my_list_right' catchtap='onPinglun'>做任务</view>
+            </view>
+
+            
+
+            <view class='my_list_con'>
+                <view class='my_list_left'>
+                    <view>邀请好友</view>
+                    <view>+ 2<text style='font-size:25rpx;opacity:0.5;'>（每日无限制）</text></view>
+                </view>
+                <view class='my_list_right' catchtap='onSharePYQ'>做任务</view>
+            </view>
+
+            
+        </view>
+    
+    </view>
+
+    <view style='color:#FF3939;padding:40rpx 0rpx;font-size:28rpx;'>
+        <view>提示：发布虚假车辆    - 10</view>
+        <view style='padding-left:40rpx;'>车辆发布规范、信息齐全、图片精美   + 1～3</view>
+    </view>
+
+    <view style='font-size:25rpx;text-align: center;padding:40rpx;color:#999'>更多任务 敬请期待</view>
+
+</view>

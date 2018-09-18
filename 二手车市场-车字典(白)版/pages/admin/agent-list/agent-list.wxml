@@ -1,0 +1,22 @@
+<view class="container">
+    
+        <view class="withdraw_audit_box">
+            <!-- 循环 start -->
+            <block wx:for="{{list}}" wx:for-item="item" wx:for-index="i" wx:key="">
+                <view class="withdraw_audit_li" catchtap='onAgentUpdate' data-i="{{i}}">
+                    <view class="info">
+                        <view class="intr">
+                            <view class="p">{{item.name}}
+                                <text>{{item.cellphoneNumber}}</text>
+                            </view>
+                            <view class="h1">{{item.city}}</view>
+                        </view>
+                    </view>
+                </view>
+            </block>
+            <!-- 循环 end -->
+        </view>
+    
+    <!-- 提示 -->
+    <view wx:if="{{isloadover}}" class='tip_center' style='margin-bottom:30px'>别拉了，没有啦</view>
+</view>

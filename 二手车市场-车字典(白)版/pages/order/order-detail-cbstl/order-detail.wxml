@@ -1,0 +1,253 @@
+
+<!-- <import src="../../../template/ad/ad.wxml" />
+<template is="ad"></template> -->
+<!-- <view class='red-title btn-ripple-effect' catchtap='onOpenRedTitle'>点击红包转发三个群返现金1～5元</view> -->
+
+
+<view class='kf_weixin'>
+    <view class='left' catchtap='fanhui'>
+        <image src='/images/chonggou/fanhui.png'></image>
+    </view>
+    <view class='right'>
+        <button open-type="share">
+            <image src='/images/chonggou/zhuanfa.png'></image>
+        </button>
+    </view>
+</view> 
+<view class='container' wx:if='{{tl_old}}'>
+    <!-- 车辆概要 -->
+    <view class='title'>
+        <view>车辆详情</view>
+        <view class='right'>
+            <view class='report' catchtap='bindReport'>复制链接</view>
+            <button id='red_pag' class='btn-float' open-type='share'>
+                <image  src='/images/icon/red-p.png' class='btn-press'></image>
+            </button>
+        </view>
+    </view>
+    <view  class='box car_detail'>
+        <block wx:for="{{car.itemData[2].itemPropValue}}" wx:for-item="" wx:for-index="i" wx:key="">
+            <view wx:if='{{i==0}}' class='line top'>
+                <text>{{item.itemPropLabel}}</text>
+                <text>{{item.itemPropValue}}</text>
+            </view>
+            <view wx:else class='line'>
+                <text>{{item.itemPropLabel}}</text>
+                <text>{{item.itemPropValue}}</text>
+            </view>
+        </block>
+    </view>
+
+
+    <view class='title'>报告概要信息</view>
+    <view class='box car_detail'>
+        <block wx:for="{{car.itemData[0].itemPropValue}}" wx:for-item="" wx:for-index="i" wx:key="">
+            <view wx:if='{{i==0}}' class='line top'>
+                <text>{{item.itemPropLabel}}</text>
+                <text>{{item.itemPropValue}}</text>
+            </view>
+            <view wx:else class='line'>
+                <text>{{item.itemPropLabel}}</text>
+                <text>{{item.itemPropValue}}</text>
+            </view>
+        </block>
+
+        <!-- <view class='line top'>
+            <text>安全气囊异常次数</text>
+            <text>{{car.itemData[0].itemPropValue[0].itemPropValue}}</text>
+        </view>
+        <view class='line'>
+            <text>里程表异常次数</text>
+            <text>{{car.itemData[0].itemPropValue[1].itemPropValue}}</text>
+        </view>
+        <view class='line'>
+            <text>最大里程</text>
+            <text>{{car.itemData[0].itemPropValue[2].itemPropValue}}</text>
+        </view>
+        <view class='line'>
+            <text>维保次数</text>
+            <text>{{car.itemData[0].itemPropValue[3].itemPropValue}}</text>
+        </view>
+        <view class='line'>
+            <text>泡水次数</text>
+            <text>{{car.itemData[0].itemPropValue[4].itemPropValue}}</text>
+        </view>
+        <view class='line'>
+            <text>结构部件异常次数</text>
+            <text>{{car.itemData[0].itemPropValue[5].itemPropValue}}</text>
+        </view>
+        <view class='line'>
+            <text>重大事故次数</text>
+            <text>{{car.itemData[0].itemPropValue[6].itemPropValue}}</text>
+        </view>
+        <view class='line'>
+            <text>发动机异常次数</text>
+            <text>{{car.itemData[0].itemPropValue[7].itemPropValue}}</text>
+        </view>
+        <view class='line'>
+            <text>火烧次数</text>
+            <text>{{car.itemData[0].itemPropValue[8].itemPropValue}}</text>
+        </view>
+        <view class='line'>
+            <text>变速器类型</text>
+            <text>{{car.itemData[0].itemPropValue[9].itemPropValue}}</text>
+        </view>
+        <view class='line'>
+            <text>最后到店日期</text>
+            <text>{{car.itemData[0].itemPropValue[10].itemPropValue}}</text>
+        </view> -->
+     
+    </view>
+    <!-- 报告详情 -->
+    <view class='title'>外观覆盖件报告</view>
+
+    <view wx:if="{{car.itemData[1].itemPropValue.length>0}}" class='box result_detail bg_502'>
+        <block wx:for="{{car.itemData[1].itemPropValue}}" wx:for-item="item" wx:key="">
+            <view class='line'>
+                <image class="left_img" src='/images/502.png'></image>
+                <image class="right_img" src='/images/502.png'></image>
+                <view class="table">
+                    <view class="tr">
+                        <text>日期</text>
+                        <text>公里数</text>
+                        <text>类型</text>
+                    </view>
+                    <view class="tr">
+                        <text>{{item[2].itemPropValue}}</text>
+                        <text>{{item[0].itemPropValue}}</text>
+                        <text>{{item[6].itemPropValue}}</text>
+                    </view>
+                    <view class="text_box">
+                        <view class="h2">维修保养内容：</view>
+                        <view class='p'>
+                            <text>项目描述：</text>
+                            <view>{{item[3].itemPropValue}}</view>
+                        </view>
+                        <view class='p'>
+                            <text>材料：</text>
+                            <view>{{item[4].itemPropValue}}</view>
+                        </view>
+                        <view class='p'>
+                            <text>记录来源：</text>
+                            <view>{{item[1].itemPropValue}}</view>
+                        </view>
+                        <view class='p'>
+                            <text>记录是否异常：</text>
+                            <view>{{item[7].itemPropValue}}</view>
+                        </view>
+                        <view class='p'>
+                            <text class='beizhu'>备注：</text>
+                            <view>{{item[5].itemPropValue}}</view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </block>
+    </view>
+    <view wx:else class="tip_left">暂无结果报告内容</view>
+</view>
+<view class='container' wx:else>
+  <!-- 车辆概要 -->
+    <view class='title'>
+        <view>车辆详情</view>
+        <view class='right'>
+            <view class='report' catchtap='bindReport_new'>复制链接</view>
+            <button id='red_pag' class='btn-float' open-type='share'>
+                <image src='/images/icon/red-p.png' class='btn-press'></image>
+            </button>
+        </view>
+    </view>
+
+    <view class='box car_detail'>
+        <block wx:for="{{car.itemData}}" wx:for-item="" wx:for-index="i" wx:key="">
+            <view wx:if='{{i==0}}' class='line top'>
+                <text>{{item.itemPropLabel}}</text>
+                <text>{{item.itemPropValue}}</text>
+            </view>
+            <view wx:else class='line'>
+                <text>{{item.itemPropLabel}}</text>
+                <text>{{item.itemPropValue}}</text>
+            </view>
+        </block>
+    </view>
+    <!-- 报告详情 -->
+    <view class='title'>{{result_detail.itemPropLabel}}</view>
+
+    <view wx:if="{{result_detail.itemPropValue.length>0}}" class='box result_detail bg_502'>
+        <block wx:for="{{result_detail.itemPropValue}}" wx:for-item="item" wx:key="">
+            <view class='line'>
+                <image class="left_img" src='/images/502.png'></image>
+                <image class="right_img" src='/images/502.png'></image>
+                <view class="table">
+                    <block wx:for='{{item}}' wx:for-item='item1' wx:key=''>
+                      <view class="text_box">
+                        <view class='p'>
+                            <text>{{item1.itemPropLabel}}:</text>
+                            <view>{{item1.itemPropValue}}</view>
+                        </view>
+                      </view>
+                    </block>
+                    <!-- <view class="tr">
+                        <text>{{item[0].itemPropLabel}}</text>
+                        <text>{{item[1].itemPropLabel}}</text>
+                        <text>{{item[4].itemPropLabel}}</text>
+                    </view>
+                    <view class="tr">
+                        <text>{{item[0].itemPropValue}}</text>
+                        <text>{{item[1].itemPropValue}}</text>
+                        <text>{{item[4].itemPropValue}}</text>
+                    </view>
+                    <view class="text_box">
+                        <view class="h2">维修保养内容：</view>
+                        <view class='p'>
+                            <text>{{item[2].itemPropLabel}}:</text>
+                            <view>{{item[2].itemPropValue}}</view>
+                        </view>
+                        <view class='p'>
+                            <text>{{item[3].itemPropLabel}}:</text>
+                            <view>{{item[3].itemPropValue}}</view>
+                        </view>
+                        <view class='p'>
+                            <text>{{item[5].itemPropLabel}}:</text>
+                            <view>{{item[5].itemPropValue}}</view>
+                        </view>
+                       
+                    </view> -->
+                </view>
+            </view>
+        </block>
+    </view>
+</view>
+<view style='height:50rpx;width:750rpx;' catchtap='openRed'></view>
+
+<!-- 1.转发后出现的红包 -->
+<view class='kind-list-item-bd {{open?"kind-list-item-bd-show":""}}' catchtap='closeRed'>
+    <view wx:if='{{!red_open}}' class='red-pag'>
+        <view class='line_top'></view>
+        <view class='chai {{chai_open?"btn-3d-rotate":"btn-zoom"}}'>
+            <image catchtap='onChai' src='/images/icon/chai.png'></image>
+        </view>
+    </view>
+    <view wx:else class='red-pag {{red_open?"red_open_show":""}}'>
+        <view class='avatar'></view>   
+        <view class='nickname'>小开</view>
+        <view class='price'><text>5</text>元</view>
+        <view class='line_down'></view>
+        <view class='balance btn-float' catchtap='onGoBalance'>可前往账户余额查看</view>
+    </view>
+</view>
+<!-- 2.点击红包出现的红包栏提醒 -->
+<view class='kind-list-item-bd {{red_title_open?"kind-list-item-bd-show":""}}' catchtap='onCloseRedTitle'>
+    <view class='layout'>
+        <view class='layout-img'>
+            <image src='/images/icon/red-title.png' mode='widthFix'></image>
+        </view>
+        <view class='layout-line h2'>查询成功后点击<text style='color:#FF3F42'>红包</text>转发三次</view>
+        <view class='layout-line h3'>随机返现金1～5元</view>
+        <view class='layout-line h4'>可前往<text style='color:#13344B'>“余额(提现)”</text>提现</view>
+        <view class='layout-line h5'>知道了</view>
+        <view class='layout-line h6'>
+            注：仅限车辆状态查询和车辆定损查询成功的订单 且订单为原价付款方有效
+        </view>
+    </view>
+</view>

@@ -1,0 +1,248 @@
+
+.container .title {
+    font-size: 17px;
+    margin: 15px 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between; 
+    width: 710rpx;
+}
+.container .title .report{
+  background: #14AC67;
+  color: #fff;
+  border-radius: 5rpx;
+  height: 65rpx;
+  width: 165rpx;
+  text-align: center;
+  line-height: 65rpx;
+}
+.container .title .right{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between; 
+  width: 40%;
+}
+.container .title .right image{
+  width: 77rpx;
+  height: 85rpx;
+}
+.box {
+    margin-bottom: 10px;
+    background: #fff;
+    border-radius: 10px;
+    padding: 0 30rpx;
+    overflow: hidden;
+}
+
+/* 车辆概要 */
+
+.car_detail {
+    padding-bottom: 15px;
+    width: 650rpx;
+}
+
+.car_detail .line {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.car_detail .line text:nth-child(1) {
+    color: #666;
+}
+
+.car_detail .line text:nth-child(2) {
+    color: #333;
+}
+
+.car_detail .line.top {
+    padding: 20px 0;
+    border-bottom: 1px solid #dedede;
+}
+
+.car_detail .line.top text:nth-child(1) {
+    font-size: 15px;
+}
+
+.kf_weixin{
+  width: 100%;
+  position: fixed;
+  background: rgba(0, 0, 0, 0.6);
+  bottom:150rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-align: center;
+  font-size: 35rpx;
+  color: #fff;
+  padding: 10rpx;
+  z-index: 9;
+}
+.kf_weixin view{
+  width: 50%;
+}
+.right button{
+  background: rgba(0, 0, 0, 0);
+  color: #fff;
+  font-size: 35rpx;
+  line-height: 35rpx;
+  box-shadow:0px 0px 0px rgba(0,0,0,0);
+}
+
+
+.kf_weixin image{
+  height: 80rpx;
+  width: 80rpx;
+}
+
+.left{
+  border-right: 1rpx solid #fff;
+}
+
+
+
+/* 红包 */
+.red-pag{
+  width:535rpx;
+  height:713rpx;
+  background:rgba(205,83,61,1);
+  border-radius:8rpx;
+  margin: 0 auto;
+  margin-top: 35%;
+  position: relative;
+  color: #ffeab7;
+  text-align: center;
+}
+.red-pag .line_top{
+  width:98%;
+  height:10%;
+  border: 3px solid #A73823;
+  border-radius: 0 0 50% 50%/0 0 100% 100% ;
+  border-top: none;
+  position: relative;
+  top: 25%;
+}
+.red-pag .line_down{
+  width:98%;
+  height:10%;
+  border: 3px solid #A73823;
+  border-radius: 0 0 50% 50%/0 0 100% 100% ;
+  border-top: none;
+  position: relative;
+  top: 25%;
+}
+.red-pag .chai{
+  position: relative;
+  text-align:center;
+  top: 15%;
+}
+.red-pag .chai image{
+  width: 130rpx;
+  height: 130rpx;
+}
+.red-pag .avatar{
+  width:90rpx;
+  height:90rpx;
+  background:rgba(255,255,255,1);
+  border-radius:12rpx;
+  margin: 0 auto;
+  position:relative;
+  top:7%;
+}
+.red-pag .nickname{
+  position:relative;
+  top:10%;
+}
+.red-pag .price{
+  font-size: 32rpx;
+  position:relative;
+  top:14%;
+}
+.red-pag .price text{
+  font-size: 120rpx;
+  font-weight: bolder;
+}
+.red-pag .balance{
+  font-size: 24rpx;
+  position:relative;
+  top:28%;
+}
+.red-pag .balance1{
+  font-size: 22rpx;
+  position:relative;
+  top:30%;
+}
+.red_open_show{
+  animation: fly .8s
+}
+@keyframes fly{
+  0%{left: -500rpx;transform: scale(.2,.2)}
+  40%{left: -100rpx;transform: scale(.6,.6)}
+  50%{left: 0rpx;transform: scale(.7,.7)}
+  100%{left:0rpx;transform: scale(1,1)}
+}
+
+/* 红包栏 */
+.red-title{
+  width: 100%;
+  height: 100rpx;
+  line-height: 100rpx;
+  background: red;
+  color: #fff;
+  text-align: center;
+  font-size: 28rpx;
+}
+/* 打开红包栏的样式 */
+.layout{
+  width:560rpx;
+  height:70%;
+  background:rgba(255,254,255,1);
+  border-radius:12rpx;
+  margin: 20% auto;
+}
+.layout .layout-img image{
+  width: 100%;
+}
+.layout .layout-line{
+  width: 100%;
+  text-align: center;
+  color: #382B1D;
+  margin-top: 10%;
+}
+.layout .h2{
+  font-size: 34rpx;
+}
+.layout .h3{
+  font-size: 32rpx;
+}
+.layout .h4{
+  font-size: 28rpx;
+}
+.layout .h5{
+  font-size: 22rpx;
+  color: #fff;
+  width: 170rpx;
+  height: 57rpx;
+  line-height: 57rpx;
+  background: #13344B;
+  border-radius: 57rpx;
+  margin: 0 auto;
+  margin-top: 10%;
+}
+.layout .h6{
+  font-size: 22rpx;
+  color: #999;
+  width: 482rpx;
+  margin: 0 auto;
+  margin-top: 10%;
+}
+
+.red-pag .avatar image{
+  width: 90rpx;
+  height: 90rpx;
+  border-radius:12rpx;
+}
+

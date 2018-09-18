@@ -1,0 +1,27 @@
+<!--pages/market/search/search.wxml-->
+<view class='search'>
+    <view class='title'>
+        <view class='input'>
+          <input  placeholder="输入关键词搜索" bindinput="bindKeyInput" bindconfirm='bindconfirm'></input>
+        </view>
+        <view class='sousuo' catchtap='search'>搜索</view>
+    </view>
+
+    <view class='lishi'>
+        <view style='font-size:35rpx;'>历史搜索</view>
+        <view class='lishi_list'>
+            <block wx:for="{{lishi_list}}" wx:key="" wx:for-index="i">
+                <view catchtap='lishi' data-name='{{item}}'>{{item}}</view>
+            </block>
+        </view>
+    </view>
+
+    <view class='remen'>
+        <view style='font-size:35rpx;'>热门搜索</view>
+        <view class='remen_list'>
+            <block wx:for="{{remen_list}}" wx:key="" wx:for-index="i">
+                <view catchtap='remen' data-name='{{item}}'>{{item}}</view>
+            </block>
+        </view>
+    </view>
+</view>

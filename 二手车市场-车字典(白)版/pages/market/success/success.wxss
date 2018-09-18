@@ -1,0 +1,70 @@
+/* pages/market/success/success.wxss *//* pages/market/success/success.wxss */
+page{
+  background: #fff;
+  color: #13344B;
+}
+.success{
+  color: #111;
+  text-align: center;
+  letter-spacing: 2rpx;
+}
+.image{
+  margin-top: 100rpx;
+}
+.image image{
+  width: 150rpx;
+  height: 150rpx;
+}
+.fabuchenggong{
+  font-size: 50rpx;
+  margin-top: 50rpx;
+  margin-bottom: 50rpx;
+}
+.wx_pyq{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between; 
+  font-size: 35rpx;
+  width: 70%;
+  margin: 0 auto;
+  margin-top: 200rpx;
+}
+.wx_pyq image{
+  width: 80rpx;
+  height: 80rpx;
+}
+.share{
+  background: rgba(255, 255, 255, 0);
+  color: #111;
+  font-size: 35rpx;
+  height: 135rpx;
+}
+.share_view{
+  margin-top: -35rpx;
+}
+.share_pyq{
+  margin-top:10rpx;
+}
+.fanhuishouye{
+  width: 710rpx;
+  margin: 0 auto;
+  margin-top: 50rpx;
+  height: 92rpx;
+  line-height: 92rpx;
+  border-radius: 10rpx;
+  font-size: 32rpx;
+  background: #13344B;
+  box-shadow:6px 0px 16px rgba(0,0,0,0.36);
+  color: #fff;
+}
+button{
+  box-shadow:none;
+  color: #111;
+  font-size:35rpx;
+  border-radius:0rpx;
+
+}
+button::after{
+  border: none;
+}

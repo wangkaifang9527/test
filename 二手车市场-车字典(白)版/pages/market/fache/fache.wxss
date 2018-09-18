@@ -1,0 +1,364 @@
+/* pages/market/fache/fache.wxss */
+page{
+  background: #fff;
+}
+.title{
+  width:600rpx;
+  height:72rpx;
+  background:rgba(255,255,255,1);
+  border-radius:37rpx;
+  box-shadow:6px 0px 16px rgba(0,0,0,0.36);
+  margin-top: 40rpx;
+  font-size: 22rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between; 
+}
+.title .li{
+  text-align: center;
+  width: 50%;
+  height: 72rpx;
+  line-height: 72rpx;
+}
+.title .no{
+  background: #13344B;
+  color: #fff;
+  border-top-left-radius: 100rpx;
+  border-bottom-left-radius: 100rpx;
+}
+.title .xs{
+  background: #13344B;
+  color: #fff;
+  border-top-right-radius: 100rpx;
+  border-bottom-right-radius: 100rpx;
+}
+
+/* 模板 */
+.module{
+  width: 100%;
+  
+}
+.module .head{
+  font-size: 30rpx;
+  color: #111;
+  font-weight: bolder;
+  margin-top: 40rpx;
+  margin-left: 20rpx;
+}
+.module .head .must{
+  color: #FF0000;
+}
+.module .head textarea{
+  width:670rpx;
+  height:176rpx;
+  padding: 20rpx;
+  background:#E6E6E6;
+  border-radius:8rpx;
+  margin-top: 10rpx;
+}
+.module .body{
+  width:650rpx;
+  height:74rpx;
+  background:#E6E6E6;
+  border-radius:37rpx;
+  padding-left: 30rpx;
+  padding-right: 10rpx;
+  color: #111;
+  font-size: 28rpx;
+  margin: 0 auto;
+  margin-top: 20rpx;
+}
+.module input{
+  height:74rpx;
+  line-height: 74rpx;
+}
+.module .placeholder{
+  color: #999;
+  
+}
+.module .list{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between; 
+}
+.module .list .one{
+  width: 200rpx;
+}
+.module .list .two{
+  width: 320rpx;
+}
+.module .list .three{
+  width: 120rpx;
+}
+.module .list .two input{
+  text-align: right;
+  padding-right: 20rpx;
+}
+.module .list .three .btn{
+  width:120rpx;
+  height:54rpx;
+  line-height: 54rpx;
+  background:#13344B;
+  border-radius:27px;
+  font-size: 28rpx;
+  color: #fff;
+}
+.module .list .three .btn:active{
+  opacity: 0.6
+}
+.module .list picker{
+  width: 640rpx;
+  height:74rpx;
+  line-height: 74rpx;
+}
+.module .list .picker{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between; 
+}
+.module .list .picker .location{
+  width:80rpx;
+  height:54rpx;
+  text-align: center;
+}
+.module .list .picker .location:active{
+  opacity: 0.6
+}
+.module .list .picker image{
+  width: 40rpx;
+  height: 40rpx;
+}
+.module .list .picker .city{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;  
+  max-width: 300rpx; 
+}
+.module .list .picker .two{
+  text-align: right;
+  width: 310rpx;
+}
+.module .list .picker .three{
+  width: 56rpx;
+  height:74rpx;
+  line-height:86rpx;
+  /* transition: width 1s, height 1s, transform 1s; */
+}
+.module .list .picker .three:hover{
+  /* transform: rotate(180deg); */
+}
+.module .list .picker .three image{
+  width: 37rpx;
+  height: 37rpx;
+}
+.module .car_condition{
+  width: 710rpx;
+  margin: 30rpx auto;
+}
+.module .list .yes{
+  width:350rpx;
+  height:74rpx;
+  line-height: 74rpx;
+  font-size: 28rpx;
+  color: #fff;
+  text-align: center;
+  background:#13344B;
+  border-radius:37px;
+  box-shadow:6px 0px 16px rgba(0,0,0,0.36);
+}
+.module .list .no{
+  width:350rpx;
+  height:74rpx;
+  line-height: 74rpx;
+  background:#fff;
+  font-size: 28rpx;
+  color: #999;
+  text-align: center;
+  border-radius:37px;
+  box-shadow:6px 0px 16px rgba(0,0,0,0.36);
+}
+.vin{
+  margin-left:35rpx;
+  margin-top:20rpx;
+}
+.PV{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around; 
+  width: 400rpx;
+  margin: 0 auto;
+}
+.PV view{
+  font-size: 24rpx;
+}
+.PV image{
+  width:100rpx;
+  height:100rpx;
+  margin: 90rpx 0rpx 20rpx 0rpx;
+}
+
+/* 提交按钮 */
+.btn button{
+  width:710rpx;
+  height:99rpx;
+  line-height: 99rpx;
+  color: #fff;
+  font-size: 28rpx;
+  text-align: center;
+  background:#13344B;
+  border-radius:50px;
+  box-shadow:6px 0px 16px rgba(0,0,0,0.36);
+  margin-top:60rpx;
+  margin-bottom:300rpx;
+}
+
+.module .yylist{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between; 
+  padding:20rpx 20rpx 0rpx 20rpx;
+}
+.module .yylist .li{
+  width:128rpx;
+  height:76rpx;
+  border-radius:6rpx;
+  box-shadow:1px 0px 10px rgba(0,0,0,0.1);
+  text-align:center;
+  line-height:76rpx;
+}
+.module .yylist .yes{
+  color: #fff;
+  background: #999;
+}
+
+
+/* 预览图片和视频 */
+.yulan{
+  overflow: hidden;
+}
+.yulan view{
+  width: 25%;
+  float: left;
+  text-align: center;
+  margin-top: 20rpx;
+}
+.yulan image{
+  height: 156rpx;
+  width:156rpx;
+  margin-top: -48rpx; 
+}
+.shanchu{
+  position:  relative;
+  left: 58rpx; 
+  z-index: 900;
+}
+.yulan video{
+  height: 150rpx;
+  width:150rpx;
+  margin-top: -48rpx; 
+}
+
+
+/* 精品选择 */
+.ck_list{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between; 
+  width: 650rpx;
+  height: 74rpx;
+  line-height: 74rpx;
+  background: #E6E6E6;
+  margin: 10rpx auto;
+  border-radius: 100rpx;
+  padding: 0 20rpx;
+}
+.ck_list image{
+  width: 37rpx;
+  height: 37rpx;
+}
+.ck_list_li{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  
+}
+.ck_list_li view{
+  margin-right: 20rpx;
+  
+}
+.ck_list_list{
+  height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transform:  translateY(-50%);
+  transition: .4s;
+}
+.ck_list_list_show{
+  height:auto;
+  opacity: 1;
+  transform: translateY(0%);
+  transition: .4s;
+}
+.ck_list_list view{
+  box-shadow:1px 0px 10px rgba(0,0,0,0.1);
+  text-align: center;
+  width: 130rpx;
+  margin-right: 20rpx;
+  float: left;
+  height: 74rpx;
+  line-height: 74rpx;
+  margin:10rpx;
+}
+.ck_list_list .yes{
+  background: #999;
+  color: #fff; 
+}
+
+
+
+/*选择省份简称*/
+.province_array{
+  overflow: hidden;
+  font-size: 34rpx;
+  margin-left: 20rpx;
+}
+.province_array_name{
+  float: left;
+  width: 16.6%;
+  margin-top: 20rpx;
+  text-align: center;
+}
+.province_array_name view{
+  background: #E6E6E6;
+  padding: 20rpx 0rpx;
+  margin-right: 20rpx;
+}
+
+.kind-list-item-an {
+  height: 54rpx;
+  line-height: 72rpx;
+}
+
+/* 悬赏金额 */
+.body-view slider{
+
+}
+
+.ck_list_li_view{
+  width:375rpx;
+  height:75rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end; 
+  max-width: 375rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;  
+}

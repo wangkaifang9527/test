@@ -1,0 +1,44 @@
+<!--pages/warrant/warrant.wxml-->
+<form  bindsubmit='formSubmit' report-submit='true'>
+<view class='warrant'>
+    <view class='title'>
+        <view class='title_yi'>交易担保说明</view>
+        <view class='title_er'>买卖双方如需要预定某台车时,为了防止被骗,双方付等额的</view>
+        <view class='title_san'>保证金（3000起）付费至平台,交易完成后,买卖双方各扣</view>
+        <view class='title_si'>取200元服务费，余额退还至账户余额</view>
+
+        <view class='title_wu'>
+            <view class='title_wu_left'>
+                <view class='ptdb'>
+                    <view>平台</view>
+                    <view style='margin-top:10rpx'>提供</view>
+                </view>
+            </view>
+            <view class='title_wu_content'>
+                <view>1.车况数据查询 </view>
+                <view style='margin-top:30rpx'>3.线下接待 </view>
+            </view>
+            <view class='title_wu_right'>
+                <view>2.正规电子合同 </view>
+                <view style='margin-top:30rpx'>4.纠纷处理 </view>
+            </view>
+        </view>
+    </view>
+
+    <view class='warrant_price'>请输入您要担保的金额</view>
+    <view class='price'>
+        <view style='font-size:80rpx'>￥</view>
+        <input name='price'  placeholder='请输入担保金额' />
+    </view>
+
+    <view class='ispingtai' catchtap='onISpt'>
+        <image wx:if='{{ispingtai}}' class='image2' src='/images/icon/dui.png'></image>
+        <image wx:else class='image2' src='/images/icon/quan.png'></image>
+        <view style='margin-left:20rpx;'>是否委托平台检测及代办过户</view>
+    </view>
+
+    <view class='quding active'>
+        <button form-type='submit'>确定支付</button>
+    </view>
+</view>
+</form>

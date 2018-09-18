@@ -1,0 +1,47 @@
+/* pages/my/my-fans/my-fans.wxss */
+.fans{
+  padding: 10rpx 20rpx;
+  color: #111;
+  letter-spacing: 2rpx;
+}
+.fans_list{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between; 
+  padding: 15rpx 20rpx;
+  background: #fff;
+  margin-top: 20rpx;
+}
+.left{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between; 
+}
+.xinxi text{
+  margin-right: 10rpx;
+}
+.left image{
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 100rpx;
+}
+.right .active{
+  width:156rpx;
+  height:55rpx;
+  line-height: 55rpx;
+  font-size: 28rpx;
+  text-align: center;
+  color: #fff;
+  background:rgba(19,52,75,1);
+  border-radius:28px;
+  box-shadow:6px 0px 16px rgba(0,0,0,0.36);
+}
+.right image{
+  width: 120rpx;
+  height: 60rpx;
+}
+
+
+

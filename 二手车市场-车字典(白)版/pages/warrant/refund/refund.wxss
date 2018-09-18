@@ -1,0 +1,61 @@
+/* pages/warrant/refund/refund.wxss */
+page{
+  background: #fff;
+}
+.container{
+  padding: 0 20rpx;
+}
+.title{
+  width: 710rpx;
+  height: 130rpx;
+  line-height: 130rpx;
+  border-bottom: 1rpx solid #E6E6E6;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between; 
+  font-size: 28rpx;
+}
+.title .right image{
+  width: 35rpx;
+  height: 35rpx;
+  border-radius: 35rpx;
+}
+.title .right{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.title .right .grey{
+  color: #999;
+}
+.head{
+  width: 100%;
+  margin-top: 45rpx;
+}
+.body{
+  width: 710rpx;
+  height: 130rpx;
+  line-height: 130rpx;
+  border-bottom: 1rpx solid #E6E6E6;
+  font-size: 36rpx;
+}
+.body .one{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-align: center;
+  width:440rpx;
+  margin:0 auto;
+}
+.body text{
+  font-size: 80rpx;
+  font-weight: bolder;
+}
+.pclass{
+  font-size: 36rpx;
+}
+.foot{
+  margin-top: 100rpx;
+  font-size: 28rpx;
+}

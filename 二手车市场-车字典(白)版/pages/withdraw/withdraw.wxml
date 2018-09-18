@@ -1,0 +1,25 @@
+<import src="../../template/t-phone/t-phone.wxml" />
+<view class='kf_zhezhao' hidden="{{!flag}}">
+<template is="t-order-list" data='{{flag}}' /> 
+</view>
+
+<view class='container'>
+<form bindsubmit='submitWithdraw'>
+    <view class='withdraw_user'>
+        <view class='left'>提现到微信账户</view>
+        <view class='right'>
+            <image wx:if="{{user.avatarUrl}}" src='{{user.avatarUrl}}'></image>
+            <image wx:else src='/images/bg_gary.png'></image>
+            <text>{{user.nickName}}</text>
+        </view>
+    </view>
+    <view class='withdraw_money'>
+        <view class='top'>提现金额</view>
+        <view class='center'>
+            <text style='font-size:36px'>¥</text>
+            <input name="money" placeholder-style='color:#999' placeholder='可提现{{balance}}'></input>
+        </view>
+    </view>
+    <button class='btn_blue' form-type='submit'>提现</button>
+</form>
+</view>

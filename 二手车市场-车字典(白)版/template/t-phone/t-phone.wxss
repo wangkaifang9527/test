@@ -1,0 +1,35 @@
+
+/* 遮罩 */
+.kf_zhezhao{
+    position:fixed;
+    width:100%;
+    height:100%;
+    bottom:0px;
+    background:rgba(0,0,0,0.4);
+    overflow: hidden;
+    z-index: 999;
+}
+.kf_zhezhaokuang{
+  background: rgba(255,255,255,1);
+  height: 300rpx;
+  width: 90%;
+  margin: 0rpx 5%;
+  border-radius: 10rpx;
+  margin-top: 280rpx;
+  text-align: center;
+  color: #333;
+  font-size: 32rpx;
+  padding-top: 50rpx;
+}
+.kf_zhezhaokuang_wenben{
+  padding-top: 10rpx;
+}
+.kf_zhezhaokuang_button{
+  margin-top: 50rpx;
+}
+.kf_zhezhaokuang_button button{
+  background: #13344B;
+  width: 80%;
+  border-radius: 100rpx;
+  letter-spacing: 20rpx
+}

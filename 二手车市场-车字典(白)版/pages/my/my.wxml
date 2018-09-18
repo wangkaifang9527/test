@@ -1,0 +1,200 @@
+
+
+<view class='container'>
+    <view class='title'>
+        <image class='avatar' wx:if="{{user.avatarUrl}}" src='{{user.avatarUrl}}'></image>
+        <image class='avatar' wx:else src='/images/bg_gary.png'></image>
+        <view class='name'>{{user.nickName}}</view>
+
+        <view class='module'>
+            <view class='li left' catchtap='onWithdrawLog'>
+                <view><image mode='aspectFit' src='/images/my/YE.png'></image></view>
+                <view>余额(提现)</view>
+                <view class='last'>{{user.balance}}元</view>
+            </view>
+            <view class='li right' wx:if='{{ismember==0}}' catchtap='wodehuiyuan'>
+                <view><image mode='aspectFit' src='/images/my/HG1.png'></image></view>
+                <view>我要充值</view>
+                <view class='last'>(部分充值尊享查询折扣)</view>
+            </view>
+            <view class='li right' wx:else catchtap='wodehuiyuan'>
+                <view><image mode='aspectFit' src='/images/my/HG2.png'></image></view>
+                <view>我的会员</view>
+                <view class='last'>尊享会员卡权益</view>
+            </view>
+        </view>
+
+        <view class='module'>
+            <view class='li' catchtap='wodedingdan'>
+                <view><image mode='aspectFit' src='/images/my/query.png'></image></view>
+                <view>查询订单</view>
+            </view>
+            <view class='li' catchtap='wodefabu'>
+                <view><image mode='aspectFit' src='/images/my/FB.png'></image></view>
+                <view>我的发布</view>
+            </view>
+            <view class='li' catchtap='shichangshoucang'>
+                <view><image mode='aspectFit' src='/images/my/SC.png'></image></view>
+                <view>车辆收藏</view>
+            </view>
+        </view>
+    </view>
+    <view style='height:20rpx;'></view>
+
+    <!-- <view class='list btn-press' catchtap='onGirls'>
+        <view class='li'>
+            <image mode='aspectFit' src='/images/my/model.png'></image>
+            <view class='ms'>我有 
+            <text style='color:#F26E09'>{{user.modelCarCount}} </text>
+            个车模</view>
+        </view>
+        <view class='li'>
+            <image class='yjt' mode='aspectFit' src='/images/my/right.png'></image>
+        </view>
+    </view> -->
+
+    <!-- <view class='list' catchtap='onFache'>
+        <view class='li'>
+            <image mode='aspectFit' src='/images/my/icon-1.png'></image>
+            <view class='ms'>前往发车</view>
+        </view>
+        <view class='li'>
+            <image class='yjt' mode='aspectFit' src='/images/my/right.png'></image>
+        </view>
+    </view> -->
+
+    <view class='list btn-press' catchtap='onDealOrder'>
+        <view class='li'>
+            <image mode='aspectFit' src='/images/my/icon-2.png'></image>
+            <view class='ms'>交易订单</view>
+        </view>
+        <view class='li'>
+            <image class='yjt' mode='aspectFit' src='/images/my/right.png'></image>
+        </view>
+    </view>
+
+    <view class='list btn-press'>
+        <view class='li'>
+            <image mode='aspectFit' src='/images/my/icon-3.png'></image>
+            <view class='ms'>我的消息</view>
+        </view>
+        <view class='li'>
+            <image class='yjt' mode='aspectFit' src='/images/my/right.png'></image>
+        </view>
+    </view>
+
+    <view class='list btn-press'>
+        <view class='li'>
+            <image mode='aspectFit' src='/images/my/icon-4.png'></image>
+            <view class='ms'>实名信息</view>
+        </view>
+        <view class='li'>
+            <image class='yjt' mode='aspectFit' src='/images/my/right.png'></image>
+        </view>
+    </view>
+
+    <view class='list btn-press' catchtap='onMyPromotion'>
+        <view class='li'>
+            <image mode='aspectFit' src='/images/my/icon-5.png'></image>
+            <view class='ms'>我要推广</view>
+        </view>
+        <view class='li'>
+            <text>{{user.totalIncome}}元</text>
+            <image class='yjt' mode='aspectFit' src='/images/my/right.png'></image>
+        </view>
+    </view>
+
+    <view class='list btn-press' data-tel="15800636267" bindtap="onPhoneCall">
+        <view class='li'>
+            <image mode='aspectFit' src='/images/my/icon-6.png'></image>
+            <view class='ms'>联系客服</view>
+        </view>
+        <view class='li'>
+            <image class='yjt' mode='aspectFit' src='/images/my/right.png'></image>
+        </view>
+    </view>
+
+    <view class='list btn-press' catchtap='onCooperation'>
+        <view class='li'>
+            <image mode='aspectFit' src='/images/my/icon-7.png'></image>
+            <view class='ms'>合作招商</view>
+            <view class='new'>
+              <image src='/images/icon/hot.png'></image>
+          </view>
+        </view>
+        <view class='li'>
+            <image class='yjt' mode='aspectFit' src='/images/my/right.png'></image>
+        </view>
+    </view>
+
+    <view class='list btn-press' wx:if='{{user.promoteStatus == 2}}'  catchtap='erjidaili'>
+        <view class='li'>
+            <image mode='aspectFit' src='/images/my/icon-8.png'></image>
+            <view class='ms'>推广管理</view>
+        </view>
+        <view class='li'>
+            <image class='yjt' mode='aspectFit' src='/images/my/right.png'></image>
+        </view>
+    </view>
+
+    <view class='list btn-press' wx:if="{{user.cities.length>0}}"  catchtap='yijidaili'>
+        <view class='li'>
+            <image mode='aspectFit' src='/images/my/icon-9.png'></image>
+            <view class='ms'>代理管理</view>
+            <block wx:for="{{user.cities}}" wx:key="" >
+                <text class="citys">{{item}}</text>
+            </block>
+            <!-- <text class="citys">上海市</text> -->
+        </view>
+        <view class='li'>
+            <image class='yjt' mode='aspectFit' src='/images/my/right.png'></image>
+        </view>
+    </view>
+
+    <view class='list btn-press'  wx:if="{{isadmin}}" catchtap='onHrefMGR'>
+        <view class='li'>
+            <image mode='aspectFit' src='/images/my/icon-10.png'></image>
+            <view class='ms'>后台管理</view>
+        </view>
+        <view class='li'>
+            <image class='yjt' mode='aspectFit' src='/images/my/right.png'></image>
+        </view>
+    </view>
+    <button class='list btn-press btn-contact'
+            open-type="contact" 
+            session-from='weapp' 
+            size='27'
+            send-message-title="商品" 
+            send-message-img="http://www.levau.com/banner/banner3.png" 
+            send-message-path="/pages/index/index"
+            bindcontact='contact' show-message-card='true'>
+        <view class='li'>
+            <image mode='aspectFit' src='/images/my/icon-10.png'></image>
+            <view class='ms'>客服会话</view>
+        </view>
+        <view class='li'>
+            <image class='yjt' mode='aspectFit' src='/images/my/right.png'></image>
+        </view>
+    </button>
+
+          <!-- <button wx:if="{{store.show_customer_service==1}}" class="flex-grow-0 flex-y-center bar-bottom-btn" open-type="contact" send-message-title="商品" send-message-img="{{goods.pic_list[0].pic_url}}" send-message-path="/pages/goods/goods?id={{id}}" bindcontact='contact' show-message-card plain>
+        <view>
+          <image src="/images/icon-user-kf.png"></image>
+          <text>客服</text>
+        </view>
+      </button> -->
+
+
+</view>
+
+ <!-- <button open-type="contact" session-from='weapp' size='27' class='contact_view' >进入客服</button> -->
+     
+
+<!-- 获取用户手机号 -->
+<import src="../../template/t-phone/t-phone.wxml" />
+<view class='kf_zhezhao' hidden="{{!flag}}">
+    <template is="t-order-list" data='{{flag}}' /> 
+</view>
+
+
+

@@ -1,0 +1,9 @@
+@import "../../../template/t-order-list/t-order-list.wxss";
+
+
+.container {
+    margin: 0px 0rpx;
+}
+.order_time text {
+    display: none;
+}

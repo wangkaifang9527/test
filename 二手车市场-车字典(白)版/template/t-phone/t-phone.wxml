@@ -1,0 +1,15 @@
+
+<template name="t-order-list" >
+    
+        <view class='kf_zhezhaokuang'>
+            <view class='kf_zhezhaokuang_wenben'>
+                需要获取您的手机号
+            </view>
+            <view class='kf_zhezhaokuang_wenben'>
+                才能进行一下操作
+            </view>
+            <view class='kf_zhezhaokuang_button'>
+                <button  open-type="getPhoneNumber"                   bindgetphonenumber="getPhoneNumber">允许</button>
+            </view>
+        </view>
+</template>    

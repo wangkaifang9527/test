@@ -1,0 +1,36 @@
+.rule {
+    padding: 0px 20px 40px 20px;
+    line-height: 180%;
+}
+
+.rule .h1 {
+    font-size: 20px;
+    margin-top: 30px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #cecece;
+    margin-bottom: 30px;
+    color: #111;
+}
+
+.rule .h2 {
+    font-size: 18px;
+    margin-top: 20px;
+    color: #111;
+}
+
+.rule .p {
+    margin-top: 15px;
+    text-indent: 40rpx;
+    font-size: 28rpx;
+    color: #333;
+    
+}
+
+.rule .ul {
+    padding: 0 30rpx;
+    font-size: 13px;
+}
+
+.rule .ul .li {
+    margin-top: 10px;
+}

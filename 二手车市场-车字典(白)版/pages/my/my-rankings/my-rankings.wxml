@@ -1,0 +1,76 @@
+
+<view class='container'>
+    <view class='title'>
+        <view class='left li {{title_flag? "yes":"no"}}' >维保免费排行榜</view>
+        <view class='right li {{title_flag? "no":"yes"}}' catchtap='onDS'>定损免费排行榜</view>
+    </view>
+
+    <view class='logo'>
+        <view class='li'></view>
+        <view class='li'>
+            <image class='avatar' src='{{maxQueryUser.avatarUrl}}'></image>
+            <view style='height:0rpx;'>
+                <image class='hg' src='/images/ranking/HG.png'></image>
+            </view>
+            <view style='font-size:33rpx;color:#111;'>{{maxQueryUser.nickName}}</view>
+        </view>
+        <view class='li'>
+            <button open-type="share" >
+                <image class='share' src='/images/ranking/share.png'></image>
+                <view>分享</view>
+            </button>
+        </view>
+    </view>
+
+    <view wx:if='{{myRanking!=0}}' class='first list'>
+        <view class='li one'>{{myRanking.currentRanking}}</view>
+        <view class='li five'>
+            <image wx:if='{{myRanking.avatarUrl}}' src='{{myRanking.avatarUrl}}'></image>
+            <image wx:else src='/images/icon/default.png'></image>
+        </view>
+        <view class='li two'>
+            {{myRanking.nickName}}
+        </view>
+        <view class='li three'>
+            {{myRanking.remainTimes}}
+        </view>
+        <view class='li four'>
+            <view wx:if='{{order.risefall==0}}' >-</view>
+            <view wx:if='{{order.risefall<0}}' style='color:#69ff4b'>{{order.rise_fall}}</view>
+            <view wx:if='{{order.risefall>0}}' style='color:#ff2424'>{{order.rise_fall}}</view>
+        </view>
+    </view>
+
+    <view class='module list' >
+        <view class='li one' style='font-size:26rpx;color:#999'>排名</view>
+        <view class='li one' style='font-size:26rpx;color:#999'></view>
+        <view class='li two' style='font-size:26rpx;color:#999'>昵称</view>
+        <view class='li three' style='font-size:26rpx;color:#999'>距离免费次数</view>
+        <view class='li four' style='font-size:26rpx;color:#999'></view>
+    </view>
+
+    <view class='con'>
+        <block wx:for="{{orders}}" wx:for-item="order" wx:key="" wx:for-index="i">
+            <view class='list'>
+                <view class='li one'>{{order.currentRanking}}</view>
+                <view class='li five'>
+                    <image wx:if='{{order.avatarUrl}}' src='{{order.avatarUrl}}'></image>
+                    <image wx:else src='/images/icon/default.png'></image>
+                </view>
+                <view class='li two'>
+                    {{order.nickName}}
+                </view>
+                <view class='li three'>{{order.remainTimes}}</view>
+                <view class='li four'>
+                    <view wx:if='{{order.risefall==0}}' >-</view>
+                    <view wx:if='{{order.risefall<0}}' style='color:green'>{{order.rise_fall}}</view>
+                    <view wx:if='{{order.risefall>0}}' style='color:red'>{{order.rise_fall}}</view>
+                </view>
+            </view>
+        </block>
+        
+    </view>
+</view>
+
+<view wx:if="{{isloadover}}" class='tip_center' style='margin-bottom:30px'>别拉了，没有啦</view>
+<view wx:else class='tip_center' style='margin-bottom:30px'>加载中...</view>

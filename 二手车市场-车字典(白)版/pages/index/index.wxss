@@ -1,0 +1,316 @@
+
+@import "/template/t-car-list/t-car-list.wxss"; 
+
+
+
+/*标题*/
+.title{
+  width: 100%;
+  height: 110rpx;
+  line-height: 110rpx;
+  background: #fff;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between; 
+  text-align: center;
+}
+.title .one{
+  width: 132rpx;
+  line-height: 35rpx;
+  min-width: 120rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;   
+}
+.title .one view{
+  min-width: 132rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;   
+}
+.title .one image{
+  width: 40rpx;
+  height: 40rpx;
+}
+.title .two{
+  width: 530rpx;
+  height: 70rpx;
+  background: #E6E6E6;
+  line-height: 73rpx;
+  color: #999;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center; 
+}
+.title .two image{
+  width: 30rpx;
+  height: 30rpx;
+  
+}
+.title .three{
+  width: 140rpx;
+  color: #13344B;
+  /*animation: arrow1 1.2s infinite; */
+  animation: arrow1 1.2s;
+  /* 播放次数 */
+  animation-iteration-count:2 
+}
+
+
+/*查询跳转*/
+.query{
+  width: 750rpx;
+  height: 200rpx;
+}
+.query image{
+  width: 750rpx;
+  height: 200rpx;
+}
+
+
+
+
+
+/*视频播放遮罩*/
+.bofang{
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 100;
+  width: 100%;
+  text-align: center;
+  height:450rpx;
+  line-height: 450rpx; 
+  position: relative;
+  top: -430rpx;
+  margin-left: 10rpx;
+}
+.bofang image{
+  height: 80rpx;
+  width: 80rpx;
+}
+
+
+
+/*视频播放遮罩*/
+.zhezhao_one{
+  height: 30%;
+}
+.zhezhao_two{
+  height: 40%;
+  margin: 0 auto;
+  width: 100%;
+}
+.zhezhao_two video{
+  margin: 0 auto;
+  width: 100%;
+}
+.zhezhao_three{
+  height: 30%;
+}
+/* 评论输入框 */
+.pinglun_input{
+  width: 100%;
+  position: fixed;
+  top: 50%;  
+  background: #fff;
+  color: #000;
+  padding:20rpx;
+  border-radius: 10rpx;
+  font-size: 24rpx;
+}
+
+
+
+
+/*移动模块*/
+.mobile{
+  position:  fixed;
+  bottom: 100rpx;
+  text-align: right;
+  z-index: 1;
+  margin-left: 50rpx;
+}
+.mobile image{
+  height: 100rpx;
+  width:100rpx;
+}
+
+
+/* 下拉选（筛选） */
+.div{
+  width:180rpx;
+  background:#fff;
+  font-size:28rpx;
+  text-align:center;
+  line-height:42rpx;
+  color:#13344B;
+  position:absolute;
+  right:0rpx;
+  top:110rpx;
+  padding:0 20rpx;
+  z-index: 10;
+  transition: width 1s, height 1s, transform 1s;
+  animation:myfirst 1s;
+}
+.div view{
+  line-height:64rpx;
+  border-bottom:1rpx solid #E6E6E6;
+}
+.span:active{
+  opacity: 0.6
+}
+.div:hover{
+  /* width: 0rpx; */
+  /* right: -90rpx; */
+  transform: rotate(360deg);
+}
+@keyframes myfirst {
+	  0%  {background: yellow; right:-250rpx; top:110rpx;}
+    100% {background: #E6E6E6; right:-0rpx; top:110rpx;}
+}
+
+
+/* 红包 */
+.red-pag{
+  width:535rpx;
+  height:713rpx;
+  background:rgba(205,83,61,1);
+  border-radius:8rpx;
+  margin: 0 auto;
+  margin-top: 35%;
+  position: relative;
+  color: #ffeab7;
+  text-align: center;
+}
+.red-pag .line_top{
+  width:98%;
+  height:10%;
+  border: 3px solid #A73823;
+  border-radius: 0 0 50% 50%/0 0 100% 100% ;
+  border-top: none;
+  position: relative;
+  top: 25%;
+}
+.red-pag .line_down{
+  width:98%;
+  height:10%;
+  border: 3px solid #A73823;
+  border-radius: 0 0 50% 50%/0 0 100% 100% ;
+  border-top: none;
+  position: relative;
+  top: 15%;
+}
+.red-pag .chai{
+  position: relative;
+  text-align:center;
+  top: 15%;
+}
+.red-pag .chai image{
+  width: 130rpx;
+  height: 130rpx;
+}
+.red-pag .avatar{
+  width:90rpx;
+  height:90rpx;
+  background:rgba(255,255,255,1);
+  border-radius:12rpx;
+  margin: 0 auto;
+  position:relative;
+  top:7%;
+}
+.red-pag .nickname{
+  position:relative;
+  top:10%;
+}
+.red-pag .price{
+  font-size: 32rpx;
+  position:relative;
+  top:14%;
+}
+.red-pag .price text{
+  font-size: 120rpx;
+  font-weight: bolder;
+}
+.red-pag .balance{
+  font-size: 24rpx;
+  position:relative;
+  top:23%;
+}
+.red-pag .balance1{
+  font-size: 22rpx;
+  position:relative;
+  top:25%;
+  line-height:38rpx;
+}
+.red_open_show{
+  animation: fly .8s
+}
+@keyframes fly{
+  0%{left: -500rpx;transform: scale(.2,.2)}
+  40%{left: -100rpx;transform: scale(.6,.6)}
+  50%{left: 0rpx;transform: scale(.7,.7)}
+  100%{left:0rpx;transform: scale(1,1)}
+}
+
+/* 红包栏 */
+.red-title{
+  width: 100%;
+  height: 100rpx;
+  line-height: 100rpx;
+  background: red;
+  color: #fff;
+  text-align: center;
+  font-size: 28rpx;
+}
+/* 打开红包栏的样式 */
+.layout{
+  width:560rpx;
+  height:70%;
+  background:rgba(255,254,255,1);
+  border-radius:12rpx;
+  margin: 20% auto;
+}
+.layout .layout-img image{
+  width: 100%;
+}
+.layout .layout-line{
+  width: 100%;
+  text-align: center;
+  color: #382B1D;
+  margin-top: 10%;
+}
+.layout .h2{
+  font-size: 34rpx;
+}
+.layout .h3{
+  font-size: 32rpx;
+}
+.layout .h4{
+  font-size: 28rpx;
+}
+.layout .h5{
+  font-size: 22rpx;
+  color: #fff;
+  width: 170rpx;
+  height: 57rpx;
+  line-height: 57rpx;
+  background: #13344B;
+  border-radius: 57rpx;
+  margin: 0 auto;
+  margin-top: 10%;
+}
+.layout .h6{
+  font-size: 22rpx;
+  color: #999;
+  width: 482rpx;
+  margin: 0 auto;
+  margin-top: 10%;
+}
+
+.red-pag .avatar image{
+  width: 90rpx;
+  height: 90rpx;
+  border-radius:12rpx;
+}
+

@@ -1,0 +1,58 @@
+page{
+  background: #fff;
+}
+.my_info {
+    width: 100%;
+    margin-top: 47rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.my_info image {
+    width: 120rpx;
+    height: 120rpx;
+    border-radius: 120px;
+}
+
+.my_info text {
+    font-size: 18px;
+    color: #111;
+    margin-top: 12px;
+}
+
+.my_promotion_code {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.my_promotion_code image {
+    width: 520rpx;
+    height: 520rpx;
+}
+
+.my_promotion_code text {
+    font-size: 14px;
+    color: #636576;
+    margin-top: 10px;
+}
+
+.tips {
+    width: 100%;
+    text-align: center;
+    margin:10px 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.tips text {
+    color: #931e31;
+}
+.tips text:first-child{
+    font-size: 18px;
+    font-weight: bold
+}

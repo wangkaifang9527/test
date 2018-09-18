@@ -1,0 +1,27 @@
+
+.container{
+  background: #fff;
+}
+.title{
+  width: 710rpx;
+  margin: 30rpx auto;
+  color: #111;
+  font-size: 36rpx;
+  font-weight: bolder;
+}
+image{
+  width: 710rpx;
+  height: 800rpx;
+}
+.line{
+  width: 710rpx;
+  margin: 0 auto;
+  margin-top: 30rpx;
+  font-size: 28rpx;
+}
+.first{
+  margin-top: 0rpx;
+}
+.last{
+  margin-bottom: 150rpx;
+}

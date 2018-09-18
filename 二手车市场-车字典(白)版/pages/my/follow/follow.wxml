@@ -1,0 +1,4 @@
+<view class='kf-view'>
+  <image  src="{{imageurl}}" mode='widthFix' style="width:100%" catchtap='lookImg' longtap='saveImg'></image>
+	<!-- <text class='kf-phone' data-tel='15900902231' catchtap='bodakefu'>客服电话:15900902231</text> -->
+</view>

@@ -1,0 +1,161 @@
+<view class='container'>
+    <view class='my_list'>
+        <view class='my_list_li' catchtap='onHrefOrder'>
+            <view class='my_list_left'>
+                <image mode='aspectFit' src='/images/icon/i2_book.png'></image>
+                <text>当天维保</text>
+                <text class='kf_success'>成功{{user.maintenanceSuccessCountToday}}单</text>
+            </view>
+            <view class='my_list_right'>
+                <text class='kf_fail'>失败{{user.maintenanceFailCountToday}}单</text>
+            </view>
+        </view>
+        <view class='my_list_li' catchtap='onHrefOrder'>
+            <view class='my_list_left'>
+                <image mode='aspectFit' src='/images/icon/i2_book.png'></image>
+                <text>当天理赔</text>
+                <text class='kf_success'>成功{{user.claimSuccessCountToday}}单</text>
+            </view>
+            <view class='my_list_right'>
+                <text class='kf_fail'>失败{{user.claimFailCountToday}}单</text>
+            </view>
+        </view>
+        <view class='my_list_li' catchtap='onHrefOrder'>
+            <view class='my_list_left'>
+                <image mode='aspectFit' src='/images/icon/i2_book.png'></image>
+                <text>当天状态</text>
+                <text class='kf_success'>成功{{user.vehicleSuccessStateCountToday}}单</text>
+            </view>
+            <view class='my_list_right'>
+                <text class='kf_fail'>失败{{user.vehicleFailStateCountToday}}单</text>
+            </view>
+        </view>
+        <view class='my_list_li' catchtap='onHrefOrder'>
+            <view class='my_list_left'>
+                <image mode='aspectFit' src='/images/icon/i2_book.png'></image>
+                <text>当天总收益</text>
+            </view>
+            <view class='my_list_right'>
+                <text>{{user.profitToday}}元</text>
+            </view>
+        </view>
+        <view class='my_list_li' catchtap='onHrefOrder'>
+            <view class='my_list_left'>
+                <image mode='aspectFit' src='/images/icon/i2_book.png'></image>
+                <text>当天总收入</text>
+            </view>
+            <view class='my_list_right'>
+                <text>{{user.totalIncomeToday}}元</text>
+            </view>
+        </view>
+    </view>
+
+    <view class='my_list'>
+        <view class='my_list_li' catchtap='onHrefOrder'>
+            <view class='my_list_left'>
+                <image mode='aspectFit' src='/images/icon/i2_book.png'></image>
+                <text>本周维保</text>
+                <text class='kf_success'>成功{{user.maintenanceSuccessCountThisWeek}}单</text>
+            </view>
+            <view class='my_list_right'>
+                <text class='kf_fail'>失败{{user.maintenanceFailCountThisWeek}}单</text>
+            </view>
+        </view>
+        <view class='my_list_li' catchtap='onHrefOrder'>
+            <view class='my_list_left'>
+                <image mode='aspectFit' src='/images/icon/i2_book.png'></image>
+                <text>本周理赔</text>
+                <text class='kf_success'>成功{{user.claimSuccessCountToday}}单</text>
+            </view>
+            <view class='my_list_right'>
+                <text class='kf_fail'>失败{{user.claimFailCountToday}}单</text>
+            </view>
+        </view>
+        <view class='my_list_li' catchtap='onHrefOrder'>
+            <view class='my_list_left'>
+                <image mode='aspectFit' src='/images/icon/i2_book.png'></image>
+                <text>本周状态</text>
+                <text class='kf_success'>成功{{user.vehicleSuccessStateCountThisWeek}}单</text>
+            </view>
+            <view class='my_list_right'>
+                <text class='kf_fail'>失败{{user.vehicleFailStateCountThisWeek}}单</text>
+            </view>
+        </view>
+        <view class='my_list_li' catchtap='onHrefOrder'>
+            <view class='my_list_left'>
+                <image mode='aspectFit' src='/images/icon/i2_book.png'></image>
+                <text>本周总收益</text>
+            </view>
+            <view class='my_list_right'>
+                <text>{{user.profitThisWeek}}元</text>
+            </view>
+        </view>
+        <view class='my_list_li' catchtap='onHrefOrder'>
+            <view class='my_list_left'>
+                <image mode='aspectFit' src='/images/icon/i2_book.png'></image>
+                <text>本周总收入</text>
+            </view>
+            <view class='my_list_right'>
+                <text>{{user.totalIncomeThisWeek}}元</text>
+            </view>
+        </view>
+    </view>
+
+
+
+    <view class='my_list'>
+        <view class='my_list_li' catchtap='onHrefOrder'>
+            <view class='my_list_left'>
+                <image mode='aspectFit' src='/images/icon/i2_book.png'></image>
+                <text>30天维保</text>
+                <text class='kf_success'>成功{{user.maintenanceSuccessCountThisMonth}}单</text>
+            </view>
+            <view class='my_list_right'>
+                <text class='kf_fail'>失败{{user.maintenanceFailCountThisMonth}}单</text>
+            </view>
+        </view>
+        <view class='my_list_li' catchtap='onHrefOrder'>
+            <view class='my_list_left'>
+                <image mode='aspectFit' src='/images/icon/i2_book.png'></image>
+                <text>30天理赔</text>
+                <text class='kf_success'>成功{{user.claimSuccessCountThisMonth}}单</text>
+            </view>
+            <view class='my_list_right'>
+                <text class='kf_fail'>失败{{user.claimFailCountThisMonth}}单</text>
+            </view>
+        </view>
+        <view class='my_list_li' catchtap='onHrefOrder'>
+            <view class='my_list_left'>
+                <image mode='aspectFit' src='/images/icon/i2_book.png'></image>
+                <text>30天状态</text>
+                <text class='kf_success'>成功{{user.vehicleSuccessStateCountThisMonth}}单</text>
+            </view>
+            <view class='my_list_right'>
+                <text class='kf_fail'>失败{{user.vehicleFailStateCountThisMonth}}单</text>
+            </view>
+        </view>
+        <view class='my_list_li' catchtap='onHrefOrder'>
+            <view class='my_list_left'>
+                <image mode='aspectFit' src='/images/icon/i2_book.png'></image>
+                <text>30天总收益</text>
+            </view>
+            <view class='my_list_right'>
+                <text>{{user.profitThisMonth}}元</text>
+            </view>
+        </view>
+        <view class='my_list_li' catchtap='onHrefOrder'>
+            <view class='my_list_left'>
+                <image mode='aspectFit' src='/images/icon/i2_book.png'></image>
+                <text>30天总收入</text>
+            </view>
+            <view class='my_list_right'>
+                <text>{{user.totalIncomeThisMonth}}元</text>
+            </view>
+        </view>
+        
+    </view>
+
+
+    
+
+</view>

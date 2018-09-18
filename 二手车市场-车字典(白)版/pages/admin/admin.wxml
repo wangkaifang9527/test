@@ -1,0 +1,98 @@
+<view class='container'>
+    <view class='title'>
+        <image class='avatar' src='/images/query/ye_pay.png'></image>
+        <view class='h4'>可用余额</view>
+        <view class='h1'>{{balance}}</view>
+        <button type="primary" catchtap='onWithdraw'>提现</button>
+    </view>
+    <view style='height:20rpx;'></view>
+
+
+
+    <view class='list' catchtap='onHrefOrder'>
+        <view class='li'>
+            <image mode='aspectFit' src='/images/my/icon-1.png'></image>
+            <view class='ms'>订单管理</view>
+        </view>
+        <view class='li'>
+            <text>{{order}}个</text>
+            <image class='yjt' mode='aspectFit' src='/images/my/right.png'></image>
+        </view>
+    </view>
+
+    <view class='list' catchtap='onWithdrawAudit'>
+        <view class='li'>
+            <image mode='aspectFit' src='/images/my/icon-2.png'></image>
+            <view class='ms'>提现审核</view>
+        </view>
+        <view class='li'>
+            <text class="red_cir">{{withdrawCount}}</text>
+            <image class='yjt' mode='aspectFit' src='/images/my/right.png'></image>
+        </view>
+    </view>
+
+    <view class='list' catchtap='onPromotersAudit'>
+        <view class='li'>
+            <image mode='aspectFit' src='/images/my/icon-3.png'></image>
+            <view class='ms'>推广人审核</view>
+        </view>
+        <view class='li'>
+            <text class="red_cir">{{promoterCountToAudit}}</text> 
+            <image class='yjt' mode='aspectFit' src='/images/my/right.png'></image>
+        </view>
+    </view>
+
+    <view class='list' catchtap='onPromoters'>
+        <view class='li'>
+            <image mode='aspectFit' src='/images/my/icon-4.png'></image>
+            <view class='ms'>推广人</view>
+        </view>
+        <view class='li'>
+            <image class='yjt' mode='aspectFit' src='/images/my/right.png'></image>
+        </view>
+    </view>
+
+    <view class='list' catchtap='onAgentAudit'>
+        <view class='li'>
+            <image mode='aspectFit' src='/images/my/icon-5.png'></image>
+            <view class='ms'>代理商审核</view>
+        </view>
+        <view class='li'>
+            <text class="red_cir">{{agent_apply}}</text>
+            <image class='yjt' mode='aspectFit' src='/images/my/right.png'></image>
+        </view>
+    </view>
+
+    <view class='list'  bindtap="onAgent">
+        <view class='li'>
+            <image mode='aspectFit' src='/images/my/icon-6.png'></image>
+            <view class='ms'>代理商</view>
+        </view>
+        <view class='li'>
+            <text>{{agent}}个</text>
+            <image class='yjt' mode='aspectFit' src='/images/my/right.png'></image>
+        </view>
+    </view>
+
+    <view class='list' catchtap='onHrefOrderDetails'>
+        <view class='li'>
+            <image mode='aspectFit' src='/images/my/icon-7.png'></image>
+            <view class='ms'>数据统计</view>
+        </view>
+        <view class='li'>
+            <image class='yjt' mode='aspectFit' src='/images/my/right.png'></image>
+        </view>
+    </view>
+
+    <view class='list' catchtap='onBill'>
+        <view class='li'>
+            <image mode='aspectFit' src='/images/my/icon-8.png'></image>
+            <view class='ms'>资金明细</view>
+        </view>
+        <view class='li'>
+            <image class='yjt' mode='aspectFit' src='/images/my/right.png'></image>
+        </view>
+    </view>
+
+
+</view>

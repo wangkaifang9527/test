@@ -1,0 +1,8 @@
+<!--pages/market/details/all/all.wxml-->
+<view class='container'>
+    <view wx:if='{{forwardUserList.length>0}}' class='notice_img_list'>
+          <block wx:for='{{forwardUserList}}' wx:key=''>
+              <image src='{{item.avatarUrl}}' catchtap='zhuye' data-openid='{{item.openId}}'></image>
+          </block>
+      </view>
+</view>

@@ -1,0 +1,19 @@
+/* pages/market/canvas/canvas.wxss */
+.myCanvas{
+  width:80%;
+  height:567px;
+  border: 1prx solid rgba(255, 255, 255, 1);
+}
+.dianjibaocun{
+  color:#fff;
+  width:80rpx;
+  height: 80rpx;
+  background: #999;
+  border-radius: 100rpx;
+  position: fixed;
+  bottom: 40rpx;
+  right: 30rpx;
+  text-align: center;
+  font-size: 30rpx;
+  padding: 20rpx;
+}

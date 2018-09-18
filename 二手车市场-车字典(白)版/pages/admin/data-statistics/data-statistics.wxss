@@ -1,0 +1,140 @@
+page {
+    background: #f8f8f8;
+}
+
+.container {
+    position: relative;
+}
+
+.my_money {
+    position: relative;
+    width: 100%;
+    color: #333;
+    background: #fff;
+    overflow: hidden;
+}
+
+.my_money .text_small {
+    margin-left: 30rpx;
+    margin-top: 55rpx;
+}
+
+.my_money .text_big {
+    font-size: 50px;
+    margin-left: 30rpx;
+    margin-top: 0px;
+}
+
+.my_money .text_big text {
+    font-size: 12px;
+}
+
+.my_money .btn_li {
+    font-size: 16px;
+    height: 100rpx;
+    line-height: 100rpx;
+    border-top: 1px solid #e5e5e5;
+    margin: 0 30rpx;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.my_money button {
+    width: 160rpx;
+    height: 60rpx;
+    line-height: 60rpx;
+    border: 1px solid #333;
+    border-radius: 100px;
+    text-align: center;
+    background: transparent;
+    color: #333;
+    position: absolute;
+    right: 37rpx;
+    top: 100rpx;
+    font-size: 16px;
+}
+
+.my_list {
+    margin-top: 15px;
+    background: #fff;
+    width: 710rpx;
+}
+
+.my_list_li {
+    font-size: 16px;
+    height: 100rpx;
+    line-height: 100rpx;
+    border-bottom: 1px solid #e5e5e5;
+    margin: 0 30rpx;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.my_list_li:last-child {
+    border: none;
+}
+
+.my_list_left {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.my_list_left image {
+    height: 100rpx;
+    width: 36rpx;
+    margin-right: 20rpx;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.my_list_left text {
+}
+
+.my_list_right {
+    color: #75778a;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.my_list_right image, .btn_li image {
+    height: 100rpx;
+    width: 44rpx;
+    margin-left: 10rpx;
+}
+
+.my_list_right text {
+}
+/*  */
+.tips {
+    height: 88rpx;
+    line-height: 88rpx;
+    padding: 0 40rpx;
+    color: #444;
+}
+.red_cir{
+    display: inline-block;
+    background: #FB4242;
+    color: #fff;
+    height: 44rpx;
+    line-height: 44rpx;
+    min-width: 22rpx;
+    padding:0 10rpx;
+    border-radius: 100px;
+}
+.kf_success{
+  color:green;
+  margin-left: 10%;
+
+}
+.kf_fail{
+  color:red;
+}

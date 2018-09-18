@@ -1,0 +1,103 @@
+
+@import "../../template/t-phone/t-phone.wxss"; 
+
+
+.container{
+  width: 100%;
+  color: #333;
+  
+}
+.title{
+  background: #fff;
+  width: 100%;
+  font-size:42rpx;
+  color: #111;
+  text-align: center;
+}
+.title .avatar{
+  width:162rpx;
+  height:162rpx;
+  border-radius: 100rpx;
+  margin-top: 44rpx;
+}
+.title .h1{
+  font-size: 82rpx;
+  color: #111
+}
+.title .h4{
+  font-size: 30rpx;
+  color: #111
+}
+.title view{
+  margin-top: 40rpx;
+}
+.title button{
+  width:648rpx;
+  height:82rpx;
+  background:rgba(19,52,75,1);
+  border-radius:41rpx;
+  margin-top: 40rpx;
+  line-height: 82rpx;
+  font-size: 28rpx;
+}
+
+
+.container image{
+  width: 52rpx;
+  height: 52rpx;
+}
+.container .yjt{
+  width:16rpx;
+  height:28rpx;
+}
+
+/* 车模 */
+.list{
+  width: 710rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  font-size: 28rxp;
+  color: #333;
+  padding: 0rpx 20rpx;
+  background: #fff;
+  border-bottom:1rpx solid #E6E6E6;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between; 
+}
+.list .li{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between; 
+}
+.list .li .ms{
+  margin-left: 25rpx;
+}
+.list .li .citys{
+  font-size:22rpx;
+  width:100rpx;
+  background:#13344B;
+  height:35rpx;
+  line-height:35rpx;
+  text-align:center;
+  color:#fff;
+  margin-left:20rpx;
+  max-width: 100rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;    
+}
+
+.red_cir{
+    display: inline-block;
+    background: #FB4242;
+    height: 44rpx;
+    line-height: 44rpx;
+    min-width: 22rpx;
+    padding:0 10rpx;
+    border-radius: 100px;
+    color: #fff;
+    text-align: center;
+}

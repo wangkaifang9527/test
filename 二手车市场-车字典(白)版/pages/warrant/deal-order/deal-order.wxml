@@ -1,0 +1,106 @@
+<!--pages/warrant/deal-order/deal-order.wxml-->
+<view class='container'>
+    <view class='logo'>
+        <view class='title'>
+          <view class='active btn-ripple-effect {{title_show? "":"show_l"}} ' catchtap='onBuyer'>发起的担保（买方）</view>
+          <view class='active btn-ripple-effect {{title_show? "show_r":""}} ' catchtap='onSeller'>收到的担保（卖方）</view>
+      </view>
+    </view>
+    <view class='tab'>
+        <view class='btn-press {{tab_show==0?"line_show":""}}'catchtap='onTab' data-i='0'>待处理</view>
+        <view class='btn-press {{tab_show==1?"line_show":""}}'catchtap='onTab' data-i='1'>进行中</view>
+        <view class='btn-press {{tab_show==2?"line_show":""}}'catchtap='onTab' data-i='2'>已完成</view>
+        <view class='btn-press {{tab_show==3?"line_show":""}}'catchtap='onTab' data-i='3'>已关闭</view>
+    </view>
+
+
+    <view class='list' wx:for='{{list}}' wx:key=''wx:for-index="i">
+        <view class='head'>
+            <view wx:if='{{title_show}}' class='left'>订单进度：
+              <text wx:if='{{item.status==1}}'>等待您处理订单</text>
+              <text wx:if='{{item.status==2}}'>交易进行中，请线下办理</text>
+              <text wx:if='{{item.status==3}}'>交易已完成，耐心等待担保金退回</text>
+              <text wx:if='{{item.status==4}}'>您拒绝了订单</text>
+              <text wx:if='{{item.status==5}}'>申请退款</text>
+              <text wx:if='{{item.status==6}}'>拒绝退款</text>
+              <text wx:if='{{item.status==7}}'>退款成功</text>
+              <text wx:if='{{item.status==8}}'>支付超时</text>
+              <text wx:if='{{item.status==9}}'>买家取消了订单</text>
+            </view>
+            <view wx:else class='left'>订单进度：
+              <text wx:if='{{item.status==1}}'>交易进行中，请联系卖家完成后续业务</text>
+              <text wx:if='{{item.status==2}}'>交易进行中，请联系卖家完成后续业务</text>
+              <text wx:if='{{item.status==3}}'>已完成，担保金在3日内退回</text>
+              <text wx:if='{{item.status==4}}'>您的订单已被拒绝</text>
+              <text wx:if='{{item.status==5}}'>申请退款</text>
+              <text wx:if='{{item.status==6}}'>拒绝退款</text>
+              <text wx:if='{{item.status==7}}'>退款成功</text>
+              <text wx:if='{{item.status==8}}'>支付超时</text>
+              <text wx:if='{{item.status==9}}'>您已取消订单</text>
+            </view>
+            <view class='right'>￥{{item.earnestMoney}}元</view>
+        </view>
+        <view class='body'>
+            <view class='left'>
+                <image mode="aspectFill"
+                      src="http://pic.chejiwei.com/vehicle/153547314594364128.jpeg?imageView2/0/w/864"></image>
+            </view>
+            <view class='right'>
+                <view class='one'>{{item.title}}</view>
+                <view wx:if='{{title_show}}' class='two'>买家昵称：{{item.buyerNickName}}</view>
+                <view wx:else class='two'>卖家昵称：{{item.sellerNickName}}</view>
+                <view class='three'>参考价：¥ {{item.price}}万元</view>
+            </view>
+        </view>
+        <view class='foot'>
+            <view>订单ID：{{item.orderNo}}</view>
+            <view>发起时间：{{item.createTime}}</view>
+            <view class='btn_list'>
+                <view class='left' wx:if='{{item.status==1||item.status==3}}'>
+                    备注：有问题可咨询客服
+                </view>
+                <view class='left' wx:else></view>
+                <view wx:if='{{title_show}}' class='right'>
+                    <view wx:if='{{item.status==1}}' 
+                          class='btn-press refuse-order' 
+                          catchtap='onS4'
+                          data-i='{{i}}'>拒绝订单</view>
+                    <view wx:if='{{item.status==1}}' 
+                          class='btn-press' 
+                          catchtap='onS5' 
+                          data-i='{{i}}'>付担保金</view>
+                    <view class='btn-press' 
+                          catchtap='onTel' 
+                          data-tel='{{item.buyerCellphoneNumber}}'>
+                          联系买家
+                    </view>
+                    
+                </view>
+                <view wx:else class='right'>
+                    <view wx:if='{{item.status==1}}' 
+                          class='btn-press' 
+                          catchtap='onS1'
+                          data-i='{{i}}'>取消担保</view>
+                    <!-- <view wx:if='{{item.status==2}}' 
+                          class='btn-press' 
+                          catchtap='onS2' 
+                          data-i='{{i}}'>申请退款</view> -->
+                    <view wx:if='{{item.status==2}}' 
+                          class='btn-press' 
+                          catchtap='onS3' 
+                          data-i='{{i}}'>确认完成</view>
+                
+                    <view class='btn-press' 
+                          catchtap='onTel' 
+                          data-tel='{{item.sellerCellphoneNumber}}'>
+                          联系卖家
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+
+    <!-- 提示 -->
+    <view wx:if="{{isloadover}}" class='tip_center' style='margin-bottom:30px'>别拉了，没有啦</view>
+    <view wx:else class='tip_center' style='margin-bottom:30px'>火力加载中...</view>
+</view>

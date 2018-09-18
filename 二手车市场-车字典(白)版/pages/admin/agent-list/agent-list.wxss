@@ -1,0 +1,44 @@
+page {
+    background: #f8f8f8;
+}
+
+.container {
+}
+
+.withdraw_audit_box {
+    width: 710rpx;
+}
+
+.withdraw_audit_li {
+    width: 100%;
+    background: #fff;
+    margin-top: 15px;
+}
+
+.withdraw_audit_li .info {
+    padding: 0 30rpx;
+    color: #333;
+    height: 187rpx;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.withdraw_audit_li .info .intr {
+    flex: 1;
+}
+
+.withdraw_audit_li .info .intr .p {
+    font-size: 21px;
+}
+
+.withdraw_audit_li .info .intr .p text {
+    font-size: 16px;
+    margin-left: 20rpx;
+}
+
+.withdraw_audit_li .info .intr .h1 {
+    font-size: 16px;
+    margin-top: 5px;
+}

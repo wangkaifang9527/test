@@ -1,0 +1,46 @@
+<view class="container">
+    <form bindsubmit='formSubmit'>
+        <view class='regional_agents'>
+            <view class="section">
+                <text>姓名</text>
+                <view class="right">
+                    <input name="name" placeholder='姓名'></input>
+                </view>
+
+            </view>
+            <view class="section">
+                <text>电话</text>
+                <view class="right">
+                    <input name="telphone" placeholder='手机或固话'></input>
+                </view>
+            </view>
+            <view class="section">
+                <text>选择地区</text>
+                <view class="right">
+                    <!-- <input placeholder="选择" name="address" value="{{province}}-{{city}}-{{county}}" focus="{{focus}}" bindfocus="onSelectCity" /> -->
+                    <input placeholder="选择" name="address" value="{{province}}-{{city}}" focus="{{focus}}" bindfocus="onSelectCity" />
+                </view>
+            </view>
+        </view>
+        <button form-type='submit' class="btn_blue">确认</button>
+    </form>
+</view>
+
+<!-- 三级联动 -->
+<view wx:if="{{is_select_city}}" class="citypicker">
+    <picker-view class="citybody" indicator-style="height: 50px;" value="{{value}}" bindchange="bindChange">
+        <view class="cityheader">
+            <view bindtap="onSelectCity" class="city-cancel">取消</view>
+            <view bindtap="onSelectCity" class="city-true">确定</view>
+        </view>
+        <picker-view-column>
+            <view class="picker_one" wx:for="{{provinces}}" wx:key="item">{{item}}</view>
+        </picker-view-column>
+        <picker-view-column>
+            <view class="picker_one" wx:for="{{citys}}" wx:key="item">{{item}}</view>
+        </picker-view-column>
+        <!-- <picker-view-column>
+            <view class="picker_one" wx:for="{{countys}}" wx:key="item">{{item}}</view>
+        </picker-view-column> -->
+    </picker-view>
+</view>
